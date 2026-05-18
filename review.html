@@ -1,6 +1,13 @@
+<!-- =========================
+BOOK NOOK — FULL IMMERSIVE REVIEW ARCHIVE
+PASTE ENTIRE FILE INTO review.html
+========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,7 +20,7 @@
 
 <style>
 
-/* ---------------- GLOBAL ---------------- */
+/* ================= GLOBAL ================= */
 
 *{
 margin:0;
@@ -23,9 +30,9 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#ede0cf;
-color:#2d2118;
+background:#eadbc9;
 font-family:'Inter',sans-serif;
+color:#2c2018;
 overflow-x:hidden;
 }
 
@@ -39,11 +46,36 @@ inset:0;
 background-image:
 url("https://www.transparenttextures.com/patterns/old-paper.png");
 
-opacity:0.22;
+opacity:0.18;
 
 pointer-events:none;
 
 z-index:9999;
+}
+
+/* DUST PARTICLES */
+
+.dust{
+position:fixed;
+width:4px;
+height:4px;
+background:rgba(255,255,255,0.3);
+border-radius:50%;
+animation:float 12s infinite linear;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
 }
 
 /* NAVBAR */
@@ -61,9 +93,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(237,224,207,0.78);
+background:rgba(234,219,201,0.78);
 
-backdrop-filter:blur(14px);
+backdrop-filter:blur(16px);
 
 border-bottom:1px solid rgba(0,0,0,0.05);
 }
@@ -71,7 +103,7 @@ border-bottom:1px solid rgba(0,0,0,0.05);
 .logo-box{
 display:flex;
 align-items:center;
-gap:16px;
+gap:15px;
 }
 
 .logo-box img{
@@ -89,12 +121,12 @@ letter-spacing:3px;
 nav ul{
 display:flex;
 list-style:none;
-gap:40px;
+gap:36px;
 }
 
 nav ul li a{
 text-decoration:none;
-color:#2d2118;
+color:#2c2018;
 font-size:13px;
 letter-spacing:2px;
 text-transform:uppercase;
@@ -103,115 +135,165 @@ text-transform:uppercase;
 /* HERO */
 
 .hero{
-min-height:85vh;
+height:100vh;
 
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 
 text-align:center;
 
-padding:180px 8% 120px;
+padding:0 8%;
 
 background:
-linear-gradient(rgba(18,12,8,0.76),
-rgba(18,12,8,0.82)),
+linear-gradient(rgba(15,10,8,0.72),
+rgba(15,10,8,0.82)),
 
 url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000");
 
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
 
-color:#f5ece3;
+color:#f7eee5;
+
+position:relative;
+overflow:hidden;
 }
 
-.hero-content h1{
+.hero h1{
 font-family:'Cormorant Garamond',serif;
-font-size:118px;
-line-height:0.92;
-margin-bottom:28px;
+font-size:130px;
+line-height:0.9;
+margin-bottom:30px;
+animation:fadeUp 1.2s ease;
 }
 
-.hero-content p{
+.hero p{
 max-width:850px;
 margin:auto;
-line-height:2.1;
+line-height:2.2;
 font-size:18px;
-color:#dfd0c1;
+color:#e3d4c5;
+animation:fadeUp 1.6s ease;
 }
 
 .hero-line{
 margin-bottom:24px;
-
 letter-spacing:5px;
+text-transform:uppercase;
+font-size:12px;
+color:#ccb29a;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* AUDIO BUTTON */
+
+.audio-btn{
+margin-top:45px;
+
+display:inline-block;
+
+padding:16px 34px;
+
+border-radius:100px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.18);
+
+color:#f5ece4;
+
+letter-spacing:2px;
 
 font-size:12px;
 
 text-transform:uppercase;
-
-color:#d6bba2;
 }
 
-/* SECTION */
+/* MAIN */
 
 .section{
 padding:120px 8%;
 }
 
-/* FEATURED REVIEW */
+/* FEATURED */
 
-.featured-review{
+.featured{
 display:grid;
 grid-template-columns:0.9fr 1.1fr;
-gap:70px;
-
+gap:80px;
 align-items:center;
 
 margin-bottom:140px;
 }
 
-.featured-cover{
-position:relative;
-}
-
-.featured-cover img{
+.featured img{
 width:100%;
 border-radius:30px;
 
 box-shadow:
-0 28px 60px rgba(0,0,0,0.18);
+0 30px 60px rgba(0,0,0,0.18);
+
+transition:0.5s;
 }
 
-.bookmark{
-position:absolute;
-top:-12px;
-right:40px;
-
-width:50px;
-height:120px;
-
-background:#7a4c34;
-
-clip-path:polygon(0 0,100% 0,100% 100%,50% 82%,0 100%);
+.featured img:hover{
+transform:scale(1.03);
 }
 
-.featured-text{
-position:relative;
+.featured-content h2{
+font-family:'Cormorant Garamond',serif;
+font-size:90px;
+line-height:0.9;
+margin-bottom:20px;
 }
 
-.genre-tags{
+.author{
+font-style:italic;
+margin-bottom:20px;
+color:#6d5949;
+}
+
+.rating{
+margin-bottom:26px;
+letter-spacing:5px;
+}
+
+.featured-content p{
+line-height:2.1;
+font-size:17px;
+color:#4f4135;
+margin-bottom:30px;
+}
+
+/* TAGS */
+
+.tags{
 display:flex;
-flex-wrap:wrap;
 gap:12px;
+flex-wrap:wrap;
 margin-bottom:26px;
 }
 
 .tag{
-padding:10px 18px;
+padding:10px 16px;
+
+background:#e8d5c1;
 
 border-radius:100px;
-
-background:#e8d5c0;
 
 font-size:12px;
 
@@ -220,102 +302,70 @@ letter-spacing:1px;
 text-transform:uppercase;
 }
 
-.featured-text h2{
-font-family:'Cormorant Garamond',serif;
-font-size:88px;
-line-height:0.95;
-margin-bottom:20px;
-}
-
-.author{
-font-style:italic;
-font-size:18px;
-margin-bottom:20px;
-color:#6e5a4a;
-}
-
-.rating{
-letter-spacing:5px;
-margin-bottom:30px;
-}
-
-.featured-text p{
-line-height:2.1;
-font-size:17px;
-color:#4c4035;
-margin-bottom:30px;
-}
-
 /* MOOD BARS */
 
-.mood-bars{
-display:flex;
-flex-direction:column;
-gap:22px;
+.bar-wrap{
 margin-top:40px;
+}
+
+.bar-box{
+margin-bottom:22px;
 }
 
 .bar-box span{
 display:block;
 margin-bottom:10px;
-
-font-size:13px;
+font-size:12px;
 letter-spacing:2px;
 text-transform:uppercase;
 }
 
 .bar{
 height:10px;
-
-background:#dbc7b3;
-
-border-radius:20px;
-
+background:#d8c3ad;
+border-radius:30px;
 overflow:hidden;
 }
 
 .fill{
 height:100%;
-background:#6a4530;
-border-radius:20px;
+background:#6d4933;
+border-radius:30px;
 }
 
 /* QUOTE */
 
-.quote-box{
-margin-top:45px;
+.quote{
+margin-top:40px;
 
-background:#f8efe6;
+background:#f7eee6;
 
-padding:30px;
+padding:26px;
 
-border-left:5px solid #866650;
+border-left:4px solid #8a6951;
 
 border-radius:18px;
 
+font-family:'Great Vibes',cursive;
+
+font-size:38px;
+
 transform:rotate(-1deg);
 
-box-shadow:0 10px 20px rgba(0,0,0,0.06);
+box-shadow:0 10px 20px rgba(0,0,0,0.05);
 }
 
-.quote-box p{
-font-family:'Great Vibes',cursive;
-font-size:38px;
-line-height:1.5;
-color:#6f5643;
-}
+/* GRID */
 
-/* REVIEW GRID */
-
-.review-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
 gap:45px;
 }
 
-/* REVIEW CARD */
+/* CARD */
 
-.review-card{
+.card{
 position:relative;
 
 background:
@@ -331,27 +381,27 @@ overflow:hidden;
 box-shadow:
 0 18px 40px rgba(0,0,0,0.08);
 
-transition:0.45s;
+transition:0.5s;
 }
 
-.review-card:hover{
+.card:hover{
 transform:translateY(-10px);
 }
 
-.review-image{
-height:320px;
+.card-image{
+height:330px;
 overflow:hidden;
 position:relative;
 }
 
-.review-image img{
+.card-image img{
 width:100%;
 height:100%;
 object-fit:cover;
 transition:0.5s;
 }
 
-.review-card:hover .review-image img{
+.card:hover .card-image img{
 transform:scale(1.08);
 }
 
@@ -362,45 +412,44 @@ inset:0;
 background:
 linear-gradient(to top,
 rgba(15,10,8,0.88),
-rgba(15,10,8,0.1));
+rgba(15,10,8,0.12));
 }
 
-.review-content{
+/* CONTENT */
+
+.content{
 padding:40px;
 }
 
-.review-content h3{
+.content h3{
 font-family:'Cormorant Garamond',serif;
 font-size:52px;
-line-height:1;
+line-height:0.95;
 margin-bottom:12px;
 }
 
-.review-content .author{
-margin-bottom:16px;
-}
-
-.review-content p{
+.content p{
 line-height:2;
 font-size:15px;
-color:#4d4035;
+color:#4e4034;
+margin-top:18px;
 }
 
-/* REVIEW DETAILS */
+/* DETAILS */
 
 .details{
-margin-top:26px;
 display:flex;
 flex-wrap:wrap;
 gap:12px;
+margin-top:26px;
 }
 
 .detail{
-padding:10px 16px;
+padding:10px 15px;
 
 border-radius:100px;
 
-background:#efe0cf;
+background:#f0e0cf;
 
 font-size:12px;
 
@@ -409,16 +458,16 @@ letter-spacing:1px;
 text-transform:uppercase;
 }
 
-/* SHELF NOTE */
+/* NOTE */
 
-.shelf-note{
-margin-top:26px;
+.note{
+margin-top:28px;
 
 padding:18px 20px;
 
-background:#f9f1e8;
+background:#f8f0e7;
 
-border-left:4px solid #866650;
+border-left:4px solid #896751;
 
 border-radius:12px;
 
@@ -427,14 +476,36 @@ font-style:italic;
 color:#6d5644;
 }
 
-/* JOURNAL NOTE */
+/* EXPAND BUTTON */
+
+.expand{
+margin-top:30px;
+
+display:inline-block;
+
+padding:14px 24px;
+
+border-radius:100px;
+
+background:#2d2118;
+
+color:#f5ebe1;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+}
+
+/* JOURNAL */
 
 .journal{
-margin-top:80px;
+margin-top:120px;
 
-background:#e8d7c4;
+background:#e6d4c0;
 
-padding:70px;
+padding:80px;
 
 border-radius:34px;
 
@@ -447,25 +518,25 @@ content:"";
 position:absolute;
 
 top:0;
-left:80px;
+left:90px;
 
 width:2px;
 height:100%;
 
-background:rgba(120,92,70,0.16);
+background:rgba(114,89,70,0.16);
 }
 
 .journal h2{
 font-family:'Cormorant Garamond',serif;
-font-size:74px;
-margin-bottom:25px;
+font-size:80px;
+margin-bottom:24px;
 }
 
 .journal p{
+max-width:900px;
 line-height:2.2;
 font-size:17px;
-max-width:900px;
-color:#54463a;
+color:#54463b;
 }
 
 /* FOOTER */
@@ -476,42 +547,43 @@ padding:130px 8%;
 text-align:center;
 
 background:
-linear-gradient(rgba(18,12,8,0.9),
-rgba(18,12,8,0.92)),
+linear-gradient(rgba(15,10,8,0.9),
+rgba(15,10,8,0.92)),
 
 url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
 
 background-size:cover;
+background-position:center;
 
-color:#f3e9df;
+color:#f4eadf;
 }
 
 footer h2{
 font-family:'Cormorant Garamond',serif;
-font-size:88px;
-margin-bottom:22px;
+font-size:90px;
+margin-bottom:20px;
 }
 
 footer p{
 max-width:700px;
 margin:auto;
 line-height:2;
-color:#dfd0c1;
+color:#e0d2c4;
 }
 
 /* MOBILE */
 
 @media(max-width:1000px){
 
-.hero-content h1{
-font-size:72px;
+.hero h1{
+font-size:76px;
 }
 
-.featured-review{
+.featured{
 grid-template-columns:1fr;
 }
 
-.review-grid{
+.grid{
 grid-template-columns:1fr;
 }
 
@@ -526,9 +598,19 @@ padding:40px;
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- DUST -->
+
+<div class="dust" style="left:10%; animation-delay:0s;"></div>
+<div class="dust" style="left:25%; animation-delay:2s;"></div>
+<div class="dust" style="left:40%; animation-delay:4s;"></div>
+<div class="dust" style="left:60%; animation-delay:1s;"></div>
+<div class="dust" style="left:75%; animation-delay:3s;"></div>
+<div class="dust" style="left:90%; animation-delay:5s;"></div>
 
 <!-- NAVBAR -->
 
@@ -536,7 +618,7 @@ padding:40px;
 
 <div class="logo-box">
 
-<!-- REPLACE logo.png WITH YOUR LOGO -->
+<!-- REPLACE logo.png WITH YOUR LOGO FILE -->
 
 <img src="logo.png" alt="Book Nook Logo">
 
@@ -548,9 +630,9 @@ Book Nook
 
 <ul>
 <li><a href="#">Home</a></li>
-<li><a href="#">Favorites</a></li>
 <li><a href="#">Reviews</a></li>
 <li><a href="#">Archive</a></li>
+<li><a href="#">Shelf Notes</a></li>
 </ul>
 
 </nav>
@@ -559,7 +641,7 @@ Book Nook
 
 <section class="hero">
 
-<div class="hero-content">
+<div>
 
 <div class="hero-line">
 Main Character Energy
@@ -570,48 +652,46 @@ Literary Archive
 </h1>
 
 <p>
-Stories filled with obsession,
-heartbreak,
+Stories filled with heartbreak,
+obsession,
 comfort,
 beautiful prose,
 morally grey characters,
-and unforgettable emotional damage.
+and emotional damage severe enough to require rereading.
 </p>
+
+<div class="audio-btn">
+🎧 Read With Rain Sounds
+</div>
 
 </div>
 
 </section>
 
-<!-- MAIN SECTION -->
+<!-- MAIN -->
 
 <section class="section">
 
-<!-- FEATURED REVIEW -->
+<!-- FEATURED -->
 
-<div class="featured-review">
+<div class="featured">
 
-<div class="featured-cover">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1600">
 
-<div class="bookmark"></div>
+<div class="featured-content">
 
-<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1400">
-
-</div>
-
-<div class="featured-text">
-
-<div class="genre-tags">
+<div class="tags">
 
 <div class="tag">
 Dark Academia
 </div>
 
 <div class="tag">
-Psychological
+Obsession
 </div>
 
 <div class="tag">
-Obsessive
+Morally Grey
 </div>
 
 </div>
@@ -629,10 +709,17 @@ Donna Tartt
 </div>
 
 <p>
-Richard Papen enters an elite college in Vermont and becomes fascinated by a mysterious group of classics students obsessed with beauty, intellect, and ancient ideals. Their admiration for perfection slowly turns dangerous as friendship and secrecy spiral toward destruction.
+Richard Papen enters an elite Vermont college and becomes fascinated by a mysterious group of classics students obsessed with beauty, intellect, and ancient ideals. Their pursuit of perfection slowly turns dangerous as friendship and secrecy spiral toward destruction.
 </p>
 
-<div class="mood-bars">
+<div class="bar-wrap">
+
+<div class="bar-box">
+<span>Dark Academia Energy</span>
+<div class="bar">
+<div class="fill" style="width:100%;"></div>
+</div>
+</div>
 
 <div class="bar-box">
 <span>Emotional Damage</span>
@@ -644,23 +731,14 @@ Richard Papen enters an elite college in Vermont and becomes fascinated by a mys
 <div class="bar-box">
 <span>Chaos Level</span>
 <div class="bar">
-<div class="fill" style="width:95%;"></div>
-</div>
-</div>
-
-<div class="bar-box">
-<span>Dark Academia Energy</span>
-<div class="bar">
-<div class="fill" style="width:100%;"></div>
+<div class="fill" style="width:94%;"></div>
 </div>
 </div>
 
 </div>
 
-<div class="quote-box">
-<p>
+<div class="quote">
 “Beauty is terror.”
-</p>
 </div>
 
 </div>
@@ -669,206 +747,561 @@ Richard Papen enters an elite college in Vermont and becomes fascinated by a mys
 
 <!-- REVIEW GRID -->
 
-<div class="review-grid">
+<div class="grid">
 
-<!-- CARD -->
+<!-- 1 -->
 
-<div class="review-card">
-
-<div class="review-image">
-
+<div class="card">
+<div class="card-image">
 <div class="overlay"></div>
-
 <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1400">
-
 </div>
 
-<div class="review-content">
+<div class="content">
 
-<h3>
-The Song of Achilles
-</h3>
+<h3>The Song of Achilles</h3>
 
 <div class="author">
 Madeline Miller • ★★★★★
 </div>
 
 <p>
-A lyrical retelling of the Iliad narrated through Patroclus as friendship slowly transforms into deep love before tragedy unfolds during the Trojan War.
+A lyrical and heartbreaking retelling of the Iliad following Patroclus and Achilles as friendship transforms into love before tragedy unfolds during the Trojan War.
 </p>
 
 <div class="details">
-
-<div class="detail">
-Mythology
+<div class="detail">Mythology</div>
+<div class="detail">Heartbreak</div>
+<div class="detail">Poetic</div>
 </div>
 
-<div class="detail">
-Heartbreak
+<div class="note">
+Read during emotional instability and rainy evenings.
 </div>
 
-<div class="detail">
-Poetic
-</div>
-
-</div>
-
-<div class="shelf-note">
-Read during rainy evenings and emotional instability.
+<div class="expand">
+Open Journal Entry
 </div>
 
 </div>
-
 </div>
 
-<!-- CARD -->
+<!-- 2 -->
 
-<div class="review-card">
-
-<div class="review-image">
-
+<div class="card">
+<div class="card-image">
 <div class="overlay"></div>
-
 <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1400">
-
 </div>
 
-<div class="review-content">
+<div class="content">
 
-<h3>
-The Midnight Library
-</h3>
+<h3>The Midnight Library</h3>
 
 <div class="author">
 Matt Haig • ★★★★☆
 </div>
 
 <p>
-A comforting and reflective novel exploring alternate lives, regrets, loneliness, and the realization that perfection does not truly exist.
+A comforting exploration of regret, alternate lives, loneliness, and the realization that perfection does not truly exist.
 </p>
 
 <div class="details">
-
-<div class="detail">
-Reflective
+<div class="detail">Comfort</div>
+<div class="detail">Reflective</div>
+<div class="detail">Hopeful</div>
 </div>
 
-<div class="detail">
-Comfort Read
-</div>
-
-<div class="detail">
-Existential
-</div>
-
-</div>
-
-<div class="shelf-note">
+<div class="note">
 Feels like being understood at 2 AM.
 </div>
 
+<div class="expand">
+Open Journal Entry
 </div>
 
 </div>
+</div>
 
-<!-- CARD -->
+<!-- 3 -->
 
-<div class="review-card">
-
-<div class="review-image">
-
+<div class="card">
+<div class="card-image">
 <div class="overlay"></div>
-
 <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1400">
-
 </div>
 
-<div class="review-content">
+<div class="content">
 
-<h3>
-The Night Circus
-</h3>
+<h3>Pride and Prejudice</h3>
 
 <div class="author">
-Erin Morgenstern • ★★★★☆
+Jane Austen • ★★★★★
 </div>
 
 <p>
-A dreamlike magical circus hiding a dangerous competition between two illusionists who unexpectedly fall in love.
+Sharp banter, iconic romance, emotional growth, and one of literature’s most beloved love stories.
 </p>
 
 <div class="details">
-
-<div class="detail">
-Fantasy
+<div class="detail">Classic</div>
+<div class="detail">Romance</div>
+<div class="detail">Elegant</div>
 </div>
 
-<div class="detail">
-Atmospheric
+<div class="note">
+Read with tea and candlelight.
 </div>
 
-<div class="detail">
-Magical
-</div>
-
-</div>
-
-<div class="shelf-note">
-Read with piano music and candlelight.
+<div class="expand">
+Open Journal Entry
 </div>
 
 </div>
-
 </div>
 
-<!-- CARD -->
+<!-- 4 -->
 
-<div class="review-card">
-
-<div class="review-image">
-
+<div class="card">
+<div class="card-image">
 <div class="overlay"></div>
-
 <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1400">
-
 </div>
 
-<div class="review-content">
+<div class="content">
 
-<h3>
-A Little Life
-</h3>
+<h3>A Little Life</h3>
 
 <div class="author">
 Hanya Yanagihara • ★★★★★
 </div>
 
 <p>
-An emotionally devastating story about friendship, trauma, survival, and the lasting impact of pain.
+An emotionally devastating story about friendship, trauma, survival, and the painful limits of love.
 </p>
 
 <div class="details">
-
-<div class="detail">
-Trauma
+<div class="detail">Trauma</div>
+<div class="detail">Friendship</div>
+<div class="detail">Emotional Damage</div>
 </div>
 
-<div class="detail">
-Friendship
-</div>
-
-<div class="detail">
-Emotional Damage
-</div>
-
-</div>
-
-<div class="shelf-note">
+<div class="note">
 Emotionally survived: barely.
 </div>
 
+<div class="expand">
+Open Journal Entry
 </div>
 
+</div>
+</div>
+
+<!-- 5 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>Before the Coffee Gets Cold</h3>
+
+<div class="author">
+Toshikazu Kawaguchi • ★★★★☆
+</div>
+
+<p>
+A cozy Tokyo café offering time travel under impossible rules while exploring regret, love, and unfinished conversations.
+</p>
+
+<div class="details">
+<div class="detail">Cozy</div>
+<div class="detail">Healing</div>
+<div class="detail">Emotional</div>
+</div>
+
+<div class="note">
+Perfect for rainy evenings and coffee shop playlists.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 6 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Night Circus</h3>
+
+<div class="author">
+Erin Morgenstern • ★★★★☆
+</div>
+
+<p>
+A magical midnight circus hiding a dangerous competition between two illusionists who unexpectedly fall in love.
+</p>
+
+<div class="details">
+<div class="detail">Fantasy</div>
+<div class="detail">Atmospheric</div>
+<div class="detail">Dreamlike</div>
+</div>
+
+<div class="note">
+Best experienced after midnight.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 7 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Book Thief</h3>
+
+<div class="author">
+Markus Zusak • ★★★★★
+</div>
+
+<p>
+Narrated by Death itself, this WWII story explores books, loss, kindness, and survival during humanity’s darkest moments.
+</p>
+
+<div class="details">
+<div class="detail">Historical</div>
+<div class="detail">Emotional</div>
+<div class="detail">Human</div>
+</div>
+
+<div class="note">
+This one stays with you forever.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 8 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Silent Patient</h3>
+
+<div class="author">
+Alex Michaelides • ★★★★☆
+</div>
+
+<p>
+A famous painter murders her husband and suddenly stops speaking, leading to a suspenseful psychological investigation.
+</p>
+
+<div class="details">
+<div class="detail">Thriller</div>
+<div class="detail">Psychological</div>
+<div class="detail">Twisted</div>
+</div>
+
+<div class="note">
+Trust nobody.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 9 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The House in the Cerulean Sea</h3>
+
+<div class="author">
+TJ Klune • ★★★★★
+</div>
+
+<p>
+A wholesome fantasy about found family, acceptance, magical children, and discovering happiness outside comfort zones.
+</p>
+
+<div class="details">
+<div class="detail">Found Family</div>
+<div class="detail">Wholesome</div>
+<div class="detail">Fantasy</div>
+</div>
+
+<div class="note">
+Feels like emotional warmth in book form.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 10 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>Atomic Habits</h3>
+
+<div class="author">
+James Clear • ★★★★★
+</div>
+
+<p>
+A practical and realistic guide explaining how tiny daily habits create meaningful long-term change.
+</p>
+
+<div class="details">
+<div class="detail">Self Growth</div>
+<div class="detail">Productivity</div>
+<div class="detail">Practical</div>
+</div>
+
+<div class="note">
+Tiny changes genuinely matter.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 11 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>Norwegian Wood</h3>
+
+<div class="author">
+Haruki Murakami • ★★★★☆
+</div>
+
+<p>
+A melancholic reflection on grief, loneliness, love, and growing up surrounded by memories and emotional isolation.
+</p>
+
+<div class="details">
+<div class="detail">Melancholic</div>
+<div class="detail">Literary</div>
+<div class="detail">Nostalgic</div>
+</div>
+
+<div class="note">
+Read with rain sounds and existential thoughts.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 12 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Seven Husbands of Evelyn Hugo</h3>
+
+<div class="author">
+Taylor Jenkins Reid • ★★★★★
+</div>
+
+<p>
+Old Hollywood glamour, ambition, heartbreak, reinvention, and the sacrifices hidden beneath fame.
+</p>
+
+<div class="details">
+<div class="detail">Hollywood</div>
+<div class="detail">Drama</div>
+<div class="detail">Addictive</div>
+</div>
+
+<div class="note">
+Every page feels cinematic.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 13 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Hitchhiker’s Guide to the Galaxy</h3>
+
+<div class="author">
+Douglas Adams • ★★★★★
+</div>
+
+<p>
+Chaotic sci-fi adventures filled with absurd humor, philosophical thoughts, and existential comedy.
+</p>
+
+<div class="details">
+<div class="detail">Sci-Fi</div>
+<div class="detail">Comedy</div>
+<div class="detail">Absurd</div>
+</div>
+
+<div class="note">
+Don’t panic.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 14 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>The Fault in Our Stars</h3>
+
+<div class="author">
+John Green • ★★★★☆
+</div>
+
+<p>
+A tender story about love, illness, humor, fear, and finding beauty during difficult circumstances.
+</p>
+
+<div class="details">
+<div class="detail">Romance</div>
+<div class="detail">Heartbreak</div>
+<div class="detail">Emotional</div>
+</div>
+
+<div class="note">
+You will cry. A lot.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
+</div>
+
+<!-- 15 -->
+
+<div class="card">
+<div class="card-image">
+<div class="overlay"></div>
+<img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1400">
+</div>
+
+<div class="content">
+
+<h3>84, Charing Cross Road</h3>
+
+<div class="author">
+Helene Hanff • ★★★★☆
+</div>
+
+<p>
+A charming collection of letters exploring friendship, bookstores, books, humor, and quiet human connection.
+</p>
+
+<div class="details">
+<div class="detail">Bookstores</div>
+<div class="detail">Letters</div>
+<div class="detail">Cozy</div>
+</div>
+
+<div class="note">
+Feels like a warm cup of tea.
+</div>
+
+<div class="expand">
+Open Journal Entry
+</div>
+
+</div>
 </div>
 
 </div>
@@ -882,14 +1315,14 @@ Shelf Notes
 </h2>
 
 <p>
-Some stories stay behind in highlighted passages,
+Some books stay behind in highlighted passages,
 folded corners,
-late-night breakdowns,
-and quiet moments where fictional characters somehow understand us better than reality does.
+coffee stains,
+and sleepless nights where fictional characters somehow understand us better than reality does.
 <br><br>
-This archive was never meant to feel perfect.
+Book Nook was never meant to feel perfect.
 It was meant to feel lived in —
-like an old reading journal forgotten beside candlelight and coffee stains.
+like a forgotten reading journal beside candlelight and rain sounds.
 </p>
 
 </div>
@@ -906,11 +1339,14 @@ Book Nook.
 </h2>
 
 <p>
-A quiet corner for stories
-that stay long after the final page.
+Stories worth annotating,
+crying over,
+rereading,
+and carrying forever.
 </p>
 
 </footer>
 
 </body>
+
 </html>
