@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Book Nook</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= ROOT ================= */
+/* =========================================================
+ROOT
+========================================================= */
 
 :root{
---bg:#e9dac8;
---paper:#f7efe5;
---dark:#1a120e;
---brown:#3a2920;
---gold:#b69062;
---soft:#dbc8b6;
---wine:#5d3939;
---shadow:rgba(0,0,0,0.15);
+
+--bg:#e8d8c7;
+--paper:#f5ebde;
+--dark:#140d09;
+--brown:#3f2c22;
+--gold:#b08b5d;
+--wine:#5d3b39;
+--olive:#6a644f;
+--soft:#d9c5b0;
+--shadow:rgba(0,0,0,0.18);
+
 }
 
 *{
@@ -36,56 +40,75 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Inter', sans-serif;
+
+font-family:'Inter',sans-serif;
 background:var(--bg);
 color:var(--dark);
 overflow-x:hidden;
 position:relative;
+
 }
 
-/* ================= PAPER BACKGROUND ================= */
+/* =========================================================
+WRINKLED PAPER BACKGROUND
+========================================================= */
 
 body::before{
 
 content:"";
-
 position:fixed;
 inset:0;
 
 background:
 
-linear-gradient(rgba(255,255,255,0.08),
-rgba(255,255,255,0.04)),
+linear-gradient(
+rgba(255,248,240,0.05),
+rgba(0,0,0,0.12)
+),
+
+url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800"),
 
 url("https://www.transparenttextures.com/patterns/old-paper.png");
 
-opacity:0.55;
+background-size:
+cover,
+cover,
+500px;
+
+background-blend-mode:
+soft-light,
+multiply,
+normal;
+
+opacity:0.42;
 
 pointer-events:none;
 
-z-index:-1;
+z-index:-2;
+
 }
 
-/* VINTAGE DARK EDGES */
+/* DARK EDGES */
 
 body::after{
 
 content:"";
-
 position:fixed;
 inset:0;
 
 background:
 radial-gradient(circle,
-transparent 55%,
-rgba(0,0,0,0.25));
+transparent 50%,
+rgba(0,0,0,0.35));
 
 pointer-events:none;
-
 z-index:-1;
+
 }
 
-/* ================= FLOATING DUST ================= */
+/* =========================================================
+DUST PARTICLES
+========================================================= */
 
 .dust{
 
@@ -95,7 +118,7 @@ inset:0;
 pointer-events:none;
 
 background-image:
-radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
 
 background-size:60px 60px;
 
@@ -103,7 +126,8 @@ animation:dustMove 20s linear infinite;
 
 opacity:0.25;
 
-z-index:1;
+z-index:2;
+
 }
 
 @keyframes dustMove{
@@ -118,12 +142,47 @@ transform:translateY(-140px);
 
 }
 
-/* ================= NAVBAR ================= */
+/* =========================================================
+FLOATING ELEMENTS
+========================================================= */
+
+.floating-paper{
+
+position:absolute;
+opacity:0.09;
+pointer-events:none;
+filter:sepia(0.6);
+
+}
+
+.paper1{
+top:10%;
+left:2%;
+width:160px;
+transform:rotate(-20deg);
+}
+
+.paper2{
+right:3%;
+top:45%;
+width:180px;
+transform:rotate(14deg);
+}
+
+.paper3{
+left:8%;
+bottom:5%;
+width:220px;
+transform:rotate(8deg);
+}
+
+/* =========================================================
+NAVBAR
+========================================================= */
 
 nav{
 
 position:fixed;
-
 top:0;
 left:0;
 
@@ -135,7 +194,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(17,10,8,0.45);
+background:rgba(14,9,7,0.45);
 
 backdrop-filter:blur(20px);
 
@@ -143,27 +202,22 @@ z-index:1000;
 
 border-bottom:
 1px solid rgba(255,255,255,0.08);
+
 }
 
 .logo-box{
 display:flex;
 align-items:center;
-gap:14px;
-}
-
-.logo-box img{
-width:55px;
+gap:15px;
 }
 
 .logo-text{
 
-font-family:'Cinzel', serif;
-
+font-family:'Cinzel',serif;
 font-size:28px;
-
 letter-spacing:4px;
+color:#f3e8db;
 
-color:var(--paper);
 }
 
 nav ul{
@@ -175,22 +229,19 @@ gap:40px;
 nav ul li a{
 
 text-decoration:none;
-
-color:var(--paper);
+color:#f1e7db;
 
 font-size:12px;
-
 letter-spacing:3px;
-
 text-transform:uppercase;
 
 position:relative;
+
 }
 
 nav ul li a::after{
 
 content:"";
-
 position:absolute;
 
 left:0;
@@ -202,45 +253,47 @@ height:1px;
 background:var(--gold);
 
 transition:0.4s;
+
 }
 
 nav ul li a:hover::after{
 width:100%;
 }
 
-/* ================= HERO ================= */
+/* =========================================================
+HERO
+========================================================= */
 
 .hero{
 
 min-height:100vh;
 
-padding:190px 8% 120px;
+padding:180px 8% 120px;
 
 display:grid;
-
 grid-template-columns:1.2fr 0.8fr;
-
-gap:80px;
+gap:90px;
 
 align-items:center;
 
 background:
 
 linear-gradient(
-rgba(8,5,4,0.72),
-rgba(8,5,4,0.82)
+rgba(9,5,4,0.82),
+rgba(9,5,4,0.88)
 ),
 
-url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000");
+url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2000");
 
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 
 position:relative;
-}
 
-/* LIGHT GLOW */
+overflow:hidden;
+
+}
 
 .hero::before{
 
@@ -256,36 +309,37 @@ rgba(255,220,180,0.08);
 
 filter:blur(120px);
 
-top:10%;
-left:-80px;
+top:-100px;
+left:-100px;
+
 }
 
-/* LEFT */
+/* =========================================================
+HERO TEXT
+========================================================= */
 
 .hero-text{
 position:relative;
-z-index:2;
+z-index:5;
 }
 
 .small-line{
 
 text-transform:uppercase;
-
 letter-spacing:6px;
-
 font-size:12px;
 
 color:var(--gold);
 
 margin-bottom:30px;
+
 }
 
 .hero-text h1{
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
 font-size:120px;
-
 line-height:0.88;
 
 letter-spacing:-4px;
@@ -293,28 +347,31 @@ letter-spacing:-4px;
 color:var(--paper);
 
 margin-bottom:35px;
+
 }
 
 .hero-text p{
 
 font-size:18px;
-
 line-height:2.2;
 
-color:#e4d4c4;
+color:#e5d4c4;
 
 max-width:700px;
+
 }
 
-/* BUTTONS */
+/* =========================================================
+BUTTONS
+========================================================= */
 
 .hero-buttons{
 
 display:flex;
-
 gap:20px;
 
 margin-top:45px;
+
 }
 
 .primary-btn{
@@ -322,7 +379,6 @@ margin-top:45px;
 padding:18px 42px;
 
 border:none;
-
 border-radius:100px;
 
 background:var(--gold);
@@ -338,13 +394,12 @@ font-size:13px;
 transition:0.4s;
 
 box-shadow:
-0 15px 30px rgba(0,0,0,0.2);
+0 15px 30px rgba(0,0,0,0.25);
+
 }
 
 .primary-btn:hover{
-
-transform:
-translateY(-6px);
+transform:translateY(-6px);
 }
 
 .secondary-btn{
@@ -356,41 +411,50 @@ border-radius:100px;
 background:transparent;
 
 border:
-1px solid rgba(255,255,255,0.25);
+1px solid rgba(255,255,255,0.2);
 
 color:white;
 
 cursor:pointer;
 
 letter-spacing:2px;
+
 }
 
-/* QUOTE */
+/* =========================================================
+QUOTE
+========================================================= */
 
 .quote{
 
-margin-top:35px;
+margin-top:40px;
 
 font-style:italic;
 
-font-size:18px;
+font-size:19px;
 
-color:#d8c7b6;
+color:#dccbbb;
+
+max-width:600px;
+
 }
 
-/* RIGHT IMAGE */
+/* =========================================================
+HERO CARD
+========================================================= */
 
 .hero-side{
 display:flex;
 justify-content:center;
+position:relative;
 }
 
 .hero-card{
 
 width:500px;
-height:680px;
+height:690px;
 
-border-radius:260px 260px 30px 30px;
+border-radius:260px 260px 35px 35px;
 
 overflow:hidden;
 
@@ -399,9 +463,10 @@ position:relative;
 transform:rotate(-3deg);
 
 box-shadow:
-0 35px 60px rgba(0,0,0,0.3);
+0 35px 60px rgba(0,0,0,0.35);
 
-animation:floatBook 5s ease-in-out infinite;
+animation:floatBook 6s ease-in-out infinite;
+
 }
 
 @keyframes floatBook{
@@ -428,12 +493,15 @@ height:100%;
 object-fit:cover;
 
 filter:
-brightness(0.8)
+brightness(0.72)
 sepia(0.15)
 contrast(1.05);
+
 }
 
-/* HERO OVERLAY */
+/* =========================================================
+OVERLAY
+========================================================= */
 
 .hero-overlay{
 
@@ -442,75 +510,109 @@ inset:0;
 
 background:
 linear-gradient(to top,
-rgba(12,8,6,0.88),
-rgba(12,8,6,0.1));
+rgba(12,8,6,0.92),
+rgba(12,8,6,0.12));
 
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
 
 padding:55px;
+
 }
 
 .hero-overlay h2{
 
-font-family:'Cormorant Garamond', serif;
-
+font-family:'Cormorant Garamond',serif;
 font-size:60px;
-
 color:white;
 
 margin-bottom:15px;
+
 }
 
 .hero-overlay p{
 
 line-height:2;
-
 color:#eadbcb;
+
 }
 
-/* ================= HANDWRITTEN STRIP ================= */
+/* =========================================================
+FLOATING NOTES
+========================================================= */
 
-.hand-strip{
+.floating-note{
 
-padding:120px 10%;
+position:absolute;
 
-font-family:'Great Vibes', cursive;
+background:#efe2d2;
 
-font-size:62px;
+padding:18px 24px;
 
-color:#5d4332;
+font-family:'Special Elite',cursive;
 
-transform:rotate(-1deg);
+font-size:15px;
 
-opacity:0.9;
+line-height:1.8;
+
+color:#5a4333;
+
+box-shadow:
+0 12px 20px rgba(0,0,0,0.15);
+
+z-index:10;
+
 }
 
-/* ================= SECTION ================= */
+.note1{
+
+top:15%;
+right:-20px;
+
+transform:
+rotate(7deg);
+
+}
+
+.note2{
+
+bottom:12%;
+left:-40px;
+
+transform:
+rotate(-9deg);
+
+}
+
+/* =========================================================
+SECTIONS
+========================================================= */
 
 section{
 
-padding:140px 8%;
-
+padding:150px 8%;
 position:relative;
 
 opacity:0;
+transform:translateY(60px);
 
-transform:translateY(40px);
+transition:1.2s ease;
 
-transition:1s ease;
 }
 
 .section-title{
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:88px;
+font-size:92px;
 
 line-height:0.9;
 
 margin-bottom:20px;
+
+color:#2c1d15;
+
 }
 
 .section-sub{
@@ -521,52 +623,73 @@ line-height:2.1;
 
 color:#5b4a3e;
 
-margin-bottom:70px;
+margin-bottom:80px;
+
 }
 
-/* ================= HANGING BOOKS ================= */
+/* =========================================================
+HANDWRITTEN STRIP
+========================================================= */
+
+.hand-strip{
+
+padding:130px 10%;
+
+font-family:'Great Vibes',cursive;
+
+font-size:72px;
+
+color:#634836;
+
+transform:rotate(-1deg);
+
+opacity:0.92;
+
+position:relative;
+
+}
+
+/* =========================================================
+HANGING BOOKS
+========================================================= */
 
 .hanging-books{
 
 display:flex;
-
 justify-content:center;
-
-gap:30px;
-
+gap:34px;
 flex-wrap:wrap;
 
-margin-top:60px;
+margin-top:70px;
+
 }
 
 .hang{
-
 position:relative;
-
-padding-top:80px;
+padding-top:90px;
 }
 
 .hang::before{
 
 content:"";
-
 position:absolute;
 
 top:0;
 left:50%;
 
 width:2px;
-height:80px;
+height:90px;
 
-background:#7b5d46;
+background:#705440;
+
 }
 
 .book{
 
-width:170px;
-height:360px;
+width:180px;
+height:380px;
 
-border-radius:14px;
+border-radius:18px;
 
 padding:26px;
 
@@ -574,31 +697,53 @@ display:flex;
 align-items:flex-end;
 
 background:
+
+url("https://www.transparenttextures.com/patterns/wood-pattern.png"),
+
 linear-gradient(to bottom,
 #4a352a,
 #221612);
 
 box-shadow:
-0 25px 40px rgba(0,0,0,0.18);
+0 25px 45px rgba(0,0,0,0.25);
 
 transition:0.4s;
 
 position:relative;
 
 overflow:hidden;
+
+animation:swing 5s ease-in-out infinite;
+
+}
+
+@keyframes swing{
+
+0%{
+transform:rotate(-2deg);
+}
+
+50%{
+transform:rotate(2deg);
+}
+
+100%{
+transform:rotate(-2deg);
+}
+
 }
 
 .book:hover{
 
 transform:
-translateY(-12px)
-rotate(-3deg);
+translateY(-10px)
+rotate(-4deg);
+
 }
 
 .book::before{
 
 content:"";
-
 position:absolute;
 
 left:0;
@@ -608,12 +753,13 @@ width:8px;
 height:100%;
 
 background:
-rgba(255,255,255,0.12);
+rgba(255,255,255,0.1);
+
 }
 
 .book h3{
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
 font-size:34px;
 
@@ -624,21 +770,23 @@ writing-mode:vertical-rl;
 transform:rotate(180deg);
 
 color:white;
+
 }
 
-/* ================= BAR CHART SHELF ================= */
+/* =========================================================
+BOOK CHART SHELF
+========================================================= */
 
 .chart-shelf{
 
 display:flex;
-
 align-items:flex-end;
+gap:22px;
 
-gap:20px;
+margin-top:100px;
 
-margin-top:90px;
+height:430px;
 
-height:420px;
 }
 
 .bar{
@@ -646,18 +794,22 @@ height:420px;
 flex:1;
 
 background:
+
+url("https://www.transparenttextures.com/patterns/wood-pattern.png"),
+
 linear-gradient(to top,
 #241711,
-#614434);
+#5f4535);
 
-border-radius:18px 18px 0 0;
+border-radius:20px 20px 0 0;
 
 position:relative;
 
 box-shadow:
-0 12px 25px rgba(0,0,0,0.15);
+0 18px 28px rgba(0,0,0,0.2);
 
 transition:0.4s;
+
 }
 
 .bar:hover{
@@ -675,34 +827,24 @@ transform:
 translateX(-50%)
 rotate(-90deg);
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:28px;
+font-size:30px;
 
 color:white;
 
 white-space:nowrap;
+
 }
 
-/* BAR HEIGHTS */
+.bar1{height:92%;}
+.bar2{height:68%;}
+.bar3{height:100%;}
+.bar4{height:60%;}
 
-.bar1{
-height:90%;
-}
-
-.bar2{
-height:70%;
-}
-
-.bar3{
-height:100%;
-}
-
-.bar4{
-height:60%;
-}
-
-/* ================= QUOTES ================= */
+/* =========================================================
+QUOTE WALL
+========================================================= */
 
 .quote-grid{
 
@@ -711,66 +853,104 @@ display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(260px,1fr));
 
-gap:30px;
+gap:45px;
 
 margin-top:70px;
+
 }
 
 .quote-paper{
 
-background:#f7efe5;
+background:#f4e7d7;
 
-padding:35px;
+padding:40px;
 
-border-radius:8px;
+position:relative;
+
+border-radius:6px;
 
 box-shadow:
-0 15px 25px rgba(0,0,0,0.08);
+0 18px 30px rgba(0,0,0,0.12);
 
-transform:rotate(-2deg);
+font-family:'Special Elite',cursive;
 
-font-family:'Great Vibes', cursive;
+font-size:21px;
 
-font-size:34px;
+line-height:2;
 
-line-height:1.5;
+color:#533c2c;
 
-color:#5d4332;
+transition:0.4s;
+
+}
+
+.quote-paper:hover{
+transform:translateY(-8px);
+}
+
+.quote-paper:nth-child(1){
+transform:rotate(-3deg);
 }
 
 .quote-paper:nth-child(2){
-transform:rotate(3deg);
+transform:rotate(2deg);
 }
 
 .quote-paper:nth-child(3){
 transform:rotate(-4deg);
 }
 
-/* ================= MOODS ================= */
+.quote-paper:nth-child(4){
+transform:rotate(3deg);
+}
+
+.tape{
+
+position:absolute;
+
+top:-16px;
+left:35%;
+
+width:90px;
+height:30px;
+
+background:
+rgba(255,255,255,0.45);
+
+transform:rotate(-3deg);
+
+backdrop-filter:blur(4px);
+
+}
+
+/* =========================================================
+MOODS
+========================================================= */
 
 .mood-grid{
 
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
+repeat(auto-fit,minmax(290px,1fr));
 
 gap:35px;
+
 }
 
 .mood-card{
 
-min-height:360px;
+min-height:390px;
 
-border-radius:36px;
+border-radius:40px;
 
-padding:45px;
+padding:50px;
 
 background:
 
 linear-gradient(
-rgba(14,8,6,0.74),
-rgba(14,8,6,0.86)
+rgba(14,8,6,0.78),
+rgba(14,8,6,0.9)
 ),
 
 url("https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200");
@@ -782,18 +962,20 @@ position:relative;
 overflow:hidden;
 
 box-shadow:
-0 25px 45px rgba(0,0,0,0.15);
+0 25px 45px rgba(0,0,0,0.18);
+
 }
 
 .mood-card h3{
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:50px;
+font-size:54px;
 
 margin-bottom:20px;
 
 color:white;
+
 }
 
 .mood-card p{
@@ -801,117 +983,126 @@ color:white;
 line-height:2;
 
 color:#eadaca;
+
 }
 
-/* ================= REVIEWS ================= */
+/* =========================================================
+ANNOTATIONS
+========================================================= */
 
-.review-wrap{
+.annotation-wall{
 
 display:flex;
-
+flex-wrap:wrap;
 gap:30px;
 
-flex-wrap:wrap;
+margin-top:80px;
 
-margin-top:70px;
 }
 
-.review-card{
+.annotation{
 
-width:290px;
+width:280px;
 
-background:#f9f1e7;
+background:#f5e9d9;
 
-padding:30px;
+padding:35px;
+
+font-family:'Special Elite',cursive;
+
+line-height:2;
 
 box-shadow:
-0 20px 35px rgba(0,0,0,0.1);
+0 18px 30px rgba(0,0,0,0.12);
 
-transform:rotate(-2deg);
+position:relative;
+
 }
 
-.review-card:nth-child(2){
-transform:rotate(3deg);
-}
-
-.review-card:nth-child(3){
+.annotation:nth-child(1){
 transform:rotate(-4deg);
 }
 
-.review-card h4{
-
-font-size:28px;
-
-margin-bottom:14px;
+.annotation:nth-child(2){
+transform:rotate(3deg);
 }
 
-.review-card p{
-line-height:1.9;
+.annotation:nth-child(3){
+transform:rotate(-2deg);
 }
 
-/* ================= CURRENTLY READING ================= */
+/* =========================================================
+CURRENTLY READING
+========================================================= */
 
 .reading-box{
 
-margin-top:100px;
+margin-top:110px;
 
-background:#ead8c5;
+background:#ead7c2;
 
-border-radius:40px;
+border-radius:45px;
 
-padding:50px;
+padding:55px;
 
 display:flex;
-
-gap:40px;
-
+gap:50px;
 align-items:center;
 
 box-shadow:
-0 18px 35px rgba(0,0,0,0.08);
+0 18px 35px rgba(0,0,0,0.1);
+
+position:relative;
+
+overflow:hidden;
+
 }
 
 .reading-box img{
 
-width:240px;
+width:250px;
 
 border-radius:20px;
 
 transform:rotate(-2deg);
 
 box-shadow:
-0 15px 25px rgba(0,0,0,0.15);
+0 18px 30px rgba(0,0,0,0.15);
+
 }
 
 .reading-content h3{
 
-font-family:'Cormorant Garamond', serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:62px;
+font-size:68px;
 
 margin-bottom:20px;
+
 }
 
 .reading-content p{
 
 line-height:2.1;
-
 color:#5b4a3e;
+
 }
 
-/* ================= FOOTER ================= */
+/* =========================================================
+FOOTER
+========================================================= */
 
 footer{
 
-padding:170px 8%;
+padding:180px 8%;
 
 text-align:center;
 
 background:
 
 linear-gradient(
-rgba(8,5,4,0.9),
-rgba(8,5,4,0.95)
+rgba(8,5,4,0.92),
+rgba(8,5,4,0.96)
 ),
 
 url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
@@ -920,18 +1111,24 @@ background-size:cover;
 background-position:center;
 background-attachment:fixed;
 
-color:white;
+position:relative;
+
+overflow:hidden;
+
 }
 
 footer h2{
 
-font-family:'Great Vibes', cursive;
+font-family:'Great Vibes',cursive;
 
-font-size:110px;
+font-size:120px;
 
 margin-bottom:20px;
 
 font-weight:400;
+
+color:white;
+
 }
 
 footer p{
@@ -943,6 +1140,7 @@ margin:auto;
 line-height:2.2;
 
 color:#dbc9b8;
+
 }
 
 .footer-line{
@@ -956,9 +1154,44 @@ letter-spacing:4px;
 text-transform:uppercase;
 
 color:#b89f83;
+
 }
 
-/* ================= MOBILE ================= */
+/* =========================================================
+TOGGLE
+========================================================= */
+
+.toggle{
+
+position:fixed;
+
+bottom:30px;
+right:30px;
+
+width:62px;
+height:62px;
+
+border:none;
+border-radius:50%;
+
+background:var(--gold);
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+z-index:2000;
+
+box-shadow:
+0 15px 25px rgba(0,0,0,0.25);
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -972,7 +1205,7 @@ padding-top:160px;
 }
 
 .hero-text h1{
-font-size:64px;
+font-size:68px;
 }
 
 .hero-card{
@@ -982,11 +1215,11 @@ height:560px;
 }
 
 .section-title{
-font-size:56px;
+font-size:58px;
 }
 
 .hand-strip{
-font-size:42px;
+font-size:44px;
 padding:80px 8%;
 }
 
@@ -1004,11 +1237,11 @@ text-align:center;
 }
 
 .reading-content h3{
-font-size:46px;
+font-size:48px;
 }
 
 footer h2{
-font-size:70px;
+font-size:72px;
 }
 
 .hero-buttons{
@@ -1018,38 +1251,16 @@ align-items:flex-start;
 
 }
 
-/* ================= TOGGLE ================= */
-
-.toggle{
-
-position:fixed;
-
-bottom:30px;
-right:30px;
-
-width:60px;
-height:60px;
-
-border:none;
-
-border-radius:50%;
-
-background:var(--gold);
-
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-z-index:2000;
-
-box-shadow:
-0 15px 25px rgba(0,0,0,0.2);
-}
+/* =========================================================
+DARK MODE
+========================================================= */
 
 .dark{
-background:#120d0a;
+
+filter:
+contrast(1.05)
+brightness(0.9);
+
 }
 
 </style>
@@ -1060,13 +1271,19 @@ background:#120d0a;
 
 <div class="dust"></div>
 
-<!-- ================= NAVBAR ================= -->
+<!-- FLOATING PAPER -->
+
+<img class="floating-paper paper1" src="https://i.imgur.com/8Km9tLL.png">
+<img class="floating-paper paper2" src="https://i.imgur.com/8Km9tLL.png">
+<img class="floating-paper paper3" src="https://i.imgur.com/8Km9tLL.png">
+
+<!-- =========================================================
+NAVBAR
+========================================================= -->
 
 <nav>
 
 <div class="logo-box">
-
-<img src="logo.png" alt="logo">
 
 <div class="logo-text">
 Book Nook
@@ -1079,14 +1296,16 @@ Book Nook
 <li><a href="#">Home</a></li>
 <li><a href="#">Favorites</a></li>
 <li><a href="#">Mood Swings</a></li>
-<li><a href="review.html">Reviews</a></li>
-<li><a href="#">Cozy Corner</a></li>
+<li><a href="#">Annotations</a></li>
+<li><a href="#">Library</a></li>
 
 </ul>
 
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- =========================================================
+HERO
+========================================================= -->
 
 <section class="hero">
 
@@ -1129,6 +1348,14 @@ Browse Reviews
 
 <div class="hero-side">
 
+<div class="floating-note note1">
+this book ruined me.
+</div>
+
+<div class="floating-note note2">
+read during a thunderstorm.
+</div>
+
 <div class="hero-card">
 
 <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1200">
@@ -1153,13 +1380,17 @@ for stories that refuse to leave quietly.
 
 </section>
 
-<!-- ================= HANDWRITTEN ================= -->
+<!-- =========================================================
+HANDWRITTEN STRIP
+========================================================= -->
 
 <div class="hand-strip">
 “Some books arrive exactly when your soul needs them.”
 </div>
 
-<!-- ================= FAVORITES ================= -->
+<!-- =========================================================
+FAVORITES
+========================================================= -->
 
 <section>
 
@@ -1223,39 +1454,52 @@ and highlighted passages that felt too personal.
 
 </section>
 
-<!-- ================= QUOTES ================= -->
+<!-- =========================================================
+QUOTE WALL
+========================================================= -->
 
 <section>
 
 <h2 class="section-title">
-Handwritten
-Thoughts
+Collected
+Fragments
 </h2>
 
 <p class="section-sub">
-The kind of thoughts you write in the corner of pages
-when a book understands you too well.
+Thoughts scribbled between pages,
+in library corners,
+and during emotionally dangerous reading sessions.
 </p>
 
 <div class="quote-grid">
 
 <div class="quote-paper">
-“I think some stories don't end when the book closes.”
+<div class="tape"></div>
+“We underline the lines we secretly needed to hear.”
 </div>
 
 <div class="quote-paper">
+<div class="tape"></div>
 “Reading became my favorite form of disappearing.”
 </div>
 
 <div class="quote-paper">
-“We underline the lines we secretly needed to hear.”
+<div class="tape"></div>
+“Some stories don't end when the book closes.”
+</div>
+
+<div class="quote-paper">
+<div class="tape"></div>
+“I think lonely people find each other in books first.”
 </div>
 
 </div>
 
 </section>
 
-<!-- ================= MOODS ================= -->
+<!-- =========================================================
+MOODS
+========================================================= -->
 
 <section>
 
@@ -1278,7 +1522,7 @@ Need A Good Cry
 <p>
 A Little Life,
 The Book Thief,
-and stories that emotionally destroy you in the prettiest way possible.
+and stories that emotionally destroy you beautifully.
 </p>
 
 </div>
@@ -1286,14 +1530,15 @@ and stories that emotionally destroy you in the prettiest way possible.
 <div class="mood-card">
 
 <h3>
-Cozy Escapes
+Rainy Day Reads
 </h3>
 
 <p>
-Rainy evenings,
-warm lamps,
-coffee cups,
-and books that feel like quiet healing.
+Melancholy novels,
+window rain,
+quiet jazz,
+warm coffee,
+and stories that ache softly.
 </p>
 
 </div>
@@ -1301,13 +1546,13 @@ and books that feel like quiet healing.
 <div class="mood-card">
 
 <h3>
-Thriller Thrills
+2 AM Thrillers
 </h3>
 
 <p>
-Psychological twists,
+Psychological chaos,
 obsessive narrators,
-and stories that keep your lights on till 3 AM.
+and books that make every hallway terrifying.
 </p>
 
 </div>
@@ -1316,7 +1561,9 @@ and stories that keep your lights on till 3 AM.
 
 </section>
 
-<!-- ================= REVIEWS ================= -->
+<!-- =========================================================
+ANNOTATIONS
+========================================================= -->
 
 <section>
 
@@ -1326,47 +1573,21 @@ Annotations
 </h2>
 
 <p class="section-sub">
-Books that stayed in my mind long after the last page.
+The emotionally unstable notes left behind after reading.
 </p>
 
-<div class="review-wrap">
+<div class="annotation-wall">
 
-<div class="review-card">
-
-<h4>
-☕ ☕ ☕ ☕ ☕
-</h4>
-
-<p>
-This book felt like staring outside a rain covered train window at 1 AM.
-</p>
-
+<div class="annotation">
+“why did this fictional character understand me better than real people?”
 </div>
 
-<div class="review-card">
-
-<h4>
-☕ ☕ ☕ ☕
-</h4>
-
-<p>
-Emotionally damaging,
-beautifully written,
-and impossible to forget.
-</p>
-
+<div class="annotation">
+“read this during october rain and never recovered.”
 </div>
 
-<div class="review-card">
-
-<h4>
-☕ ☕ ☕ ☕ ☕
-</h4>
-
-<p>
-I finished the final chapter and just sat there in silence afterwards.
-</p>
-
+<div class="annotation">
+“this chapter physically altered my personality.”
 </div>
 
 </div>
@@ -1396,7 +1617,9 @@ Perfect for rainy evenings and overthinking.
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+FOOTER
+========================================================= -->
 
 <footer>
 
@@ -1423,7 +1646,9 @@ Vintage Stories • Rainy Evenings • Endless Feelings
 
 <script>
 
-/* SCROLL REVEAL */
+/* =========================================================
+SCROLL REVEAL
+========================================================= */
 
 const sections=document.querySelectorAll("section");
 
@@ -1444,7 +1669,9 @@ sec.style.transform="translateY(0px)";
 
 });
 
-/* FIRST LOAD */
+/* =========================================================
+INITIAL LOAD
+========================================================= */
 
 window.onload=()=>{
 
@@ -1463,7 +1690,9 @@ sec.style.transform="translateY(0px)";
 
 };
 
-/* DARK MODE */
+/* =========================================================
+DARK MODE
+========================================================= */
 
 const toggle=document.querySelector(".toggle");
 
