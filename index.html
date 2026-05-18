@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Book Nook</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+
+/* ---------------- GLOBAL ---------------- */
 
 *{
     margin:0;
@@ -21,66 +23,84 @@
 }
 
 body{
-    background:#f4eadc;
-    color:#2f241c;
+    background:#efe2d1;
+    color:#2c1f17;
     font-family:'Inter', sans-serif;
     overflow-x:hidden;
-    background-image:
-    radial-gradient(circle at top left, rgba(120,90,60,0.08), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(90,60,40,0.06), transparent 30%);
+    cursor:url('https://cur.cursors-4u.net/cursors/cur-9/cur817.cur'), auto;
 }
 
-/* VINTAGE GRAIN */
+/* PAPER TEXTURE */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background-image:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    background-image:
+    url("https://www.transparenttextures.com/patterns/aged-paper.png");
     opacity:0.25;
     pointer-events:none;
     z-index:9999;
 }
 
-/* NAVBAR */
+/* FLOATING GRAIN */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 25%),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,0.08), transparent 30%);
+    pointer-events:none;
+}
+
+/* ---------------- NAVBAR ---------------- */
 
 nav{
-    width:100%;
-    padding:24px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     position:fixed;
+    width:100%;
     top:0;
     left:0;
     z-index:1000;
-    backdrop-filter:blur(12px);
-    background:rgba(244,234,220,0.78);
-    border-bottom:1px solid rgba(47,36,28,0.08);
+
+    padding:22px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    backdrop-filter:blur(14px);
+
+    background:rgba(239,226,209,0.72);
+
+    border-bottom:1px solid rgba(44,31,23,0.08);
+}
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:16px;
 }
 
 /* LOGO */
 
-.logo-container{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.logo-container img{
-    width:52px;
-    height:52px;
+.IMG-20260517-WA0003.jpg{
+    width:58px;
+    height:58px;
     object-fit:contain;
 }
 
-/* PASTE YOUR LOGO:
-   Replace "logo.png"
-   with your own logo file name */
+/* IMPORTANT:
+UPLOAD YOUR LOGO FILE
+AND REPLACE:
+IMG-20260517-WA0003.jpg
+WITH YOUR FILE NAME */
 
 .logo-text{
     font-family:'Cinzel', serif;
     font-size:28px;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 nav ul{
@@ -91,10 +111,10 @@ nav ul{
 
 nav ul li a{
     text-decoration:none;
-    color:#2f241c;
-    font-size:14px;
-    letter-spacing:2px;
+    color:#2c1f17;
     text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:2px;
     position:relative;
 }
 
@@ -103,9 +123,9 @@ nav ul li a::after{
     position:absolute;
     width:0%;
     height:1px;
-    background:#2f241c;
+    background:#2c1f17;
     left:0;
-    bottom:-6px;
+    bottom:-8px;
     transition:0.4s;
 }
 
@@ -113,311 +133,465 @@ nav ul li a:hover::after{
     width:100%;
 }
 
-/* HERO */
+/* ---------------- HERO ---------------- */
 
 .hero{
     min-height:100vh;
+
     padding:180px 8% 120px;
+
     display:grid;
     grid-template-columns:1.1fr 0.9fr;
-    gap:80px;
     align-items:center;
+    gap:80px;
+
+    background:
+    linear-gradient(rgba(239,226,209,0.86),
+    rgba(239,226,209,0.9)),
+
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000");
+
+    background-size:cover;
+    background-position:center;
 }
 
-/* LEFT */
+/* LEFT SIDE */
 
-.hero-text{
-    position:relative;
-}
-
-.small-tag{
-    font-size:14px;
-    letter-spacing:5px;
+.small-line{
     text-transform:uppercase;
-    margin-bottom:30px;
-    color:#7d6551;
+    letter-spacing:5px;
+    font-size:13px;
+    margin-bottom:28px;
+    color:#7a6350;
 }
 
 .hero-text h1{
     font-family:'Cormorant Garamond', serif;
-    font-size:95px;
-    line-height:0.95;
-    margin-bottom:40px;
+    font-size:102px;
+    line-height:0.92;
+    margin-bottom:38px;
     font-weight:600;
-    color:#2d2119;
 }
 
 .hero-text p{
     font-size:18px;
-    line-height:2;
-    color:#5b4d40;
+    line-height:2.1;
+    color:#55483d;
     max-width:720px;
 }
 
+/* BUTTONS */
+
 .hero-buttons{
-    margin-top:50px;
+    margin-top:48px;
     display:flex;
     gap:20px;
 }
 
 .primary-btn{
-    background:#2f241c;
-    color:#f4eadc;
+    background:#2c1f17;
+    color:#efe2d1;
+
     border:none;
-    padding:18px 38px;
+
+    padding:18px 40px;
+
     border-radius:100px;
+
     cursor:pointer;
+
     font-size:14px;
     letter-spacing:1px;
+
     transition:0.4s;
 }
 
 .primary-btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 }
 
 .secondary-btn{
     background:transparent;
-    border:1px solid #2f241c;
-    color:#2f241c;
-    padding:18px 38px;
+
+    border:1px solid #2c1f17;
+
+    padding:18px 40px;
+
     border-radius:100px;
+
     cursor:pointer;
+
     font-size:14px;
 }
 
 /* RIGHT SIDE */
 
-.hero-image{
+.hero-side{
     display:flex;
     justify-content:center;
-    align-items:center;
 }
 
-.vintage-frame{
-    width:500px;
-    height:650px;
-    background:#ddc9b2;
-    border-radius:260px 260px 40px 40px;
-    position:relative;
+.vintage-card{
+    width:520px;
+    height:680px;
+
+    background:
+    linear-gradient(rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02));
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:280px 280px 40px 40px;
+
     overflow:hidden;
+
+    position:relative;
+
     box-shadow:
-    0 30px 60px rgba(0,0,0,0.12),
-    inset 0 0 0 12px rgba(255,255,255,0.2);
+    0 25px 60px rgba(0,0,0,0.15);
 }
 
-.vintage-frame::before{
-    content:"";
-    position:absolute;
-    inset:22px;
-    border:1px solid rgba(47,36,28,0.18);
-    border-radius:240px 240px 30px 30px;
+.vintage-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.82;
 }
 
-.frame-text{
+/* OVERLAY */
+
+.overlay{
     position:absolute;
     inset:0;
+
+    background:
+    linear-gradient(to top,
+    rgba(24,16,10,0.72),
+    rgba(24,16,10,0.12));
+
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
+    justify-content:flex-end;
+
+    padding:55px;
 }
 
-.frame-text h2{
+.overlay h2{
     font-family:'Cormorant Garamond', serif;
-    font-size:54px;
-    line-height:1;
-    margin-bottom:20px;
+    font-size:60px;
+    color:#f7efe7;
+    margin-bottom:18px;
 }
 
-.frame-text p{
-    line-height:1.9;
-    color:#5b4d40;
+.overlay p{
+    color:#f2e5d8;
+    line-height:2;
 }
 
-/* SECTIONS */
+/* FLOATING QUOTE */
+
+.quote{
+    margin-top:30px;
+    font-style:italic;
+    font-size:18px;
+    opacity:0.9;
+}
+
+/* ---------------- SECTION ---------------- */
 
 section{
-    padding:120px 8%;
+    padding:130px 8%;
     position:relative;
 }
 
-.section-heading{
+.section-title{
     font-family:'Cormorant Garamond', serif;
-    font-size:72px;
+    font-size:78px;
     margin-bottom:18px;
-    font-weight:600;
 }
 
 .section-sub{
     font-size:17px;
+    line-height:2;
     color:#66574a;
-    line-height:1.9;
-    max-width:700px;
+    max-width:760px;
     margin-bottom:70px;
 }
 
-/* BOOK CARDS */
+/* ---------------- BOOKSHELF ---------------- */
+
+.shelf{
+    position:relative;
+    margin-top:50px;
+}
+
+.shelf-line{
+    width:100%;
+    height:16px;
+    background:#4d3728;
+    border-radius:10px;
+    margin-top:25px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.12);
+}
 
 .book-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:40px;
+    display:flex;
+    gap:35px;
+    align-items:flex-end;
+    flex-wrap:wrap;
 }
 
-.book-card{
-    background:#efe1d1;
-    border-radius:30px;
-    padding:40px;
-    position:relative;
+.book{
+    width:220px;
+    height:360px;
+    border-radius:12px;
+
     overflow:hidden;
+
+    position:relative;
+
     transition:0.4s;
-    border:1px solid rgba(47,36,28,0.08);
-    box-shadow:0 15px 35px rgba(0,0,0,0.05);
+
+    box-shadow:0 18px 30px rgba(0,0,0,0.16);
 }
 
-.book-card:hover{
-    transform:translateY(-10px);
+.book:hover{
+    transform:translateY(-12px) rotate(-2deg);
 }
 
-.book-card::before{
-    content:"";
+.book img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.book-overlay{
     position:absolute;
-    top:-80px;
-    right:-80px;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.15);
+    inset:0;
+
+    background:
+    linear-gradient(to top,
+    rgba(20,10,5,0.92),
+    rgba(20,10,5,0.18));
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:26px;
 }
 
-.book-card h3{
+.book-overlay h3{
     font-family:'Cormorant Garamond', serif;
-    font-size:42px;
-    margin-bottom:16px;
+    font-size:34px;
+    color:#f5ebe0;
+    margin-bottom:10px;
 }
 
-.rating{
-    margin-bottom:20px;
-    letter-spacing:3px;
+.book-overlay p{
+    color:#e5d6c7;
+    line-height:1.7;
+    font-size:15px;
 }
 
-.book-card p{
-    line-height:2;
-    color:#58493d;
-    margin-bottom:22px;
-}
+/* ---------------- MOODS ---------------- */
 
-.genre{
-    font-size:13px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#7a6858;
-}
-
-/* MOOD SECTION */
-
-.mood-wrapper{
+.mood-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:35px;
 }
 
 .mood-card{
-    padding:50px 40px;
-    border-radius:35px;
-    background:#2f241c;
-    color:#f4eadc;
-    min-height:280px;
-    position:relative;
-    overflow:hidden;
-}
+    min-height:320px;
 
-.mood-card::before{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.04);
-    top:-60px;
-    right:-60px;
+    border-radius:34px;
+
+    padding:45px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(rgba(34,22,15,0.86),
+    rgba(34,22,15,0.92)),
+
+    url("https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200");
+
+    background-size:cover;
+
+    color:#f8efe5;
+
+    box-shadow:0 18px 35px rgba(0,0,0,0.12);
 }
 
 .mood-card h3{
     font-family:'Cormorant Garamond', serif;
-    font-size:42px;
-    margin-bottom:20px;
+    font-size:44px;
+    margin-bottom:22px;
 }
 
 .mood-card p{
     line-height:2;
-    color:#ddd0c1;
+    color:#e4d6c8;
 }
 
-/* REVIEW BOX */
+/* ---------------- REVIEW ---------------- */
+
+.review-section{
+    background:
+    linear-gradient(rgba(235,221,206,0.92),
+    rgba(235,221,206,0.92)),
+
+    url("https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=1800");
+
+    background-size:cover;
+}
 
 .review-box{
-    background:#ead8c4;
+    background:rgba(255,255,255,0.18);
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,0.22);
+
+    padding:80px;
+
     border-radius:40px;
-    padding:70px;
+
     position:relative;
+
     overflow:hidden;
 }
 
 .review-box::before{
     content:"";
     position:absolute;
-    inset:18px;
-    border:1px solid rgba(47,36,28,0.12);
-    border-radius:30px;
+    inset:20px;
+    border:1px solid rgba(44,31,23,0.1);
+    border-radius:26px;
 }
 
 .review-box h2{
     position:relative;
     font-family:'Cormorant Garamond', serif;
-    font-size:58px;
+    font-size:64px;
     margin-bottom:25px;
 }
 
 .review-box p{
     position:relative;
-    line-height:2.1;
+    line-height:2.2;
+    color:#4d4035;
     font-size:17px;
-    color:#584a3d;
 }
 
-/* FOOTER */
+/* HANDWRITTEN NOTE */
+
+.note{
+    margin-top:40px;
+
+    background:#f9f0e6;
+
+    padding:24px 30px;
+
+    border-left:4px solid #7c624d;
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:32px;
+
+    color:#6b5340;
+
+    max-width:500px;
+
+    transform:rotate(-1deg);
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ---------------- CURRENTLY READING ---------------- */
+
+.reading-box{
+    margin-top:80px;
+
+    background:#ead8c4;
+
+    border-radius:34px;
+
+    padding:50px;
+
+    display:flex;
+    gap:40px;
+    align-items:center;
+
+    box-shadow:0 16px 30px rgba(0,0,0,0.08);
+}
+
+.reading-box img{
+    width:220px;
+    border-radius:18px;
+    box-shadow:0 12px 24px rgba(0,0,0,0.18);
+}
+
+.reading-content h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:56px;
+    margin-bottom:20px;
+}
+
+.reading-content p{
+    line-height:2;
+    color:#5c4c3f;
+}
+
+/* ---------------- FOOTER ---------------- */
 
 footer{
-    padding:120px 8%;
+    padding:140px 8%;
     text-align:center;
+
+    background:
+    linear-gradient(rgba(26,17,12,0.9),
+    rgba(26,17,12,0.94)),
+
+    url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
+
+    background-size:cover;
+    background-position:center;
+
+    color:#f4eadf;
 }
 
 footer h2{
     font-family:'Cormorant Garamond', serif;
-    font-size:70px;
+    font-size:86px;
     margin-bottom:20px;
 }
 
 footer p{
-    max-width:700px;
+    max-width:760px;
     margin:auto;
-    line-height:2;
-    color:#66584b;
+    line-height:2.1;
+    color:#e0d2c4;
 }
 
 .footer-line{
     margin-top:50px;
+
     letter-spacing:4px;
-    font-size:13px;
+
     text-transform:uppercase;
-    color:#8a7765;
+
+    font-size:13px;
+
+    color:#bca894;
 }
 
-/* MOBILE */
+/* ---------------- MOBILE ---------------- */
 
 @media(max-width:1000px){
 
@@ -426,25 +600,29 @@ footer p{
 }
 
 .hero-text h1{
-    font-size:70px;
+    font-size:72px;
 }
 
-.vintage-frame{
+.vintage-card{
     width:100%;
     max-width:420px;
-    height:540px;
+    height:560px;
 }
 
 nav ul{
     display:none;
 }
 
-.section-heading{
-    font-size:52px;
+.section-title{
+    font-size:54px;
 }
 
 .review-box{
     padding:40px;
+}
+
+.reading-box{
+    flex-direction:column;
 }
 
 }
@@ -458,13 +636,15 @@ nav ul{
 
 <nav>
 
-<div class="logo-container">
+<div class="logo-box">
 
-<!-- PASTE YOUR LOGO FILE NAME BELOW -->
+<!-- REPLACE logo.png WITH YOUR FILE NAME -->
 
-<img src="IMG-20260517-WA0003.jpg" alt="Book Nook Logo">
+<img src="logo.png" alt="Book Nook Logo">
 
-<div class="logo-text">Book Nook</div>
+<div class="logo-text">
+Book Nook
+</div>
 
 </div>
 
@@ -484,7 +664,9 @@ nav ul{
 
 <div class="hero-text">
 
-<div class="small-tag">Stories That Stay</div>
+<div class="small-line">
+Stories That Stay
+</div>
 
 <h1>
 Some books entertain us for a moment,
@@ -497,7 +679,8 @@ sleepless nights, and the strange comfort of revisiting a story long after it en
 <br><br>
 At Book Nook, shelves are arranged less by genre
 and more by feeling — whether you’re searching for a good cry,
-a cozy escape, a thrilling binge-read, or simply your next favorite story.
+a cozy escape, a thrilling binge-read,
+or simply your next favorite story.
 </p>
 
 <div class="hero-buttons">
@@ -512,13 +695,19 @@ Browse Reviews
 
 </div>
 
+<div class="quote">
+“Perhaps there is some secret sort of homing instinct in books.”
 </div>
 
-<div class="hero-image">
+</div>
 
-<div class="vintage-frame">
+<div class="hero-side">
 
-<div class="frame-text">
+<div class="vintage-card">
+
+<img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1200">
+
+<div class="overlay">
 
 <h2>
 Yours,<br>
@@ -526,7 +715,7 @@ Book Nook
 </h2>
 
 <p>
-A tiny vintage corner
+A vintage literary corner
 for stories that linger
 long after the final page.
 </p>
@@ -543,67 +732,82 @@ long after the final page.
 
 <section>
 
-<h2 class="section-heading">
+<h2 class="section-title">
 All-Time Favorites
 </h2>
 
 <p class="section-sub">
-Books that quietly stayed behind in highlighted lines,
-midnight thoughts, and emotional damage.
+Books that stayed behind in highlighted passages,
+midnight breakdowns, and quiet obsessions.
 </p>
+
+<div class="shelf">
 
 <div class="book-grid">
 
-<div class="book-card">
+<div class="book">
 
-<h3>The Secret History</h3>
+<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200">
 
-<div class="rating">★★★★★</div>
+<div class="book-overlay">
 
-<p>
-Dark academia, obsession, elite college aesthetics,
-and dangerously beautiful friendships.
-</p>
-
-<div class="genre">
-Dark Academia
-</div>
-
-</div>
-
-<div class="book-card">
-
-<h3>The Song of Achilles</h3>
-
-<div class="rating">★★★★★</div>
+<h3>
+The Secret History
+</h3>
 
 <p>
-A poetic mythology retelling filled with tenderness,
-love, destiny, and tragedy.
+Dark academia, obsession,
+beauty, intellect,
+and destruction.
 </p>
 
-<div class="genre">
-Mythology Romance
 </div>
 
 </div>
 
-<div class="book-card">
+<div class="book">
 
-<h3>The Night Circus</h3>
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200">
 
-<div class="rating">★★★★☆</div>
+<div class="book-overlay">
+
+<h3>
+The Song of Achilles
+</h3>
 
 <p>
-Dreamlike magic, midnight performances,
-and a romance hidden within illusion.
+Poetic mythology,
+love,
+and inevitable tragedy.
 </p>
 
-<div class="genre">
-Fantasy
 </div>
 
 </div>
+
+<div class="book">
+
+<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1200">
+
+<div class="book-overlay">
+
+<h3>
+The Night Circus
+</h3>
+
+<p>
+Dreamlike magic,
+midnight wonder,
+and illusion.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="shelf-line"></div>
 
 </div>
 
@@ -613,49 +817,56 @@ Fantasy
 
 <section>
 
-<h2 class="section-heading">
+<h2 class="section-title">
 Mood Swings
 </h2>
 
 <p class="section-sub">
-Because choosing a book is sometimes just choosing
-which emotional breakdown you want tonight.
+Because your next read depends entirely
+on your current emotional damage.
 </p>
 
-<div class="mood-wrapper">
+<div class="mood-grid">
 
 <div class="mood-card">
 
-<h3>Need A Good Cry</h3>
+<h3>
+Need A Good Cry
+</h3>
 
 <p>
 A Little Life,
 The Book Thief,
 The Fault in Our Stars,
-and stories that emotionally destroy you beautifully.
+and emotional destruction disguised as literature.
 </p>
 
 </div>
 
 <div class="mood-card">
 
-<h3>Cozy Escapes</h3>
+<h3>
+Cozy Escapes
+</h3>
 
 <p>
 Before the Coffee Gets Cold,
 The House in the Cerulean Sea,
-and warm comforting stories for rainy evenings.
+and stories that feel like rainy evenings.
 </p>
 
 </div>
 
 <div class="mood-card">
 
-<h3>Thriller Thrills</h3>
+<h3>
+Thriller Thrills
+</h3>
 
 <p>
-The Silent Patient
-and psychological twists that keep you awake questioning everyone.
+The Silent Patient,
+psychological tension,
+and twists that keep you awake at 2 AM.
 </p>
 
 </div>
@@ -666,15 +877,16 @@ and psychological twists that keep you awake questioning everyone.
 
 <!-- REVIEW -->
 
-<section>
+<section class="review-section">
 
-<h2 class="section-heading">
+<h2 class="section-title">
 Shelf Reviews
 </h2>
 
 <p class="section-sub">
-Detailed thoughts, unforgettable characters,
-and books worth annotating.
+Detailed thoughts,
+forgettable sleep schedules,
+and unforgettable books.
 </p>
 
 <div class="review-box">
@@ -684,13 +896,51 @@ The Seven Husbands of Evelyn Hugo
 </h2>
 
 <p>
-Hollywood legend Evelyn Hugo finally decides to reveal the truth behind her glamorous and controversial life.
-Through ambition, heartbreak, fame, sacrifice, and love,
-the novel slowly exposes the loneliness hidden beneath old Hollywood elegance.
+Hollywood legend Evelyn Hugo finally reveals the truth behind her glamorous life,
+controversial marriages,
+fame,
+ambition,
+heartbreak,
+and the love she spent years protecting.
 <br><br>
-The writing feels cinematic, emotional, dramatic,
-and deeply human all at once.
+The novel feels cinematic,
+addictive,
+dramatic,
+and deeply emotional beneath all the glamour.
+It explores loneliness hidden inside fame,
+reinvention as survival,
+and the sacrifices people make for love.
 </p>
+
+<div class="note">
+“Some books don't leave quietly.”
+</div>
+
+</div>
+
+<div class="reading-box">
+
+<img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1200">
+
+<div class="reading-content">
+
+<h3>
+Currently Reading
+</h3>
+
+<p>
+Norwegian Wood —
+melancholic,
+nostalgic,
+quietly devastating,
+and emotionally haunting in the most beautiful way.
+<br><br>
+Perfect for late nights,
+rain sounds,
+and overthinking.
+</p>
+
+</div>
 
 </div>
 
@@ -701,11 +951,13 @@ and deeply human all at once.
 <footer>
 
 <h2>
-Yours, Book Nook.
+Yours,
+Book Nook.
 </h2>
 
 <p>
-So take your time, wander through the shelves,
+So take your time,
+wander through the shelves,
 and stay awhile.
 There’s probably a story here waiting to find you.
 </p>
