@@ -1,65 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Nook</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Book Nook</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5ede3;
+    color:#2b2118;
+    font-family:'Inter', sans-serif;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:28px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(245,237,227,0.92);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:42px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#2b2118;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:180px 8% 100px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.tag{
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:28px;
+    font-size:14px;
+}
+
+.hero-text h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:88px;
+    line-height:0.95;
+    font-weight:600;
+    margin-bottom:35px;
+}
+
+.hero-text p{
+    font-size:18px;
+    line-height:1.9;
+    max-width:650px;
+    color:#4c4034;
+}
+
+.hero-btns{
+    margin-top:45px;
+    display:flex;
+    gap:20px;
+}
+
+.primary-btn{
+    background:#2b2118;
+    color:#f5ede3;
+    border:none;
+    padding:16px 34px;
+    cursor:pointer;
+    font-size:15px;
+    border-radius:100px;
+}
+
+.secondary-btn{
+    background:transparent;
+    border:1px solid #2b2118;
+    color:#2b2118;
+    padding:16px 34px;
+    cursor:pointer;
+    font-size:15px;
+    border-radius:100px;
+}
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.circle{
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    background:#e4d5c3;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+}
+
+.circle::before{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border-radius:50%;
+    border:1px solid rgba(43,33,24,0.2);
+}
+
+/* SECTION */
+
+section{
+    padding:110px 8%;
+}
+
+.section-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:64px;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+.section-sub{
+    color:#5d5145;
+    margin-bottom:60px;
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* FAVORITES */
+
+.book-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+
+.book-card{
+    background:#eadfce;
+    padding:38px;
+    border-radius:28px;
+    transition:0.4s;
+    border:1px solid rgba(43,33,24,0.06);
+}
+
+.book-card:hover{
+    transform:translateY(-8px);
+}
+
+.book-card h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:36px;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+.stars{
+    margin-bottom:18px;
+    font-size:18px;
+}
+
+.book-card p{
+    line-height:1.9;
+    color:#4e4338;
+    margin-bottom:20px;
+}
+
+.genre{
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* MOODS */
+
+.mood-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:30px;
+}
+
+.mood-box{
+    background:#2b2118;
+    color:#f5ede3;
+    padding:50px 35px;
+    border-radius:30px;
+    min-height:260px;
+}
+
+.mood-box h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.mood-box p{
+    line-height:1.9;
+    color:#ddd0c1;
+}
+
+/* REVIEWS */
+
+.review-box{
+    background:#efe5d8;
+    border-radius:30px;
+    padding:60px;
+}
+
+.review-box h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:52px;
+    margin-bottom:25px;
+}
+
+.review-box p{
+    line-height:2;
+    font-size:17px;
+    color:#493e33;
+}
+
+/* COZY CORNER */
+
+.cozy-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.cozy-card{
+    background:#e7d7c3;
+    padding:35px;
+    border-radius:24px;
+}
+
+.cozy-card h3{
+    font-family:'Cormorant Garamond', serif;
+    font-size:34px;
+    margin-bottom:18px;
+}
+
+.cozy-card p{
+    line-height:1.9;
+    color:#51463b;
+}
+
+/* FOOTER */
+
+footer{
+    padding:80px 8%;
+    text-align:center;
+}
+
+footer h2{
+    font-family:'Cormorant Garamond', serif;
+    font-size:56px;
+    margin-bottom:20px;
+}
+
+footer p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.9;
+    color:#5b5045;
+}
+
+.footer-line{
+    margin-top:50px;
+    font-size:14px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+.hero{
+    flex-direction:column;
+    padding-top:160px;
+}
+
+.hero-text h1{
+    font-size:68px;
+}
+
+.circle{
+    width:340px;
+    height:340px;
+}
+
+nav ul{
+    display:none;
+}
+
+.section-title{
+    font-size:48px;
+}
+
+.review-box{
+    padding:35px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <nav>
-      <h1>Book Nook</h1>
+<!-- NAVBAR -->
 
-      <ul>
-        <li>Home</li>
-        <li>Reviews</li>
-        <li>Cozy Corner</li>
-        <li>Shelf Help</li>
-      </ul>
-    </nav>
+<nav>
 
-    <div class="hero-text">
-      <p class="small">Stories That Stay.</p>
+<div class="logo">Book Nook</div>
 
-      <h2>
-        Some books entertain us for a moment,
-        while others quietly become a part of us.
-      </h2>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Favorites</a></li>
+<li><a href="#">Mood Swings</a></li>
+<li><a href="#">Reviews</a></li>
+<li><a href="#">Cozy Corner</a></li>
+</ul>
 
-      <p>
-        A vintage little corner arranged less by genre
-        and more by feeling.
-      </p>
+</nav>
 
-      <button>Enter the Shelves</button>
-    </div>
-  </header>
+<!-- HERO -->
 
-  <section class="favorites">
-    <h2>All-Time Favorites</h2>
+<section class="hero">
 
-    <div class="book-grid">
+<div class="hero-text">
 
-      <div class="book-card">
-        <h3>The Secret History</h3>
-        <p>Dark academia, obsession, beauty & destruction.</p>
-      </div>
+<div class="tag">Stories That Stay.</div>
 
-      <div class="book-card">
-        <h3>The Song of Achilles</h3>
-        <p>Mythology, love, and heartbreak.</p>
-      </div>
+<h1>
+Some books entertain us for a moment,
+while others quietly become a part of us.
+</h1>
 
-      <div class="book-card">
-        <h3>The Night Circus</h3>
-        <p>Dreamlike magic and midnight wonder.</p>
-      </div>
+<p>
+They stay in highlighted lines, folded page corners,
+sleepless nights, and the strange comfort of revisiting
+a story long after it ends.
+<br><br>
+At Book Nook, shelves are arranged less by genre and
+more by feeling — whether you’re searching for a good cry,
+a cozy escape, a thrilling binge-read, or simply your next favorite story.
+</p>
 
-    </div>
-  </section>
+<div class="hero-btns">
+
+<button class="primary-btn">
+Enter The Shelves
+</button>
+
+<button class="secondary-btn">
+Browse Reviews
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="circle"></div>
+
+</div>
+
+</section>
+
+<!-- FAVORITES -->
+
+<section>
+
+<h2 class="section-title">All-Time Favorites</h2>
+
+<p class="section-sub">
+Books that quietly ruined us, healed us, or stayed in our heads forever.
+</p>
+
+<div class="book-grid">
+
+<div class="book-card">
+
+<h3>The Secret History</h3>
+
+<div class="stars">★★★★★</div>
+
+<p>
+Dark academia, obsession, elite college aesthetics,
+and morally grey friendships wrapped in beautiful writing.
+</p>
+
+<div class="genre">Dark Academia</div>
+
+</div>
+
+<div class="book-card">
+
+<h3>The Song of Achilles</h3>
+
+<div class="stars">★★★★★</div>
+
+<p>
+A heartbreaking mythology retelling filled with tenderness,
+love, destiny, and poetic storytelling.
+</p>
+
+<div class="genre">Mythology Romance</div>
+
+</div>
+
+<div class="book-card">
+
+<h3>The Night Circus</h3>
+
+<div class="stars">★★★★☆</div>
+
+<p>
+A dreamlike magical circus where illusion,
+competition, and romance blend beautifully.
+</p>
+
+<div class="genre">Fantasy</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MOOD SWINGS -->
+
+<section>
+
+<h2 class="section-title">Mood Swings</h2>
+
+<p class="section-sub">
+Because sometimes your next read depends entirely on your emotional damage.
+</p>
+
+<div class="mood-container">
+
+<div class="mood-box">
+
+<h3>Need A Good Cry</h3>
+
+<p>
+A Little Life, The Book Thief, The Fault in Our Stars,
+and stories that emotionally destroy you in the best way.
+</p>
+
+</div>
+
+<div class="mood-box">
+
+<h3>Cozy Escapes</h3>
+
+<p>
+Before the Coffee Gets Cold, The House in the Cerulean Sea,
+and warm comforting stories that feel like soft rain.
+</p>
+
+</div>
+
+<div class="mood-box">
+
+<h3>Thriller Thrills</h3>
+
+<p>
+The Silent Patient and psychological twists
+that keep you awake at 2 AM questioning everyone.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section>
+
+<h2 class="section-title">Shelf Reviews</h2>
+
+<p class="section-sub">
+Detailed thoughts, unforgettable characters,
+and books worth annotating.
+</p>
+
+<div class="review-box">
+
+<h2>The Seven Husbands of Evelyn Hugo</h2>
+
+<p>
+Hollywood legend Evelyn Hugo finally reveals the truth behind
+her glamorous life, controversial marriages, ambition,
+heartbreak, and the love she spent years protecting.
+<br><br>
+The novel feels cinematic, emotional, dramatic,
+and deeply human beneath all the glamour.
+It explores loneliness behind fame, reinvention,
+identity, sacrifice, and complicated love.
+</p>
+
+</div>
+
+</section>
+
+<!-- COZY CORNER -->
+
+<section>
+
+<h2 class="section-title">Cozy Corner</h2>
+
+<p class="section-sub">
+A tiny reading space for comfort books,
+soft aesthetics, and quiet moments.
+</p>
+
+<div class="cozy-grid">
+
+<div class="cozy-card">
+
+<h3>Currently Reading</h3>
+
+<p>
+Norwegian Wood — melancholic,
+nostalgic, emotionally lonely,
+and painfully beautiful.
+</p>
+
+</div>
+
+<div class="cozy-card">
+
+<h3>Late Night Recommendation</h3>
+
+<p>
+84, Charing Cross Road —
+short, comforting, literary,
+and perfect with coffee.
+</p>
+
+</div>
+
+<div class="cozy-card">
+
+<h3>Shelf Help</h3>
+
+<p>
+Looking for books based on feelings instead of genres?
+This shelf understands emotional chaos.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>Yours, Book Nook.</h2>
+
+<p>
+So take your time, wander through the shelves,
+and stay awhile.
+There’s probably a story here waiting to find you.
+</p>
+
+<div class="footer-line">
+Vintage Stories • Cozy Shelves • Endless Feelings
+</div>
+
+</footer>
 
 </body>
 </html>
