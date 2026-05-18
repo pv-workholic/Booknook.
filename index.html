@@ -27,7 +27,6 @@ body{
     color:#2c1f17;
     font-family:'Inter', sans-serif;
     overflow-x:hidden;
-    cursor:url('https://cur.cursors-4u.net/cursors/cur-9/cur817.cur'), auto;
 }
 
 /* PAPER TEXTURE */
@@ -40,19 +39,7 @@ body::before{
     url("https://www.transparenttextures.com/patterns/aged-paper.png");
     opacity:0.25;
     pointer-events:none;
-    z-index:9999;
-}
-
-/* FLOATING GRAIN */
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12), transparent 25%),
-    radial-gradient(circle at 80% 40%, rgba(255,255,255,0.08), transparent 30%);
-    pointer-events:none;
+    z-index:999;
 }
 
 /* ---------------- NAVBAR ---------------- */
@@ -70,7 +57,7 @@ nav{
     justify-content:space-between;
     align-items:center;
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
     background:rgba(239,226,209,0.72);
 
@@ -83,19 +70,11 @@ nav{
     gap:16px;
 }
 
-/* LOGO */
-
-.IMG-20260517-WA0003.jpg{
+.logo-box img{
     width:58px;
     height:58px;
     object-fit:contain;
 }
-
-/* IMPORTANT:
-UPLOAD YOUR LOGO FILE
-AND REPLACE:
-IMG-20260517-WA0003.jpg
-WITH YOUR FILE NAME */
 
 .logo-text{
     font-family:'Cinzel', serif;
@@ -145,6 +124,8 @@ nav ul li a:hover::after{
     align-items:center;
     gap:80px;
 
+    position:relative;
+
     background:
     linear-gradient(rgba(239,226,209,0.86),
     rgba(239,226,209,0.9)),
@@ -153,6 +134,18 @@ nav ul li a:hover::after{
 
     background-size:cover;
     background-position:center;
+    background-attachment:fixed;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,0.14);
+    filter:blur(120px);
+    top:10%;
+    left:5%;
 }
 
 /* LEFT SIDE */
@@ -163,6 +156,11 @@ nav ul li a:hover::after{
     font-size:13px;
     margin-bottom:28px;
     color:#7a6350;
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
 }
 
 .hero-text h1{
@@ -204,10 +202,15 @@ nav ul li a:hover::after{
     letter-spacing:1px;
 
     transition:0.4s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.15);
 }
 
 .primary-btn:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
+    box-shadow:
+    0 18px 35px rgba(0,0,0,0.2);
 }
 
 .secondary-btn{
@@ -290,8 +293,6 @@ nav ul li a:hover::after{
     line-height:2;
 }
 
-/* FLOATING QUOTE */
-
 .quote{
     margin-top:30px;
     font-style:italic;
@@ -304,6 +305,10 @@ nav ul li a:hover::after{
 section{
     padding:130px 8%;
     position:relative;
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
 }
 
 .section-title{
@@ -320,21 +325,18 @@ section{
     margin-bottom:70px;
 }
 
-/* ---------------- BOOKSHELF ---------------- */
+/* QUOTE STRIP */
 
-.shelf{
-    position:relative;
-    margin-top:50px;
+.quote-strip{
+    padding:100px 10%;
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-size:58px;
+    font-style:italic;
+    opacity:0.7;
 }
 
-.shelf-line{
-    width:100%;
-    height:16px;
-    background:#4d3728;
-    border-radius:10px;
-    margin-top:25px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.12);
-}
+/* ---------------- BOOKS ---------------- */
 
 .book-grid{
     display:flex;
@@ -344,8 +346,9 @@ section{
 }
 
 .book{
-    width:220px;
+    width:190px;
     height:360px;
+
     border-radius:12px;
 
     overflow:hidden;
@@ -354,11 +357,16 @@ section{
 
     transition:0.4s;
 
+    border-left:8px solid rgba(0,0,0,0.2);
+
     box-shadow:0 18px 30px rgba(0,0,0,0.16);
 }
 
 .book:hover{
-    transform:translateY(-12px) rotate(-2deg);
+    transform:
+    translateY(-15px)
+    rotate(-3deg)
+    scale(1.03);
 }
 
 .book img{
@@ -396,7 +404,7 @@ section{
     font-size:15px;
 }
 
-/* ---------------- MOODS ---------------- */
+/* ---------------- MOOD CARDS ---------------- */
 
 .mood-grid{
     display:grid;
@@ -449,6 +457,7 @@ section{
     url("https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=1800");
 
     background-size:cover;
+    background-attachment:fixed;
 }
 
 .review-box{
@@ -467,29 +476,26 @@ section{
     overflow:hidden;
 }
 
-.review-box::before{
-    content:"";
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(44,31,23,0.1);
-    border-radius:26px;
-}
-
 .review-box h2{
-    position:relative;
     font-family:'Cormorant Garamond', serif;
     font-size:64px;
     margin-bottom:25px;
 }
 
 .review-box p{
-    position:relative;
     line-height:2.2;
     color:#4d4035;
     font-size:17px;
 }
 
-/* HANDWRITTEN NOTE */
+/* CUPS */
+
+.cups{
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+/* NOTE */
 
 .note{
     margin-top:40px;
@@ -513,7 +519,7 @@ section{
     box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* ---------------- CURRENTLY READING ---------------- */
+/* CURRENTLY READING */
 
 .reading-box{
     margin-top:80px;
@@ -534,7 +540,6 @@ section{
 .reading-box img{
     width:220px;
     border-radius:18px;
-    box-shadow:0 12px 24px rgba(0,0,0,0.18);
 }
 
 .reading-content h3{
@@ -548,7 +553,42 @@ section{
     color:#5c4c3f;
 }
 
-/* ---------------- FOOTER ---------------- */
+/* POLAROID REVIEWS */
+
+.paper-grid{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:60px;
+}
+
+.paper-review{
+    width:260px;
+    background:#f9f1e8;
+    padding:28px;
+    border-radius:10px;
+
+    transform:rotate(-2deg);
+
+    box-shadow:0 15px 25px rgba(0,0,0,0.08);
+
+    font-family:'Cormorant Garamond', serif;
+}
+
+.paper-review:nth-child(2){
+    transform:rotate(3deg);
+}
+
+.paper-review:nth-child(3){
+    transform:rotate(-4deg);
+}
+
+.paper-review h4{
+    font-size:32px;
+    margin-bottom:14px;
+}
+
+/* FOOTER */
 
 footer{
     padding:140px 8%;
@@ -562,6 +602,7 @@ footer{
 
     background-size:cover;
     background-position:center;
+    background-attachment:fixed;
 
     color:#f4eadf;
 }
@@ -591,7 +632,7 @@ footer p{
     color:#bca894;
 }
 
-/* ---------------- MOBILE ---------------- */
+/* MOBILE */
 
 @media(max-width:1000px){
 
@@ -600,7 +641,8 @@ footer p{
 }
 
 .hero-text h1{
-    font-size:72px;
+    font-size:52px;
+    line-height:1;
 }
 
 .vintage-card{
@@ -625,6 +667,10 @@ nav ul{
     flex-direction:column;
 }
 
+.quote-strip{
+    font-size:40px;
+}
+
 }
 
 </style>
@@ -637,8 +683,6 @@ nav ul{
 <nav>
 
 <div class="logo-box">
-
-<!-- REPLACE logo.png WITH YOUR FILE NAME -->
 
 <img src="logo.png" alt="Book Nook Logo">
 
@@ -678,9 +722,7 @@ They stay in highlighted lines, folded page corners,
 sleepless nights, and the strange comfort of revisiting a story long after it ends.
 <br><br>
 At Book Nook, shelves are arranged less by genre
-and more by feeling — whether you’re searching for a good cry,
-a cozy escape, a thrilling binge-read,
-or simply your next favorite story.
+and more by feeling.
 </p>
 
 <div class="hero-buttons">
@@ -728,6 +770,10 @@ long after the final page.
 
 </section>
 
+<div class="quote-strip">
+“Reading is a form of disappearing.”
+</div>
+
 <!-- FAVORITES -->
 
 <section>
@@ -740,8 +786,6 @@ All-Time Favorites
 Books that stayed behind in highlighted passages,
 midnight breakdowns, and quiet obsessions.
 </p>
-
-<div class="shelf">
 
 <div class="book-grid">
 
@@ -756,8 +800,9 @@ The Secret History
 </h3>
 
 <p>
-Dark academia, obsession,
-beauty, intellect,
+Dark academia,
+obsession,
+beauty,
 and destruction.
 </p>
 
@@ -804,10 +849,6 @@ and illusion.
 </div>
 
 </div>
-
-</div>
-
-<div class="shelf-line"></div>
 
 </div>
 
@@ -875,7 +916,7 @@ and twists that keep you awake at 2 AM.
 
 </section>
 
-<!-- REVIEW -->
+<!-- REVIEWS -->
 
 <section class="review-section">
 
@@ -891,6 +932,10 @@ and unforgettable books.
 
 <div class="review-box">
 
+<div class="cups">
+☕ ☕ ☕ ☕ ☕
+</div>
+
 <h2>
 The Seven Husbands of Evelyn Hugo
 </h2>
@@ -902,14 +947,6 @@ fame,
 ambition,
 heartbreak,
 and the love she spent years protecting.
-<br><br>
-The novel feels cinematic,
-addictive,
-dramatic,
-and deeply emotional beneath all the glamour.
-It explores loneliness hidden inside fame,
-reinvention as survival,
-and the sacrifices people make for love.
 </p>
 
 <div class="note">
@@ -933,13 +970,28 @@ Norwegian Wood —
 melancholic,
 nostalgic,
 quietly devastating,
-and emotionally haunting in the most beautiful way.
-<br><br>
-Perfect for late nights,
-rain sounds,
-and overthinking.
+and emotionally haunting.
 </p>
 
+</div>
+
+</div>
+
+<div class="paper-grid">
+
+<div class="paper-review">
+<h4>☕ ☕ ☕ ☕ ☕</h4>
+“This book felt like rain at 2 AM.”
+</div>
+
+<div class="paper-review">
+<h4>☕ ☕ ☕ ☕</h4>
+“Emotionally damaging but worth it.”
+</div>
+
+<div class="paper-review">
+<h4>☕ ☕ ☕ ☕ ☕</h4>
+“I’m still thinking about the ending.”
 </div>
 
 </div>
@@ -967,6 +1019,50 @@ Vintage Stories • Cozy Shelves • Endless Feelings
 </div>
 
 </footer>
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+
+sections.forEach(sec => {
+
+const top = sec.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+sec.style.opacity = "1";
+sec.style.transform = "translateY(0px)";
+
+}
+
+});
+
+});
+
+/* LOAD FIRST SECTION */
+
+window.onload = () => {
+
+sections.forEach(sec => {
+
+const top = sec.getBoundingClientRect().top;
+
+if(top < window.innerHeight){
+
+sec.style.opacity = "1";
+sec.style.transform = "translateY(0px)";
+
+}
+
+});
+
+};
+
+</script>
 
 </body>
 </html>
