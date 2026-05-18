@@ -1,6 +1,12 @@
+<!-- =========================
+BOOK NOOK — CINEMATIC VERSION
+========================== -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,678 +19,973 @@
 
 <style>
 
-/* ---------------- GLOBAL ---------------- */
+/* ================= GLOBAL ================= */
+
+:root{
+--bg:#eadcc9;
+--dark:#1c120d;
+--brown:#3b2a22;
+--gold:#b08b5b;
+--cream:#f7efe5;
+--wine:#593737;
+--soft:#d9c7b4;
+}
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#efe2d1;
-    color:#2c1f17;
-    font-family:'Inter', sans-serif;
-    overflow-x:hidden;
+background:var(--bg);
+font-family:'Inter', sans-serif;
+color:var(--dark);
+overflow-x:hidden;
 }
 
 /* PAPER TEXTURE */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-    url("https://www.transparenttextures.com/patterns/aged-paper.png");
-    opacity:0.25;
-    pointer-events:none;
-    z-index:999;
+content:"";
+position:fixed;
+inset:0;
+
+background-image:
+url("https://www.transparenttextures.com/patterns/aged-paper.png");
+
+opacity:0.22;
+
+pointer-events:none;
+
+z-index:999;
 }
 
-/* ---------------- NAVBAR ---------------- */
+/* FLOATING DUST */
+
+.dust{
+position:fixed;
+inset:0;
+
+pointer-events:none;
+
+background-image:
+radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+
+background-size:50px 50px;
+
+animation:floatDust 18s linear infinite;
+
+opacity:0.25;
+
+z-index:2;
+}
+
+@keyframes floatDust{
+
+from{
+transform:translateY(0px);
+}
+
+to{
+transform:translateY(-120px);
+}
+
+}
+
+/* ================= NAVBAR ================= */
 
 nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    z-index:1000;
+position:fixed;
+top:0;
+left:0;
 
-    padding:22px 8%;
+width:100%;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+padding:24px 8%;
 
-    backdrop-filter:blur(18px);
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-    background:rgba(239,226,209,0.72);
+z-index:1000;
 
-    border-bottom:1px solid rgba(44,31,23,0.08);
+background:rgba(17,11,8,0.45);
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
 }
 
 .logo-box{
-    display:flex;
-    align-items:center;
-    gap:16px;
+display:flex;
+align-items:center;
+gap:14px;
 }
 
 .logo-box img{
-    width:58px;
-    height:58px;
-    object-fit:contain;
+width:58px;
+height:58px;
+object-fit:contain;
 }
 
 .logo-text{
-    font-family:'Cinzel', serif;
-    font-size:28px;
-    letter-spacing:3px;
+font-family:'Cinzel', serif;
+font-size:28px;
+letter-spacing:4px;
+color:var(--cream);
 }
 
 nav ul{
-    display:flex;
-    list-style:none;
-    gap:40px;
+display:flex;
+list-style:none;
+gap:40px;
 }
 
 nav ul li a{
-    text-decoration:none;
-    color:#2c1f17;
-    text-transform:uppercase;
-    font-size:13px;
-    letter-spacing:2px;
-    position:relative;
+text-decoration:none;
+color:var(--cream);
+
+font-size:12px;
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+position:relative;
 }
 
 nav ul li a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:1px;
-    background:#2c1f17;
-    left:0;
-    bottom:-8px;
-    transition:0.4s;
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:var(--gold);
+
+transition:0.4s;
 }
 
 nav ul li a:hover::after{
-    width:100%;
+width:100%;
 }
 
-/* ---------------- HERO ---------------- */
+/* ================= HERO ================= */
 
 .hero{
-    min-height:100vh;
 
-    padding:180px 8% 120px;
+min-height:100vh;
 
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    align-items:center;
-    gap:80px;
+padding:190px 8% 120px;
 
-    position:relative;
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
 
-    background:
-    linear-gradient(rgba(239,226,209,0.86),
-    rgba(239,226,209,0.9)),
+gap:90px;
+align-items:center;
 
-    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000");
+position:relative;
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+background:
+
+linear-gradient(
+rgba(10,6,5,0.64),
+rgba(10,6,5,0.82)
+),
+
+url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 }
+
+/* GLOW */
 
 .hero::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    background:rgba(255,255,255,0.14);
-    filter:blur(120px);
-    top:10%;
-    left:5%;
+
+content:"";
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+background:
+rgba(255,255,255,0.08);
+
+filter:blur(120px);
+
+left:-100px;
+top:5%;
 }
 
-/* LEFT SIDE */
+/* LEFT */
 
 .small-line{
-    text-transform:uppercase;
-    letter-spacing:5px;
-    font-size:13px;
-    margin-bottom:28px;
-    color:#7a6350;
+
+text-transform:uppercase;
+
+letter-spacing:6px;
+
+font-size:12px;
+
+margin-bottom:30px;
+
+color:var(--gold);
 }
 
 .hero-text{
-    position:relative;
-    z-index:2;
+position:relative;
+z-index:3;
 }
 
 .hero-text h1{
-    font-family:'Cormorant Garamond', serif;
-    font-size:102px;
-    line-height:0.92;
-    margin-bottom:38px;
-    font-weight:600;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:130px;
+
+line-height:0.88;
+
+letter-spacing:-4px;
+
+color:var(--cream);
+
+margin-bottom:40px;
+
+max-width:900px;
 }
 
 .hero-text p{
-    font-size:18px;
-    line-height:2.1;
-    color:#55483d;
-    max-width:720px;
+
+font-size:18px;
+
+line-height:2.2;
+
+color:#dfd1c3;
+
+max-width:720px;
 }
 
 /* BUTTONS */
 
 .hero-buttons{
-    margin-top:48px;
-    display:flex;
-    gap:20px;
+margin-top:50px;
+
+display:flex;
+gap:20px;
 }
 
 .primary-btn{
-    background:#2c1f17;
-    color:#efe2d1;
 
-    border:none;
+background:var(--gold);
 
-    padding:18px 40px;
+color:white;
 
-    border-radius:100px;
+border:none;
 
-    cursor:pointer;
+padding:18px 42px;
 
-    font-size:14px;
-    letter-spacing:1px;
+border-radius:100px;
 
-    transition:0.4s;
+cursor:pointer;
 
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.15);
+font-size:13px;
+
+letter-spacing:2px;
+
+transition:0.4s;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,0.2);
 }
 
 .primary-btn:hover{
-    transform:translateY(-6px);
-    box-shadow:
-    0 18px 35px rgba(0,0,0,0.2);
+
+transform:
+translateY(-6px);
+
+box-shadow:
+0 25px 45px rgba(0,0,0,0.3);
 }
 
 .secondary-btn{
-    background:transparent;
 
-    border:1px solid #2c1f17;
+background:transparent;
 
-    padding:18px 40px;
+border:
+1px solid rgba(255,255,255,0.3);
 
-    border-radius:100px;
+padding:18px 42px;
 
-    cursor:pointer;
+border-radius:100px;
 
-    font-size:14px;
+cursor:pointer;
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:var(--cream);
 }
 
-/* RIGHT SIDE */
+.quote{
+
+margin-top:35px;
+
+font-style:italic;
+
+font-size:18px;
+
+color:#dccab9;
+}
+
+/* RIGHT */
 
 .hero-side{
-    display:flex;
-    justify-content:center;
+display:flex;
+justify-content:center;
 }
 
-.vintage-card{
-    width:520px;
-    height:680px;
+.hero-card{
 
-    background:
-    linear-gradient(rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02));
+width:500px;
+height:680px;
 
-    backdrop-filter:blur(16px);
+border-radius:260px 260px 30px 30px;
 
-    border:1px solid rgba(255,255,255,0.2);
+overflow:hidden;
 
-    border-radius:280px 280px 40px 40px;
+position:relative;
 
-    overflow:hidden;
+transform:rotate(-3deg);
 
-    position:relative;
+box-shadow:
+0 30px 70px rgba(0,0,0,0.35);
 
-    box-shadow:
-    0 25px 60px rgba(0,0,0,0.15);
+animation:floatBook 5s ease-in-out infinite;
 }
 
-.vintage-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0.82;
+@keyframes floatBook{
+
+0%{
+transform:
+translateY(0px)
+rotate(-3deg);
+}
+
+50%{
+transform:
+translateY(-15px)
+rotate(2deg);
+}
+
+100%{
+transform:
+translateY(0px)
+rotate(-3deg);
+}
+
+}
+
+.hero-card img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* OVERLAY */
 
-.overlay{
-    position:absolute;
-    inset:0;
+.hero-overlay{
 
-    background:
-    linear-gradient(to top,
-    rgba(24,16,10,0.72),
-    rgba(24,16,10,0.12));
+position:absolute;
+inset:0;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+background:
+linear-gradient(
+to top,
+rgba(12,8,6,0.85),
+rgba(12,8,6,0.08)
+);
 
-    padding:55px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+
+padding:50px;
 }
 
-.overlay h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:60px;
-    color:#f7efe7;
-    margin-bottom:18px;
+.hero-overlay h2{
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:62px;
+
+color:var(--cream);
+
+margin-bottom:14px;
 }
 
-.overlay p{
-    color:#f2e5d8;
-    line-height:2;
+.hero-overlay p{
+
+line-height:2;
+
+color:#ead9ca;
 }
 
-.quote{
-    margin-top:30px;
-    font-style:italic;
-    font-size:18px;
-    opacity:0.9;
+/* ================= EDITORIAL QUOTE ================= */
+
+.editorial{
+
+padding:150px 10%;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:84px;
+
+line-height:1.1;
+
+opacity:0.78;
+
+max-width:1200px;
 }
 
-/* ---------------- SECTION ---------------- */
+/* ================= SECTION ================= */
 
 section{
-    padding:130px 8%;
-    position:relative;
 
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s ease;
+padding:140px 8%;
+
+position:relative;
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:1s ease;
 }
 
 .section-title{
-    font-family:'Cormorant Garamond', serif;
-    font-size:78px;
-    margin-bottom:18px;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:90px;
+
+line-height:0.9;
+
+margin-bottom:25px;
 }
 
 .section-sub{
-    font-size:17px;
-    line-height:2;
-    color:#66574a;
-    max-width:760px;
-    margin-bottom:70px;
+
+max-width:760px;
+
+line-height:2.1;
+
+color:#5f5144;
+
+margin-bottom:70px;
 }
 
-/* QUOTE STRIP */
-
-.quote-strip{
-    padding:100px 10%;
-    text-align:center;
-    font-family:'Cormorant Garamond', serif;
-    font-size:58px;
-    font-style:italic;
-    opacity:0.7;
-}
-
-/* ---------------- BOOKS ---------------- */
+/* ================= BOOK SHELF ================= */
 
 .book-grid{
-    display:flex;
-    gap:35px;
-    align-items:flex-end;
-    flex-wrap:wrap;
+
+display:flex;
+
+gap:26px;
+
+flex-wrap:wrap;
+
+align-items:flex-end;
 }
 
 .book{
-    width:190px;
-    height:360px;
 
-    border-radius:12px;
+width:150px;
 
-    overflow:hidden;
+border-radius:8px;
 
-    position:relative;
+background:
+linear-gradient(
+to bottom,
+#4a352a,
+#241812
+);
 
-    transition:0.4s;
+display:flex;
+align-items:flex-end;
 
-    border-left:8px solid rgba(0,0,0,0.2);
+padding:18px;
 
-    box-shadow:0 18px 30px rgba(0,0,0,0.16);
+position:relative;
+
+overflow:hidden;
+
+transition:0.4s;
+
+box-shadow:
+0 25px 35px rgba(0,0,0,0.16);
+}
+
+/* RANDOM HEIGHTS */
+
+.book:nth-child(1){
+height:420px;
+}
+
+.book:nth-child(2){
+height:380px;
+}
+
+.book:nth-child(3){
+height:450px;
+}
+
+.book:nth-child(4){
+height:360px;
 }
 
 .book:hover{
-    transform:
-    translateY(-15px)
-    rotate(-3deg)
-    scale(1.03);
+
+transform:
+translateY(-14px)
+rotate(-3deg);
 }
 
-.book img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.book::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:10px;
+height:100%;
+
+background:
+rgba(255,255,255,0.12);
 }
 
-.book-overlay{
-    position:absolute;
-    inset:0;
+.book h3{
 
-    background:
-    linear-gradient(to top,
-    rgba(20,10,5,0.92),
-    rgba(20,10,5,0.18));
+font-family:'Cormorant Garamond', serif;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
+font-size:32px;
 
-    padding:26px;
+line-height:1;
+
+writing-mode:vertical-rl;
+
+transform:rotate(180deg);
+
+color:white;
 }
 
-.book-overlay h3{
-    font-family:'Cormorant Garamond', serif;
-    font-size:34px;
-    color:#f5ebe0;
-    margin-bottom:10px;
+/* HAND NOTE */
+
+.hand-note{
+
+margin-top:80px;
+
+background:#f8eee4;
+
+padding:26px;
+
+max-width:340px;
+
+transform:rotate(-3deg);
+
+font-family:'Great Vibes', cursive;
+
+font-size:36px;
+
+box-shadow:
+0 20px 35px rgba(0,0,0,0.08);
 }
 
-.book-overlay p{
-    color:#e5d6c7;
-    line-height:1.7;
-    font-size:15px;
-}
-
-/* ---------------- MOOD CARDS ---------------- */
+/* ================= MOOD GRID ================= */
 
 .mood-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:35px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:35px;
 }
 
 .mood-card{
-    min-height:320px;
 
-    border-radius:34px;
+min-height:380px;
 
-    padding:45px;
+border-radius:40px;
 
-    position:relative;
+padding:45px;
 
-    overflow:hidden;
+background:
 
-    background:
-    linear-gradient(rgba(34,22,15,0.86),
-    rgba(34,22,15,0.92)),
+linear-gradient(
+rgba(16,10,8,0.72),
+rgba(16,10,8,0.86)
+),
 
-    url("https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200");
+url("https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200");
 
-    background-size:cover;
+background-size:cover;
 
-    color:#f8efe5;
+color:white;
 
-    box-shadow:0 18px 35px rgba(0,0,0,0.12);
+box-shadow:
+0 25px 45px rgba(0,0,0,0.15);
+
+position:relative;
+
+overflow:hidden;
+}
+
+.mood-card::before{
+
+content:"";
+
+position:absolute;
+
+width:200px;
+height:200px;
+
+background:
+rgba(255,255,255,0.06);
+
+filter:blur(80px);
+
+top:-60px;
+right:-40px;
 }
 
 .mood-card h3{
-    font-family:'Cormorant Garamond', serif;
-    font-size:44px;
-    margin-bottom:22px;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:52px;
+
+margin-bottom:20px;
+
+position:relative;
+z-index:2;
 }
 
 .mood-card p{
-    line-height:2;
-    color:#e4d6c8;
+
+line-height:2;
+
+color:#e8d9cb;
+
+position:relative;
+z-index:2;
 }
 
-/* ---------------- REVIEW ---------------- */
+/* ================= RAIN SECTION ================= */
 
-.review-section{
-    background:
-    linear-gradient(rgba(235,221,206,0.92),
-    rgba(235,221,206,0.92)),
+.rain-section{
 
-    url("https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=1800");
+background:
 
-    background-size:cover;
-    background-attachment:fixed;
+linear-gradient(
+rgba(12,8,6,0.75),
+rgba(12,8,6,0.85)
+),
+
+url("https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1800");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+text-align:center;
+
+color:white;
 }
 
-.review-box{
-    background:rgba(255,255,255,0.18);
+.rain-section h2{
 
-    backdrop-filter:blur(14px);
+font-family:'Cormorant Garamond', serif;
 
-    border:1px solid rgba(255,255,255,0.22);
+font-size:96px;
 
-    padding:80px;
-
-    border-radius:40px;
-
-    position:relative;
-
-    overflow:hidden;
+margin-bottom:30px;
 }
 
-.review-box h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:64px;
-    margin-bottom:25px;
+.rain-section p{
+
+max-width:720px;
+
+margin:auto;
+
+line-height:2.2;
+
+font-size:20px;
+
+color:#eadaca;
 }
 
-.review-box p{
-    line-height:2.2;
-    color:#4d4035;
-    font-size:17px;
+/* ================= REVIEWS ================= */
+
+.review-wrap{
+
+display:flex;
+
+gap:35px;
+
+flex-wrap:wrap;
+
+margin-top:80px;
 }
 
-/* CUPS */
+.polaroid{
 
-.cups{
-    font-size:28px;
-    margin-bottom:25px;
+width:290px;
+
+background:#f9f2ea;
+
+padding:26px;
+
+transform:rotate(-2deg);
+
+box-shadow:
+0 20px 35px rgba(0,0,0,0.12);
 }
 
-/* NOTE */
-
-.note{
-    margin-top:40px;
-
-    background:#f9f0e6;
-
-    padding:24px 30px;
-
-    border-left:4px solid #7c624d;
-
-    font-family:'Great Vibes', cursive;
-
-    font-size:32px;
-
-    color:#6b5340;
-
-    max-width:500px;
-
-    transform:rotate(-1deg);
-
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+.polaroid:nth-child(2){
+transform:rotate(3deg);
 }
 
-/* CURRENTLY READING */
+.polaroid:nth-child(3){
+transform:rotate(-4deg);
+}
+
+.polaroid h4{
+
+font-size:30px;
+
+margin-bottom:16px;
+}
+
+.polaroid p{
+
+line-height:1.9;
+}
+
+/* ================= CURRENTLY READING ================= */
 
 .reading-box{
-    margin-top:80px;
 
-    background:#ead8c4;
+margin-top:100px;
 
-    border-radius:34px;
+background:#e6d3c0;
 
-    padding:50px;
+border-radius:40px;
 
-    display:flex;
-    gap:40px;
-    align-items:center;
+padding:50px;
 
-    box-shadow:0 16px 30px rgba(0,0,0,0.08);
+display:flex;
+
+gap:40px;
+
+align-items:center;
+
+box-shadow:
+0 18px 35px rgba(0,0,0,0.08);
 }
 
 .reading-box img{
-    width:220px;
-    border-radius:18px;
+
+width:240px;
+
+border-radius:20px;
+
+transform:rotate(-2deg);
+
+box-shadow:
+0 15px 25px rgba(0,0,0,0.15);
 }
 
 .reading-content h3{
-    font-family:'Cormorant Garamond', serif;
-    font-size:56px;
-    margin-bottom:20px;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:62px;
+
+margin-bottom:20px;
 }
 
 .reading-content p{
-    line-height:2;
-    color:#5c4c3f;
+
+line-height:2.1;
+
+color:#5d4c40;
 }
 
-/* POLAROID REVIEWS */
-
-.paper-grid{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:60px;
-}
-
-.paper-review{
-    width:260px;
-    background:#f9f1e8;
-    padding:28px;
-    border-radius:10px;
-
-    transform:rotate(-2deg);
-
-    box-shadow:0 15px 25px rgba(0,0,0,0.08);
-
-    font-family:'Cormorant Garamond', serif;
-}
-
-.paper-review:nth-child(2){
-    transform:rotate(3deg);
-}
-
-.paper-review:nth-child(3){
-    transform:rotate(-4deg);
-}
-
-.paper-review h4{
-    font-size:32px;
-    margin-bottom:14px;
-}
-
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-    padding:140px 8%;
-    text-align:center;
 
-    background:
-    linear-gradient(rgba(26,17,12,0.9),
-    rgba(26,17,12,0.94)),
+padding:170px 8%;
 
-    url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
+text-align:center;
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+background:
 
-    color:#f4eadf;
+linear-gradient(
+rgba(8,6,5,0.92),
+rgba(8,6,5,0.95)
+),
+
+url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+color:var(--cream);
 }
 
 footer h2{
-    font-family:'Cormorant Garamond', serif;
-    font-size:86px;
-    margin-bottom:20px;
+
+font-family:'Cormorant Garamond', serif;
+
+font-size:110px;
+
+margin-bottom:24px;
 }
 
 footer p{
-    max-width:760px;
-    margin:auto;
-    line-height:2.1;
-    color:#e0d2c4;
+
+max-width:720px;
+
+margin:auto;
+
+line-height:2.2;
+
+color:#d9c8b7;
 }
 
 .footer-line{
-    margin-top:50px;
 
-    letter-spacing:4px;
+margin-top:50px;
 
-    text-transform:uppercase;
+font-size:12px;
 
-    font-size:13px;
+letter-spacing:4px;
 
-    color:#bca894;
+text-transform:uppercase;
+
+color:#b89f83;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:1000px){
 
 .hero{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 }
 
 .hero-text h1{
-    font-size:52px;
-    line-height:1;
+font-size:64px;
 }
 
-.vintage-card{
-    width:100%;
-    max-width:420px;
-    height:560px;
+.hero-card{
+width:100%;
+max-width:420px;
+height:560px;
 }
 
 nav ul{
-    display:none;
+display:none;
 }
 
 .section-title{
-    font-size:54px;
+font-size:58px;
 }
 
-.review-box{
-    padding:40px;
+.editorial{
+font-size:46px;
+}
+
+.rain-section h2{
+font-size:58px;
+}
+
+footer h2{
+font-size:70px;
 }
 
 .reading-box{
-    flex-direction:column;
+flex-direction:column;
 }
 
-.quote-strip{
-    font-size:40px;
 }
 
+/* ================= DARK MODE ================= */
+
+body.dark{
+background:#120d0a;
+color:#f3e8dc;
+}
+
+#themeToggle{
+
+position:fixed;
+
+bottom:30px;
+right:30px;
+
+width:60px;
+height:60px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--gold);
+
+color:white;
+
+font-size:22px;
+
+cursor:pointer;
+
+z-index:2000;
+
+box-shadow:
+0 15px 30px rgba(0,0,0,0.2);
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<div class="dust"></div>
+
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
 <div class="logo-box">
 
-<img src="logo.png" alt="Book Nook Logo">
+<img src="logo.png" alt="logo">
 
 <div class="logo-text">
 Book Nook
@@ -702,7 +1003,7 @@ Book Nook
 
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -713,16 +1014,15 @@ Stories That Stay
 </div>
 
 <h1>
-Some books entertain us for a moment,
-while others quietly become a part of us.
+Books That Linger
+After Midnight.
 </h1>
 
 <p>
-They stay in highlighted lines, folded page corners,
-sleepless nights, and the strange comfort of revisiting a story long after it ends.
-<br><br>
-At Book Nook, shelves are arranged less by genre
-and more by feeling.
+Some stories stay behind in highlighted lines,
+coffee stains,
+rainy evenings,
+and the strange comfort of revisiting fictional worlds when reality becomes too loud.
 </p>
 
 <div class="hero-buttons">
@@ -745,11 +1045,11 @@ Browse Reviews
 
 <div class="hero-side">
 
-<div class="vintage-card">
+<div class="hero-card">
 
 <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1200">
 
-<div class="overlay">
+<div class="hero-overlay">
 
 <h2>
 Yours,<br>
@@ -757,9 +1057,8 @@ Book Nook
 </h2>
 
 <p>
-A vintage literary corner
-for stories that linger
-long after the final page.
+A literary corner for stories
+that linger long after the final page.
 </p>
 
 </div>
@@ -770,96 +1069,60 @@ long after the final page.
 
 </section>
 
-<div class="quote-strip">
-“Reading is a form of disappearing.”
+<!-- ================= EDITORIAL ================= -->
+
+<div class="editorial">
+“We remember books because they found us at the right time.”
 </div>
 
-<!-- FAVORITES -->
+<!-- ================= FAVORITES ================= -->
 
 <section>
 
 <h2 class="section-title">
-All-Time Favorites
+All Time
+Favorites
 </h2>
 
 <p class="section-sub">
-Books that stayed behind in highlighted passages,
-midnight breakdowns, and quiet obsessions.
+Books that stayed behind in midnight breakdowns,
+literary obsessions,
+and emotional damage.
 </p>
 
 <div class="book-grid">
 
 <div class="book">
-
-<img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1200">
-
-<div class="book-overlay">
-
-<h3>
-The Secret History
-</h3>
-
-<p>
-Dark academia,
-obsession,
-beauty,
-and destruction.
-</p>
-
-</div>
-
+<h3>The Secret History</h3>
 </div>
 
 <div class="book">
-
-<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200">
-
-<div class="book-overlay">
-
-<h3>
-The Song of Achilles
-</h3>
-
-<p>
-Poetic mythology,
-love,
-and inevitable tragedy.
-</p>
-
-</div>
-
+<h3>The Song of Achilles</h3>
 </div>
 
 <div class="book">
+<h3>The Night Circus</h3>
+</div>
 
-<img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1200">
-
-<div class="book-overlay">
-
-<h3>
-The Night Circus
-</h3>
-
-<p>
-Dreamlike magic,
-midnight wonder,
-and illusion.
-</p>
-
+<div class="book">
+<h3>Norwegian Wood</h3>
 </div>
 
 </div>
 
+<div class="hand-note">
+Some stories arrive exactly when we need them.
 </div>
 
 </section>
 
-<!-- MOODS -->
+<!-- ================= MOODS ================= -->
 
 <section>
 
 <h2 class="section-title">
-Mood Swings
+Mood
+Swings
 </h2>
 
 <p class="section-sub">
@@ -878,8 +1141,7 @@ Need A Good Cry
 <p>
 A Little Life,
 The Book Thief,
-The Fault in Our Stars,
-and emotional destruction disguised as literature.
+and books that emotionally ruin you beautifully.
 </p>
 
 </div>
@@ -891,9 +1153,10 @@ Cozy Escapes
 </h3>
 
 <p>
-Before the Coffee Gets Cold,
-The House in the Cerulean Sea,
-and stories that feel like rainy evenings.
+Rainy evenings,
+soft jazz,
+coffee cups,
+and disappearing into another world.
 </p>
 
 </div>
@@ -905,9 +1168,9 @@ Thriller Thrills
 </h3>
 
 <p>
-The Silent Patient,
-psychological tension,
-and twists that keep you awake at 2 AM.
+Psychological tension,
+unreliable narrators,
+and books that keep you awake at 2 AM.
 </p>
 
 </div>
@@ -916,41 +1179,72 @@ and twists that keep you awake at 2 AM.
 
 </section>
 
-<!-- REVIEWS -->
+<!-- ================= RAIN SECTION ================= -->
 
-<section class="review-section">
-
-<h2 class="section-title">
-Shelf Reviews
-</h2>
-
-<p class="section-sub">
-Detailed thoughts,
-forgettable sleep schedules,
-and unforgettable books.
-</p>
-
-<div class="review-box">
-
-<div class="cups">
-☕ ☕ ☕ ☕ ☕
-</div>
+<section class="rain-section">
 
 <h2>
-The Seven Husbands of Evelyn Hugo
+For Rainy Evenings
 </h2>
 
 <p>
-Hollywood legend Evelyn Hugo finally reveals the truth behind her glamorous life,
-controversial marriages,
-fame,
-ambition,
-heartbreak,
-and the love she spent years protecting.
+Books best read beside dim lamps,
+window rain,
+coffee stains,
+and unresolved feelings.
 </p>
 
-<div class="note">
-“Some books don't leave quietly.”
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section>
+
+<h2 class="section-title">
+Midnight
+Annotations
+</h2>
+
+<p class="section-sub">
+Thoughts left behind after unforgettable stories.
+</p>
+
+<div class="review-wrap">
+
+<div class="polaroid">
+
+<h4>
+☕ ☕ ☕ ☕ ☕
+</h4>
+
+<p>
+This book felt like staring outside a train window at 1 AM.
+</p>
+
+</div>
+
+<div class="polaroid">
+
+<h4>
+☕ ☕ ☕ ☕
+</h4>
+
+<p>
+Emotionally damaging but somehow comforting.
+</p>
+
+</div>
+
+<div class="polaroid">
+
+<h4>
+☕ ☕ ☕ ☕ ☕
+</h4>
+
+<p>
+I closed the book and just stared at the ceiling afterwards.
+</p>
+
 </div>
 
 </div>
@@ -968,37 +1262,18 @@ Currently Reading
 <p>
 Norwegian Wood —
 melancholic,
-nostalgic,
 quietly devastating,
-and emotionally haunting.
+nostalgic,
+and haunting in the softest way possible.
 </p>
 
 </div>
 
 </div>
 
-<div class="paper-grid">
-
-<div class="paper-review">
-<h4>☕ ☕ ☕ ☕ ☕</h4>
-“This book felt like rain at 2 AM.”
-</div>
-
-<div class="paper-review">
-<h4>☕ ☕ ☕ ☕</h4>
-“Emotionally damaging but worth it.”
-</div>
-
-<div class="paper-review">
-<h4>☕ ☕ ☕ ☕ ☕</h4>
-“I’m still thinking about the ending.”
-</div>
-
-</div>
-
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -1008,34 +1283,37 @@ Book Nook.
 </h2>
 
 <p>
-So take your time,
-wander through the shelves,
-and stay awhile.
-There’s probably a story here waiting to find you.
+Take your time.
+Wander through the shelves.
+There is probably a story here waiting to find you.
 </p>
 
 <div class="footer-line">
-Vintage Stories • Cozy Shelves • Endless Feelings
+Vintage Stories • Midnight Shelves • Endless Feelings
 </div>
 
 </footer>
 
+<button id="themeToggle">
+☾
+</button>
+
 <script>
 
-/* SCROLL ANIMATION */
+/* SCROLL REVEAL */
 
-const sections = document.querySelectorAll("section");
+const sections=document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-sections.forEach(sec => {
+sections.forEach(sec=>{
 
-const top = sec.getBoundingClientRect().top;
+const top=sec.getBoundingClientRect().top;
 
-if(top < window.innerHeight - 100){
+if(top<window.innerHeight-100){
 
-sec.style.opacity = "1";
-sec.style.transform = "translateY(0px)";
+sec.style.opacity="1";
+sec.style.transform="translateY(0px)";
 
 }
 
@@ -1043,24 +1321,34 @@ sec.style.transform = "translateY(0px)";
 
 });
 
-/* LOAD FIRST SECTION */
+/* FIRST LOAD */
 
-window.onload = () => {
+window.onload=()=>{
 
-sections.forEach(sec => {
+sections.forEach(sec=>{
 
-const top = sec.getBoundingClientRect().top;
+const top=sec.getBoundingClientRect().top;
 
-if(top < window.innerHeight){
+if(top<window.innerHeight){
 
-sec.style.opacity = "1";
-sec.style.transform = "translateY(0px)";
+sec.style.opacity="1";
+sec.style.transform="translateY(0px)";
 
 }
 
 });
 
 };
+
+/* DARK MODE */
+
+const toggle=document.getElementById("themeToggle");
+
+toggle.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+}
 
 </script>
 
