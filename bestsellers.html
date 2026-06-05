@@ -1,118 +1,168 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Special+Elite&family=Shadows+Into+Light&display=swap" rel="stylesheet"><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookNook | Bestsellers</title><!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Special+Elite&display=swap" rel="stylesheet"><style>
 
+/* GLOBAL */
 body {
-    background: #0f0f0f;
-    font-family: 'Playfair Display', serif;
-    color: #fff;
-    padding: 40px;
+    margin: 0;
+    background: #0e0e0e;
+    font-family: 'Special Elite', cursive;
+    color: #2c2c2c;
 }
 
-/* ENVELOPE CARD */
-.envelope {
-    width: 340px;
-    margin: auto;
-    background: #f4e9dc;
-    color: #000;
-    padding: 20px;
+/* INTRO */
+.intro {
+    max-width: 900px;
+    margin: 80px auto 40px;
+    background: #d8cbbd;
+    padding: 50px;
+    line-height: 1.9;
+    font-size: 18px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.intro-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* BOOK SECTION */
+.book-section {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+/* BOOK CARD */
+.book-card {
+    width: 350px;
+    background: #d8cbbd;
+    padding: 30px;
     position: relative;
-    cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease;
 }
 
-/* BOOK + COFFEE IMAGE */
-.book-img {
-    width: 100%;
-    height: 190px;
-    background: url('/mnt/data/1000086349.jpg') center/cover;
-    border-radius: 6px;
+.book-card:hover {
+    transform: translateY(-10px) scale(1.02);
 }
 
-/* HEADER INFO */
-.book-info {
-    margin-top: 15px;
-    font-size: 14px;
-    line-height: 1.6;
+.book-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 5px;
+}
+
+.author {
+    margin-bottom: 10px;
 }
 
 .rating {
-    margin-top: 5px;
-}
-
-/* WAX SEAL */
-.seal {
-    width: 65px;
-    height: 65px;
-    background: radial-gradient(circle, #8b0000, #5a0000);
-    border-radius: 50%;
-    position: absolute;
-    bottom: -30px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 11px;
-    font-family: 'Special Elite';
-    text-align: center;
-}
-
-/* FULL LETTER */
-.full-letter {
-    display: none;
-    margin-top: 50px;
-    background: #f4e9dc;
-    color: #000;
-    padding: 30px;
-    font-family: 'Special Elite';
-    line-height: 1.8;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* HEADINGS */
-.section-title {
-    font-family: 'Playfair Display';
-    font-size: 22px;
-    margin-top: 25px;
-}
-
-/* HANDWRITTEN */
-.handwritten {
-    font-family: 'Shadows Into Light';
-    color: #a67c52;
+    color: gold;
     font-size: 18px;
-    margin-top: 10px;
+}
+
+/* BUTTON */
+.read-more {
+    position: absolute;
+    right: -25px;
+    bottom: -25px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #8b0000, #4b0000);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    transform: scale(1.1);
+}
+
+/* REVIEW */
+.review {
+    display: none;
+    max-width: 900px;
+    margin: 80px auto;
+    background: #d8cbbd;
+    padding: 50px;
+    line-height: 1.8;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.review h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.review h3 {
+    margin-top: 30px;
+}
+
+/* QUOTE */
+.quote {
+    font-style: italic;
+    color: #7a5c4d;
+    margin-top: 15px;
 }
 
 /* WARNING BOX */
 .warning {
-    margin-top: 25px;
-    padding: 18px;
     border: 2px dashed red;
-    font-size: 14px;
-    background: #fff3f3;
+    padding: 25px;
+    margin-top: 25px;
+    background: #f3e9e4;
+    line-height: 1.7;
 }
 
-/* LITTLE NOTE */
-.note {
-    margin-top: 10px;
-    font-style: italic;
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .intro, .review {
+        margin: 40px 15px;
+        padding: 25px;
+    }
+
+    .book-card {
+        width: 90%;
+    }
+
+    .read-more {
+        width: 70px;
+        height: 70px;
+    }
 }
 
-</style></head><body><div class="envelope" onclick="openLetter()"><div class="book-img"></div>
+</style></head><body><!-- INTRO --><section class="intro">
+    <p class="intro-title">Every bookshelf has a few stories that never gather dust🌬️.</p><p>
+These are the books that made readers laugh🤣, cry🥹, wonder😲, and stay up far too late turning pages📖. 
+The novels that traveled from friend to friend💞, sparked endless discussions🗣️, and found a permanent 
+place in readers' hearts.♥️
+</p>
 
-<div class="book-info">
-    <b>The Fault in Our Stars</b><br>
-    John Green<br>
-    <div class="rating">⭐⭐⭐⭐⭐ (5/5 Stars!)</div>
+<p>
+From beloved classics to modern favorites, this collection brings together twenty remarkable books 
+that have captivated millions around the world.🌍✨
+</p>
+
+</section><!-- BOOK CARD --><section class="book-section"><div class="book-card">
+    <h3>The Fault in Our Stars⭐✨</h3>
+    <p class="author">John Green</p>
+
+    <div class="rating">
+        ★★★★★ <span>(5/5 Stars!)</span>
+    </div>
+
+    <button class="read-more" onclick="toggleReview()">
+        Read More
+    </button>
 </div>
 
-<div class="seal">Read<br>More</div>
-
-</div><div class="full-letter" id="letter"><h2>BookNook Special Review</h2>
+</section><!-- REVIEW --><section class="review" id="reviewSection"><h2>BookNook Special Review</h2>
 
 <p>
 This novel follows Hazel Grace and Augustus Waters, two teenagers navigating love while facing terminal illness. 
@@ -121,34 +171,48 @@ It brilliantly captures the raw reality of chronic illness while celebrating the
 It is an unforgettable masterpiece that leaves you entirely undone.
 </p>
 
-<div class="section-title">Why I Wrote This:</div>
+<h3>Why I Wrote This:</h3>
 
 <p>
 I wrote this to highlight a book that completely redefines tragedy in literature. 
-It doesn't just aim to make the reader cry; it forces us to appreciate the fragile beauty of existence and the power of a poignant, well-crafted narrative.
+It doesn't just aim to make the reader cry; it forces us to appreciate the fragile beauty of existence 
+and the power of a poignant, well-crafted narrative.
 </p>
 
-<div class="handwritten">
+<p class="quote">
     this one didn’t just hurt… it stayed.
-</div>
+</p>
 
-<div class="section-title">Note to Reader:</div>
+<h3>Note to Reader:</h3>
 
 <div class="warning">
-    ⚠️ <b>EMOTIONAL HEALTH CHECK!</b> ⚠️<br><br>
+    <p><b>⚠ EMOTIONAL HEALTH CHECK ⚠</b></p>
 
-    If you are currently looking for a cozy, happy-go-lucky vibe, or if you are already in your feelings and feeling sad... 
-    <b>ABORT MISSION! DO NOT READ THIS RIGHT NOW!</b> 🛑🙅‍♀️<br><br>
+    <p>
+    If you are currently looking for a cozy, happy-go-lucky vibe, or if you are already in your feelings 
+    and feeling sad... <b>ABORT MISSION! DO NOT READ THIS RIGHT NOW!</b> 🚫
+    </p>
 
-    This book is an absolute tear-jerker that will completely wreck your mascara. 😭💔<br><br>
+    <p>
+    This book is an absolute tear-jerker that will completely wreck your mascara. 😭💔
+    </p>
 
-    Save this beautiful heartbreak for a day when you have a full box of tissues, 
-    a giant tub of ice cream, and are ready for a 10/10 emotional rollercoaster! 🍦🎢✨
+    <p>
+    Save this beautiful heartbreak for a day when you have a full box of tissues, a giant tub of ice cream, 
+    and are ready for a 10/10 emotional rollercoaster! 🍦🎢✨
+    </p>
 </div>
 
-</div><script>
-function openLetter() {
-    document.getElementById("letter").style.display = "block";
+</section><!-- SCRIPT --><script>
+function toggleReview() {
+    const review = document.getElementById("reviewSection");
+
+    if (review.style.display === "none" || review.style.display === "") {
+        review.style.display = "block";
+        review.scrollIntoView({ behavior: "smooth" });
+    } else {
+        review.style.display = "none";
+    }
 }
 </script></body>
 </html>
