@@ -7,160 +7,177 @@
 
 <style>
 
-/* ===== BODY ===== */
+/* ================= BASE ================= */
 body{
   margin:0;
-  background: #e9dfcf;
   font-family: Georgia, serif;
+  background:#e9dfcf;
+  overflow-x:hidden;
   color:#2f241f;
 }
 
-/* ===== PAPER BACKGROUND ===== */
-.bestsellers-section{
-  padding:60px 20px;
-  background:
-    radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* ===== TITLE (INK STYLE) ===== */
-.vintage-title{
-  text-align:center;
-  font-size:48px;
-  letter-spacing:4px;
-  font-family:"Times New Roman", serif;
-  text-transform:uppercase;
-  color:#2a1e1a;
-  margin-bottom:20px;
-  text-shadow: 1px 1px 0 #fff3e6;
-}
-
-/* ===== INTRO (LETTER PARAGRAPH STYLE) ===== */
-.intro-text{
-  max-width:850px;
-  margin:0 auto 60px auto;
-  font-size:16px;
-  line-height:1.9;
-  color:#3a2b25;
-  background:#fff7ec;
-  padding:25px 30px;
-  border-left:4px solid #7a5a45;
-  box-shadow: 6px 6px 0 #c9b79c;
-  position:relative;
-}
-
-/* subtle stain */
-.intro-text:before{
+/* ================= AMBIENT LIGHT ================= */
+body:before{
   content:"";
-  position:absolute;
-  top:-20px;
-  right:-20px;
-  width:80px;
-  height:80px;
-  background:rgba(160,120,90,0.15);
-  border-radius:50%;
-  filter: blur(2px);
-}
-
-/* ===== LETTER CARD ===== */
-.book-letter{
-  max-width:800px;
-  margin:0 auto;
-  background:#fff8ee;
-  padding:40px;
-  position:relative;
-  border:1px solid #3a2b25;
-  box-shadow: 12px 12px 0 #b79c7f;
-  transform: rotate(-0.3deg);
-}
-
-/* torn paper top edge illusion */
-.book-letter:before{
-  content:"";
-  position:absolute;
-  top:-10px;
+  position:fixed;
+  top:0;
   left:0;
   width:100%;
-  height:20px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #e9dfcf,
-      #e9dfcf 10px,
-      #fff8ee 10px,
-      #fff8ee 20px
-    );
+  height:100%;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 60%),
+              radial-gradient(circle at 70% 80%, rgba(0,0,0,0.08), transparent 60%);
+  pointer-events:none;
 }
 
-/* handwritten feel for title */
-.book-title{
-  font-size:22px;
-  font-weight:bold;
-  letter-spacing:1px;
-  margin-bottom:5px;
+/* ================= FLOATING DUST ================= */
+.dust{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
 }
 
-/* author ink style */
-.author{
-  font-style:italic;
-  color:#5a443a;
-  margin-bottom:10px;
+.dust span{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:rgba(0,0,0,0.08);
+  border-radius:50%;
+  animation: float 12s linear infinite;
 }
 
-/* rating */
-.rating, .genre{
-  margin-bottom:10px;
+@keyframes float{
+  0%{transform:translateY(100vh) translateX(0);}
+  100%{transform:translateY(-10vh) translateX(40px);}
 }
 
-/* content spacing like letter paragraphs */
-.story, .text{
-  line-height:1.8;
-  margin-bottom:12px;
+/* ================= TITLE ================= */
+.title{
+  text-align:center;
+  font-size:52px;
+  letter-spacing:4px;
+  margin-top:40px;
+  font-family:"Times New Roman", serif;
+  text-transform:uppercase;
 }
 
-/* section headings like ink underlined */
-.section-heading{
-  margin-top:18px;
-  font-weight:bold;
-  display:inline-block;
-  border-bottom:1px dashed #5a443a;
-  padding-bottom:2px;
+/* ================= ENVELOPE INTRO ================= */
+.intro{
+  max-width:850px;
+  margin:40px auto;
+  background:#fff7ec;
+  padding:30px;
+  border-left:5px solid #7a5a45;
+  box-shadow:10px 10px 0 #b79c7f;
+  animation: openLetter 1.5s ease;
 }
 
-/* mood tags */
-.mood, .perfect-for, .verdict{
-  margin-top:10px;
+@keyframes openLetter{
+  from{transform:scale(0.9) rotate(-2deg); opacity:0;}
+  to{transform:scale(1) rotate(0deg); opacity:1;}
 }
 
-/* paper fold corner */
-.fold{
+/* ================= BOOK STACK ================= */
+.book{
+  max-width:800px;
+  margin:60px auto;
+  position:relative;
+  opacity:0;
+  transform:translateY(60px) scale(0.98);
+  transition:all 1s ease;
+}
+
+/* reveal animation */
+.book.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* layered paper effect */
+.paper{
+  background:#fff8ee;
+  padding:35px;
+  border:1px solid #3a2b25;
+  box-shadow: 12px 12px 0 #b79c7f;
+  position:relative;
+}
+
+/* extra depth layer */
+.paper:before{
+  content:"";
+  position:absolute;
+  top:8px;
+  left:8px;
+  width:100%;
+  height:100%;
+  background:#f3e6d7;
+  z-index:-1;
+}
+
+/* fold corner */
+.paper:after{
+  content:"";
   position:absolute;
   top:0;
   right:0;
-  width:90px;
-  height:90px;
+  width:80px;
+  height:80px;
   background:linear-gradient(135deg,#e6d4bd 50%,#fff8ee 50%);
   border-left:1px solid #3a2b25;
   border-bottom:1px solid #3a2b25;
 }
 
-/* pinned note effect */
-.pin{
-  position:absolute;
-  top:-12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:14px;
-  height:14px;
-  background:#8b5e3c;
-  border-radius:50%;
-  box-shadow:0 2px 0 #5a3d28;
+/* TEXT */
+h2{
+  margin:0;
+  font-size:22px;
 }
 
-/* hover like lifting paper */
-.book-letter:hover{
-  transform: rotate(0deg) scale(1.01);
-  transition:0.3s ease;
+.author{
+  font-style:italic;
+  color:#5a443a;
+}
+
+.section-title{
+  margin-top:15px;
+  display:inline-block;
+  border-bottom:1px dashed #5a443a;
+  font-weight:bold;
+}
+
+/* hover lift */
+.paper:hover{
+  transform:translateY(-5px);
+  transition:0.4s ease;
+}
+
+/* ================= END SCENE ================= */
+.end{
+  text-align:center;
+  margin:100px 0;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+.back{
+  display:inline-block;
+  padding:12px 25px;
+  background:#fff7ec;
+  border:2px solid #3a2b25;
+  box-shadow:6px 6px 0 #b79c7f;
+  text-decoration:none;
+  color:#2f241f;
+  font-family:"Times New Roman";
+  transition:0.3s;
+}
+
+.back:hover{
+  transform:scale(1.05);
 }
 
 </style>
@@ -168,75 +185,83 @@ body{
 
 <body>
 
-<section class="bestsellers-section">
+<!-- dust particles -->
+<div class="dust">
+  <span style="left:10%; animation-delay:0s;"></span>
+  <span style="left:30%; animation-delay:2s;"></span>
+  <span style="left:50%; animation-delay:4s;"></span>
+  <span style="left:70%; animation-delay:1s;"></span>
+  <span style="left:90%; animation-delay:3s;"></span>
+</div>
 
-  <h1 class="vintage-title">Bestsellers</h1>
+<div class="title">Bestsellers</div>
 
-  <p class="intro-text">
-    Every bookshelf has a few stories that never gather dust.<br><br>
+<div class="intro">
+Every bookshelf has a few stories that never gather dust.<br><br>
+These books made readers laugh, cry, wonder, and stay up far too late turning pages.<br><br>
+Welcome to Book Nook's Bestseller Shelf—where every story has earned its place.
+</div>
 
-    These are the books that made readers laugh, cry, wonder, and stay up far too late turning pages.
-    The novels that traveled from friend to friend, sparked endless discussions, and found a permanent place in readers' hearts.<br><br>
+<!-- ================= BOOK 1 ================= -->
+<div class="book">
+  <div class="paper">
+    <h2>1. The Seven Husbands of Evelyn Hugo</h2>
+    <div class="author">by Taylor Jenkins Reid</div>
 
-    From beloved classics to modern favorites, this collection brings together twenty remarkable books that have captivated millions around the world.<br><br>
-
-    Welcome to Book Nook's Bestseller Shelf—where every story has earned its place.
-  </p>
-
-  <!-- LETTER STYLE BOOK CARD -->
-  <div class="book-letter">
-
-    <div class="fold"></div>
-    <div class="pin"></div>
-
-    <h2 class="book-title">1. THE SEVEN HUSBANDS OF EVELYN HUGO</h2>
-
-    <p class="author">by Taylor Jenkins Reid</p>
-
-    <p class="rating">⭐⭐⭐⭐⭐ 4.8/5</p>
-
-    <p class="genre">Genre: Historical Fiction • Contemporary Fiction</p>
-
-    <p class="story">
-      Aging Hollywood legend Evelyn Hugo finally decides to tell the truth about her glamorous and controversial life.
-      As she recounts decades of fame, scandal, ambition, and love to an unknown journalist, hidden secrets begin to emerge that change everything.
+    <div class="section-title">Book Nook Review</div>
+    <p>
+      A glamorous yet deeply emotional story of fame, love, and sacrifice.
+      Evelyn Hugo is unforgettable — flawed, powerful, and human in every way.
     </p>
-
-    <p class="section-heading">Why It's a Bestseller:</p>
-    <p class="text">
-      An irresistible blend of old Hollywood glamour, compelling drama, and emotional storytelling.
-    </p>
-
-    <p class="section-heading">Book Nook Review:</p>
-    <p class="text">
-      The Seven Husbands of Evelyn Hugo is one of those rare books that completely lives up to the hype.
-      Evelyn is a fascinating character—ambitious, flawed, courageous, and unforgettable.
-      Every chapter reveals another layer of her personality, making it impossible to stop reading.<br><br>
-
-      What begins as a story about fame quickly transforms into a deeply emotional exploration of identity, sacrifice,
-      and the cost of chasing success. The novel's emotional core is surprisingly powerful, leaving readers thinking
-      about its characters long after the final page.
-    </p>
-
-    <p class="mood">
-      Mood: 🎬 Glamorous • 💔 Emotional • ✨ Addictive
-    </p>
-
-    <p class="perfect-for">
-      Perfect For:<br>
-      ✓ Character-driven stories<br>
-      ✓ Historical fiction lovers<br>
-      ✓ Emotional drama readers
-    </p>
-
-    <p class="verdict">
-      Book Nook Verdict:<br>
-      A captivating novel filled with secrets, heartbreak, and unforgettable characters.
-    </p>
-
   </div>
+</div>
 
-</section>
+<!-- ================= BOOK 2 (template) ================= -->
+<div class="book">
+  <div class="paper">
+    <h2>2. Add Your Next Book</h2>
+    <div class="author">Author Name</div>
+
+    <div class="section-title">Book Nook Review</div>
+    <p>
+      Replace this with your next review. This structure is reusable for all 20 books.
+    </p>
+  </div>
+</div>
+
+<!-- ================= BOOK 3 ================= -->
+<div class="book">
+  <div class="paper">
+    <h2>3. Add Another Book</h2>
+    <div class="author">Author Name</div>
+
+    <div class="section-title">Book Nook Review</div>
+    <p>
+      Each book appears like a letter being placed on an old desk.
+    </p>
+  </div>
+</div>
+
+<!-- ================= END SCENE ================= -->
+<div class="end">
+  <p style="font-style:italic;">You’ve reached the end of the shelf.</p>
+  <a class="back" href="index.html">← Close Book & Return Home</a>
+</div>
+
+<!-- ================= SCROLL REVEAL SCRIPT ================= -->
+<script>
+const books = document.querySelectorAll('.book');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+books.forEach(book=>observer.observe(book));
+</script>
 
 </body>
 </html>
