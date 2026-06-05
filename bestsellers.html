@@ -1,226 +1,224 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Book Nook - Bestsellers</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From My Shelf</title><!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Special+Elite&family=Shadows+Into+Light&display=swap" rel="stylesheet"><style>
 
-/* ===== BACKGROUND ===== */
-body{
-  margin:0;
-  font-family: "Georgia", serif;
-  background:#1f1a16;
-  color:#2f241f;
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: #f5f5f5;
+    font-family: 'Playfair Display', serif;
 }
 
-/* soft glow */
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,220,180,0.12), transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(255,240,210,0.08), transparent 60%);
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: #000;
 }
 
-/* ===== TITLE ===== */
-.title{
-  text-align:center;
-  font-size:48px;
-  margin-top:40px;
-  color:#f3e6d7;
-  letter-spacing:3px;
+nav h1 {
+    font-size: 26px;
 }
 
-/* ===== INTRO ===== */
-.intro{
-  max-width:850px;
-  margin:30px auto 60px;
-  padding:25px;
-  color:#f5e6d8;
-  font-style:italic;
-  border-left:3px solid #c9a87c;
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
 }
 
-/* ===== ENVELOPE ===== */
-.book{
-  max-width:800px;
-  margin:50px auto;
-  perspective:1000px;
+nav ul li {
+    cursor: pointer;
+    opacity: 0.7;
 }
 
-/* envelope base */
-.envelope{
-  background:#e8d3b5;
-  padding:25px;
-  position:relative;
-  box-shadow: 12px 12px 0 #8a6a4f;
-  transform: rotate(-1deg);
+nav ul li:hover {
+    opacity: 1;
 }
 
-/* flap */
-.envelope:before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:80px;
-  background:linear-gradient(135deg,#d9bfa0 50%, transparent 50%);
+/* HERO */
+.hero {
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') center/cover;
+    display: flex;
+    align-items: center;
+    padding: 60px;
 }
 
-/* ===== LETTER ===== */
-.letter{
-  background:#fff6ea;
-  padding:25px;
-  border:1px solid #3a2b25;
-  transform: translateY(-20px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+.hero-text h2 {
+    font-size: 70px;
+    margin: 0;
 }
 
-/* preview */
-.preview h2{
-  margin:0;
-  font-size:22px;
+.hero-text p {
+    font-family: 'Special Elite', monospace;
+    margin-top: 10px;
 }
 
-.author{
-  font-style:italic;
-  color:#5a443a;
+/* LETTER */
+.letter {
+    margin: 80px auto;
+    width: 60%;
+    background: #f4e9dc;
+    color: #222;
+    padding: 30px;
+    cursor: pointer;
+    transition: 0.4s;
+    position: relative;
 }
 
-.stars{
-  color:#a06b2f;
+.letter.closed {
+    height: 60px;
+    overflow: hidden;
 }
 
-/* button */
-button{
-  margin-top:12px;
-  padding:8px 15px;
-  border:1px solid #3a2b25;
-  background:#fff0db;
-  cursor:pointer;
-  box-shadow:4px 4px 0 #8a6a4f;
+.letter::before {
+    content: "To whoever finds this...";
+    font-family: 'Shadows Into Light', cursive;
 }
 
-/* ===== FULL LETTER ===== */
-.full{
-  display:none;
-  margin-top:20px;
-  border-top:1px dashed #3a2b25;
-  padding-top:20px;
-  line-height:1.8;
+.letter.open::before {
+    content: "";
 }
 
-/* open animation */
-.book.open .full{
-  display:block;
+.letter-content {
+    margin-top: 20px;
+    font-family: 'Special Elite';
 }
 
-/* ===== SECTIONS ===== */
-.section{
-  margin-top:14px;
-  padding-left:10px;
-  border-left:2px solid #c9a87c;
+/* SHELF */
+.section {
+    padding: 80px 60px;
 }
 
-/* verdict */
-.verdict{
-  margin-top:18px;
-  background:#f3e1c7;
-  padding:12px;
-  border:1px dashed #8a6a4f;
+.section h3 {
+    font-size: 40px;
+    margin-bottom: 30px;
 }
 
-/* signature */
-.signature{
-  margin-top:20px;
-  text-align:right;
-  font-style:italic;
-  color:#5a443a;
+.books {
+    display: flex;
+    gap: 30px;
 }
 
-/* ===== BACK ===== */
-.end{
-  text-align:center;
-  margin:80px 0;
+.book {
+    width: 140px;
+    height: 200px;
+    background: #333;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-a{
-  color:#f3e6d7;
-  text-decoration:none;
-  border:1px solid #c9a87c;
-  padding:10px 18px;
+.book:hover {
+    transform: translateY(-10px);
 }
 
-</style></head><body><div class="title">Bestsellers</div><div class="intro">
-Every bookshelf holds a few stories that never gather dust.<br><br>
-These are the ones passed from reader to reader, whispered about, remembered long after the final page.<br><br>
-Welcome to Book Nook’s Bestseller Shelf — where every story has earned its place.
-</div><div class="book">  <div class="envelope"><div class="letter">
+/* BOOK POPUP */
+.book-info {
+    position: absolute;
+    bottom: -120px;
+    left: 0;
+    width: 200px;
+    background: #f4e9dc;
+    color: #000;
+    padding: 10px;
+    font-size: 12px;
+    display: none;
+}
 
-  <!-- PREVIEW -->
-  <div class="preview">
-    <div class="stars">⭐⭐⭐⭐⭐ 4.8</div>
-    <h2>The Seven Husbands of Evelyn Hugo</h2>
-    <div class="author">by Taylor Jenkins Reid</div>
-    <button onclick="toggle(this)">Open Letter</button>
-  </div>
+.book:hover .book-info {
+    display: block;
+}
 
-  <!-- FULL -->
-  <div class="full">
+/* HANDWRITTEN NOTES */
+.note {
+    font-family: 'Shadows Into Light';
+    color: #c9a96e;
+    margin-top: 10px;
+}
 
-    <div class="section">
-      <b>Genre:</b> Historical Fiction • Contemporary Fiction
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 60px;
+    opacity: 0.6;
+}
+
+</style></head><body><nav>
+    <h1>Book Nook</h1>
+    <ul>
+        <li>Bestsellers</li>
+        <li>Favourites</li>
+        <li>Reviews</li>
+    </ul>
+</nav><!-- HERO --><section class="hero">
+    <div class="hero-text">
+        <h2>Not bestsellers.<br>Just unforgettable.</h2>
+        <p>These are the stories that refused to leave.</p>
+        <div class="note">you’ve been warned.</div>
+    </div>
+</section><!-- LETTER --><div class="letter closed" onclick="toggleLetter(this)">
+    <div class="letter-content">
+        <p>Hey,</p>
+        <p>I didn’t mean to make this list.</p>
+        <p>It just… happened.</p>
+        <p>Some of these broke me.<br>Some fixed me.</p>
+        <p>Most did both.</p>
+        <p>— P</p>
+    </div>
+</div><!-- SECTION 1 --><section class="section">
+    <h3>Stayed up till 3AM</h3>
+    <div class="books">    <div class="book">
+        <div class="book-info">
+            “just one more chapter (lies)”<br>
+            Mood: Rain + chaos
+        </div>
     </div>
 
-    <div class="section">
-      <b>Why It's a Bestseller:</b><br>
-      An irresistible blend of old Hollywood glamour, compelling drama, and emotional storytelling.
+    <div class="book">
+        <div class="book-info">
+            “I couldn’t stop.”<br>
+            Mood: obsession
+        </div>
     </div>
-
-    <div class="section">
-      <b>Book Nook Review:</b><br>
-      The Seven Husbands of Evelyn Hugo is one of those rare books that completely lives up to the hype. Evelyn is a fascinating character—ambitious, flawed, courageous, and unforgettable.<br><br>
-      What begins as a story about fame slowly transforms into something far deeper—a reflection on identity, sacrifice, and the cost of ambition. It stays with you long after the final page.
-    </div>
-
-    <div class="section">
-      <b>Mood:</b><br>
-      🎬 Glamorous • 💔 Emotional • ✨ Addictive
-    </div>
-
-    <div class="section">
-      <b>Perfect For:</b><br>
-      ✓ Fans of character-driven stories<br>
-      ✓ Readers who love drama<br>
-      ✓ Historical fiction lovers
-    </div>
-
-    <div class="verdict">
-      <b>Book Nook Verdict:</b><br>
-      A captivating novel filled with secrets, heartbreak, and unforgettable characters.
-    </div>
-
-    <div class="signature">
-      — Book Nook
-    </div>
-
-  </div>
 
 </div>
+<div class="note">coffee stains included ☕</div>
 
-  </div></div><div class="end">
-  <a href="#">← Back to Home</a>
+</section><!-- SECTION 2 --><section class="section">
+    <h3>This one hurt.</h3>
+    <div class="books">    <div class="book">
+        <div class="book-info">
+            “I wasn’t ready for this ending.”<br>
+            Mood: silence
+        </div>
+    </div>
+
+</div>
+<div class="note">read at your own risk.</div>
+
+</section><!-- SECTION 3 --><section class="section">
+    <h3>Felt like home.</h3>
+    <div class="books">    <div class="book">
+        <div class="book-info">
+            “I go back to this one.”<br>
+            Mood: comfort
+        </div>
+    </div>
+
+</div>
+<div class="note">this one stays.</div>
+
+</section><div class="footer">
+    Still adding to this shelf…<br>
+    Some stories take time to settle.
 </div><script>
-
-function toggle(btn){
-  const book = btn.closest(".book");
-  book.classList.toggle("open");
-
-  btn.innerText = book.classList.contains("open") 
-    ? "Close Letter" 
-    : "Open Letter";
+function toggleLetter(el) {
+    el.classList.toggle("closed");
+    el.classList.toggle("open");
 }
-
 </script></body>
 </html>
