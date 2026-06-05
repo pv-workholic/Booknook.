@@ -6,113 +6,163 @@
 <title>Book Nook - Bestsellers</title>
 
 <style>
-/* ===== BASE ===== */
-body {
-  margin: 0;
+
+/* ===== BODY ===== */
+body{
+  margin:0;
+  background: #e9dfcf;
   font-family: Georgia, serif;
-  background: #f6f1e7;
-  color: #3b2f2f;
+  color:#2f241f;
 }
 
-/* ===== SECTION ===== */
-.bestsellers-section {
-  padding: 60px 20px;
+/* ===== PAPER BACKGROUND ===== */
+.bestsellers-section{
+  padding:60px 20px;
+  background:
+    radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* ===== INTRO ===== */
-.vintage-title {
-  font-size: 44px;
-  text-align: center;
-  letter-spacing: 3px;
-  font-family: "Times New Roman", serif;
-  color: #2b1f1f;
-  margin-bottom: 25px;
-  text-transform: uppercase;
+/* ===== TITLE (INK STYLE) ===== */
+.vintage-title{
+  text-align:center;
+  font-size:48px;
+  letter-spacing:4px;
+  font-family:"Times New Roman", serif;
+  text-transform:uppercase;
+  color:#2a1e1a;
+  margin-bottom:20px;
+  text-shadow: 1px 1px 0 #fff3e6;
 }
 
-.intro-text {
-  max-width: 850px;
-  margin: 0 auto 50px auto;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.8;
-  color: #4a3b3b;
+/* ===== INTRO (LETTER PARAGRAPH STYLE) ===== */
+.intro-text{
+  max-width:850px;
+  margin:0 auto 60px auto;
+  font-size:16px;
+  line-height:1.9;
+  color:#3a2b25;
+  background:#fff7ec;
+  padding:25px 30px;
+  border-left:4px solid #7a5a45;
+  box-shadow: 6px 6px 0 #c9b79c;
+  position:relative;
 }
 
-/* ===== BOOK CARD ===== */
-.book-placard {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 35px 40px;
-  background: #fffaf3;
-  border: 2px solid #3b2f2f;
-  box-shadow: 10px 10px 0 #c9b79c;
-  transform: rotate(-0.4deg);
-  transition: 0.3s ease;
+/* subtle stain */
+.intro-text:before{
+  content:"";
+  position:absolute;
+  top:-20px;
+  right:-20px;
+  width:80px;
+  height:80px;
+  background:rgba(160,120,90,0.15);
+  border-radius:50%;
+  filter: blur(2px);
 }
 
-/* fold effect */
-.paper-fold {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 85px;
-  height: 85px;
-  background: linear-gradient(135deg, #e8dcc7 50%, #fffaf3 50%);
-  border-left: 2px solid #3b2f2f;
-  border-bottom: 2px solid #3b2f2f;
+/* ===== LETTER CARD ===== */
+.book-letter{
+  max-width:800px;
+  margin:0 auto;
+  background:#fff8ee;
+  padding:40px;
+  position:relative;
+  border:1px solid #3a2b25;
+  box-shadow: 12px 12px 0 #b79c7f;
+  transform: rotate(-0.3deg);
 }
 
-/* hover effect */
-.book-placard:hover {
-  transform: rotate(0deg) scale(1.02);
+/* torn paper top edge illusion */
+.book-letter:before{
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:0;
+  width:100%;
+  height:20px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #e9dfcf,
+      #e9dfcf 10px,
+      #fff8ee 10px,
+      #fff8ee 20px
+    );
 }
 
-/* ===== TEXT STYLES ===== */
-.book-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #2b1f1f;
+/* handwritten feel for title */
+.book-title{
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:1px;
+  margin-bottom:5px;
 }
 
-.author {
-  font-style: italic;
-  margin-bottom: 10px;
-  color: #5a4747;
+/* author ink style */
+.author{
+  font-style:italic;
+  color:#5a443a;
+  margin-bottom:10px;
 }
 
-.rating, .genre {
-  margin-bottom: 8px;
-  color: #4a3b3b;
+/* rating */
+.rating, .genre{
+  margin-bottom:10px;
 }
 
-.story, .text {
-  line-height: 1.7;
-  margin-bottom: 12px;
+/* content spacing like letter paragraphs */
+.story, .text{
+  line-height:1.8;
+  margin-bottom:12px;
 }
 
-.section-heading {
-  font-weight: bold;
-  margin-top: 15px;
-  color: #2b1f1f;
+/* section headings like ink underlined */
+.section-heading{
+  margin-top:18px;
+  font-weight:bold;
+  display:inline-block;
+  border-bottom:1px dashed #5a443a;
+  padding-bottom:2px;
 }
 
-.mood, .perfect-for, .verdict {
-  margin-top: 10px;
+/* mood tags */
+.mood, .perfect-for, .verdict{
+  margin-top:10px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .book-placard {
-    padding: 25px;
-  }
-
-  .vintage-title {
-    font-size: 34px;
-  }
+/* paper fold corner */
+.fold{
+  position:absolute;
+  top:0;
+  right:0;
+  width:90px;
+  height:90px;
+  background:linear-gradient(135deg,#e6d4bd 50%,#fff8ee 50%);
+  border-left:1px solid #3a2b25;
+  border-bottom:1px solid #3a2b25;
 }
+
+/* pinned note effect */
+.pin{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:14px;
+  height:14px;
+  background:#8b5e3c;
+  border-radius:50%;
+  box-shadow:0 2px 0 #5a3d28;
+}
+
+/* hover like lifting paper */
+.book-letter:hover{
+  transform: rotate(0deg) scale(1.01);
+  transition:0.3s ease;
+}
+
 </style>
 </head>
 
@@ -120,7 +170,6 @@ body {
 
 <section class="bestsellers-section">
 
-  <!-- INTRO -->
   <h1 class="vintage-title">Bestsellers</h1>
 
   <p class="intro-text">
@@ -134,11 +183,14 @@ body {
     Welcome to Book Nook's Bestseller Shelf—where every story has earned its place.
   </p>
 
-  <!-- BOOK CARD -->
-  <div class="book-placard">
-    <div class="paper-fold"></div>
+  <!-- LETTER STYLE BOOK CARD -->
+  <div class="book-letter">
+
+    <div class="fold"></div>
+    <div class="pin"></div>
 
     <h2 class="book-title">1. THE SEVEN HUSBANDS OF EVELYN HUGO</h2>
+
     <p class="author">by Taylor Jenkins Reid</p>
 
     <p class="rating">⭐⭐⭐⭐⭐ 4.8/5</p>
@@ -172,15 +224,16 @@ body {
 
     <p class="perfect-for">
       Perfect For:<br>
-      ✓ Fans of Character-Driven Stories<br>
-      ✓ Historical Fiction Readers<br>
-      ✓ Readers Who Love Drama
+      ✓ Character-driven stories<br>
+      ✓ Historical fiction lovers<br>
+      ✓ Emotional drama readers
     </p>
 
     <p class="verdict">
       Book Nook Verdict:<br>
       A captivating novel filled with secrets, heartbreak, and unforgettable characters.
     </p>
+
   </div>
 
 </section>
