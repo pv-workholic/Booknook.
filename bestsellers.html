@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Nook - Bestsellers</title>
+
+<style>
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #f6f1e7;
+  color: #3b2f2f;
+}
+
+/* ===== SECTION ===== */
+.bestsellers-section {
+  padding: 60px 20px;
+}
+
+/* ===== INTRO ===== */
+.vintage-title {
+  font-size: 44px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: "Times New Roman", serif;
+  color: #2b1f1f;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.intro-text {
+  max-width: 850px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a3b3b;
+}
+
+/* ===== BOOK CARD ===== */
+.book-placard {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 35px 40px;
+  background: #fffaf3;
+  border: 2px solid #3b2f2f;
+  box-shadow: 10px 10px 0 #c9b79c;
+  transform: rotate(-0.4deg);
+  transition: 0.3s ease;
+}
+
+/* fold effect */
+.paper-fold {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85px;
+  height: 85px;
+  background: linear-gradient(135deg, #e8dcc7 50%, #fffaf3 50%);
+  border-left: 2px solid #3b2f2f;
+  border-bottom: 2px solid #3b2f2f;
+}
+
+/* hover effect */
+.book-placard:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* ===== TEXT STYLES ===== */
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2b1f1f;
+}
+
+.author {
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #5a4747;
+}
+
+.rating, .genre {
+  margin-bottom: 8px;
+  color: #4a3b3b;
+}
+
+.story, .text {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  font-weight: bold;
+  margin-top: 15px;
+  color: #2b1f1f;
+}
+
+.mood, .perfect-for, .verdict {
+  margin-top: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .book-placard {
+    padding: 25px;
+  }
+
+  .vintage-title {
+    font-size: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="bestsellers-section">
+
+  <!-- INTRO -->
+  <h1 class="vintage-title">Bestsellers</h1>
+
+  <p class="intro-text">
+    Every bookshelf has a few stories that never gather dust.<br><br>
+
+    These are the books that made readers laugh, cry, wonder, and stay up far too late turning pages.
+    The novels that traveled from friend to friend, sparked endless discussions, and found a permanent place in readers' hearts.<br><br>
+
+    From beloved classics to modern favorites, this collection brings together twenty remarkable books that have captivated millions around the world.<br><br>
+
+    Welcome to Book Nook's Bestseller Shelf—where every story has earned its place.
+  </p>
+
+  <!-- BOOK CARD -->
+  <div class="book-placard">
+    <div class="paper-fold"></div>
+
+    <h2 class="book-title">1. THE SEVEN HUSBANDS OF EVELYN HUGO</h2>
+    <p class="author">by Taylor Jenkins Reid</p>
+
+    <p class="rating">⭐⭐⭐⭐⭐ 4.8/5</p>
+
+    <p class="genre">Genre: Historical Fiction • Contemporary Fiction</p>
+
+    <p class="story">
+      Aging Hollywood legend Evelyn Hugo finally decides to tell the truth about her glamorous and controversial life.
+      As she recounts decades of fame, scandal, ambition, and love to an unknown journalist, hidden secrets begin to emerge that change everything.
+    </p>
+
+    <p class="section-heading">Why It's a Bestseller:</p>
+    <p class="text">
+      An irresistible blend of old Hollywood glamour, compelling drama, and emotional storytelling.
+    </p>
+
+    <p class="section-heading">Book Nook Review:</p>
+    <p class="text">
+      The Seven Husbands of Evelyn Hugo is one of those rare books that completely lives up to the hype.
+      Evelyn is a fascinating character—ambitious, flawed, courageous, and unforgettable.
+      Every chapter reveals another layer of her personality, making it impossible to stop reading.<br><br>
+
+      What begins as a story about fame quickly transforms into a deeply emotional exploration of identity, sacrifice,
+      and the cost of chasing success. The novel's emotional core is surprisingly powerful, leaving readers thinking
+      about its characters long after the final page.
+    </p>
+
+    <p class="mood">
+      Mood: 🎬 Glamorous • 💔 Emotional • ✨ Addictive
+    </p>
+
+    <p class="perfect-for">
+      Perfect For:<br>
+      ✓ Fans of Character-Driven Stories<br>
+      ✓ Historical Fiction Readers<br>
+      ✓ Readers Who Love Drama
+    </p>
+
+    <p class="verdict">
+      Book Nook Verdict:<br>
+      A captivating novel filled with secrets, heartbreak, and unforgettable characters.
+    </p>
+  </div>
+
+</section>
+
+</body>
+</html>
