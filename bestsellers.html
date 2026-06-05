@@ -1,224 +1,154 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>From My Shelf</title><!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Special+Elite&family=Shadows+Into+Light&display=swap" rel="stylesheet"><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Special+Elite&family=Shadows+Into+Light&display=swap" rel="stylesheet"><style>
 
 body {
-    margin: 0;
     background: #0f0f0f;
-    color: #f5f5f5;
     font-family: 'Playfair Display', serif;
+    color: #fff;
+    padding: 40px;
 }
 
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 60px;
-    background: #000;
-}
-
-nav h1 {
-    font-size: 26px;
-}
-
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-nav ul li {
-    cursor: pointer;
-    opacity: 0.7;
-}
-
-nav ul li:hover {
-    opacity: 1;
-}
-
-/* HERO */
-.hero {
-    height: 90vh;
-    background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') center/cover;
-    display: flex;
-    align-items: center;
-    padding: 60px;
-}
-
-.hero-text h2 {
-    font-size: 70px;
-    margin: 0;
-}
-
-.hero-text p {
-    font-family: 'Special Elite', monospace;
-    margin-top: 10px;
-}
-
-/* LETTER */
-.letter {
-    margin: 80px auto;
-    width: 60%;
-    background: #f4e9dc;
-    color: #222;
-    padding: 30px;
-    cursor: pointer;
-    transition: 0.4s;
-    position: relative;
-}
-
-.letter.closed {
-    height: 60px;
-    overflow: hidden;
-}
-
-.letter::before {
-    content: "To whoever finds this...";
-    font-family: 'Shadows Into Light', cursive;
-}
-
-.letter.open::before {
-    content: "";
-}
-
-.letter-content {
-    margin-top: 20px;
-    font-family: 'Special Elite';
-}
-
-/* SHELF */
-.section {
-    padding: 80px 60px;
-}
-
-.section h3 {
-    font-size: 40px;
-    margin-bottom: 30px;
-}
-
-.books {
-    display: flex;
-    gap: 30px;
-}
-
-.book {
-    width: 140px;
-    height: 200px;
-    background: #333;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.book:hover {
-    transform: translateY(-10px);
-}
-
-/* BOOK POPUP */
-.book-info {
-    position: absolute;
-    bottom: -120px;
-    left: 0;
-    width: 200px;
+/* ENVELOPE CARD */
+.envelope {
+    width: 340px;
+    margin: auto;
     background: #f4e9dc;
     color: #000;
-    padding: 10px;
-    font-size: 12px;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* BOOK + COFFEE IMAGE */
+.book-img {
+    width: 100%;
+    height: 190px;
+    background: url('/mnt/data/1000086349.jpg') center/cover;
+    border-radius: 6px;
+}
+
+/* HEADER INFO */
+.book-info {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.rating {
+    margin-top: 5px;
+}
+
+/* WAX SEAL */
+.seal {
+    width: 65px;
+    height: 65px;
+    background: radial-gradient(circle, #8b0000, #5a0000);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 11px;
+    font-family: 'Special Elite';
+    text-align: center;
+}
+
+/* FULL LETTER */
+.full-letter {
     display: none;
+    margin-top: 50px;
+    background: #f4e9dc;
+    color: #000;
+    padding: 30px;
+    font-family: 'Special Elite';
+    line-height: 1.8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.book:hover .book-info {
-    display: block;
+/* HEADINGS */
+.section-title {
+    font-family: 'Playfair Display';
+    font-size: 22px;
+    margin-top: 25px;
 }
 
-/* HANDWRITTEN NOTES */
-.note {
+/* HANDWRITTEN */
+.handwritten {
     font-family: 'Shadows Into Light';
-    color: #c9a96e;
+    color: #a67c52;
+    font-size: 18px;
     margin-top: 10px;
 }
 
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 60px;
-    opacity: 0.6;
+/* WARNING BOX */
+.warning {
+    margin-top: 25px;
+    padding: 18px;
+    border: 2px dashed red;
+    font-size: 14px;
+    background: #fff3f3;
 }
 
-</style></head><body><nav>
-    <h1>Book Nook</h1>
-    <ul>
-        <li>Bestsellers</li>
-        <li>Favourites</li>
-        <li>Reviews</li>
-    </ul>
-</nav><!-- HERO --><section class="hero">
-    <div class="hero-text">
-        <h2>Not bestsellers.<br>Just unforgettable.</h2>
-        <p>These are the stories that refused to leave.</p>
-        <div class="note">you’ve been warned.</div>
-    </div>
-</section><!-- LETTER --><div class="letter closed" onclick="toggleLetter(this)">
-    <div class="letter-content">
-        <p>Hey,</p>
-        <p>I didn’t mean to make this list.</p>
-        <p>It just… happened.</p>
-        <p>Some of these broke me.<br>Some fixed me.</p>
-        <p>Most did both.</p>
-        <p>— P</p>
-    </div>
-</div><!-- SECTION 1 --><section class="section">
-    <h3>Stayed up till 3AM</h3>
-    <div class="books">    <div class="book">
-        <div class="book-info">
-            “just one more chapter (lies)”<br>
-            Mood: Rain + chaos
-        </div>
-    </div>
+/* LITTLE NOTE */
+.note {
+    margin-top: 10px;
+    font-style: italic;
+}
 
-    <div class="book">
-        <div class="book-info">
-            “I couldn’t stop.”<br>
-            Mood: obsession
-        </div>
-    </div>
+</style></head><body><div class="envelope" onclick="openLetter()"><div class="book-img"></div>
 
+<div class="book-info">
+    <b>The Fault in Our Stars</b><br>
+    John Green<br>
+    <div class="rating">⭐⭐⭐⭐⭐ (5/5 Stars!)</div>
 </div>
-<div class="note">coffee stains included ☕</div>
 
-</section><!-- SECTION 2 --><section class="section">
-    <h3>This one hurt.</h3>
-    <div class="books">    <div class="book">
-        <div class="book-info">
-            “I wasn’t ready for this ending.”<br>
-            Mood: silence
-        </div>
-    </div>
+<div class="seal">Read<br>More</div>
 
+</div><div class="full-letter" id="letter"><h2>BookNook Special Review</h2>
+
+<p>
+This novel follows Hazel Grace and Augustus Waters, two teenagers navigating love while facing terminal illness. 
+John Green avoids clichés, creating a story that is witty, sharp, and deeply philosophical. 
+It brilliantly captures the raw reality of chronic illness while celebrating the profound impact of a short, well-lived life. 
+It is an unforgettable masterpiece that leaves you entirely undone.
+</p>
+
+<div class="section-title">Why I Wrote This:</div>
+
+<p>
+I wrote this to highlight a book that completely redefines tragedy in literature. 
+It doesn't just aim to make the reader cry; it forces us to appreciate the fragile beauty of existence and the power of a poignant, well-crafted narrative.
+</p>
+
+<div class="handwritten">
+    this one didn’t just hurt… it stayed.
 </div>
-<div class="note">read at your own risk.</div>
 
-</section><!-- SECTION 3 --><section class="section">
-    <h3>Felt like home.</h3>
-    <div class="books">    <div class="book">
-        <div class="book-info">
-            “I go back to this one.”<br>
-            Mood: comfort
-        </div>
-    </div>
+<div class="section-title">Note to Reader:</div>
 
+<div class="warning">
+    ⚠️ <b>EMOTIONAL HEALTH CHECK!</b> ⚠️<br><br>
+
+    If you are currently looking for a cozy, happy-go-lucky vibe, or if you are already in your feelings and feeling sad... 
+    <b>ABORT MISSION! DO NOT READ THIS RIGHT NOW!</b> 🛑🙅‍♀️<br><br>
+
+    This book is an absolute tear-jerker that will completely wreck your mascara. 😭💔<br><br>
+
+    Save this beautiful heartbreak for a day when you have a full box of tissues, 
+    a giant tub of ice cream, and are ready for a 10/10 emotional rollercoaster! 🍦🎢✨
 </div>
-<div class="note">this one stays.</div>
 
-</section><div class="footer">
-    Still adding to this shelf…<br>
-    Some stories take time to settle.
 </div><script>
-function toggleLetter(el) {
-    el.classList.toggle("closed");
-    el.classList.toggle("open");
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
 }
 </script></body>
 </html>
