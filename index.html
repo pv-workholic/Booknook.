@@ -2,11 +2,10 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Book Nook | By Pranjal</title>
+<title>Book Nook 2.0 | By Pranjal</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,65 +15,55 @@
 <style>
 
 /* ==========================================
-ROOT
+DARK LIBRARY ROOT SYSTEM
 ========================================== */
 
 :root{
 
---bg:#ebe0d2;
---paper:#f8efe5;
---paper-dark:#ead9c6;
+--bg:#120c09;
+--bg2:#1a120e;
 
---dark:#19110d;
---brown:#463226;
+--paper:#f3e7d7;
+--paper-dark:#e2d1bc;
 
---gold:#b08b63;
---gold-dark:#8d6b48;
+--ink:#e9e1d6;
+--muted:#b9a99a;
 
---soft:#6b5a4f;
+--gold:#c2a177;
+--gold-deep:#8f6d49;
 
---shadow:
-0 15px 35px rgba(0,0,0,.08);
-
---shadow-lg:
-0 25px 60px rgba(0,0,0,.12);
+--shadow:0 20px 40px rgba(0,0,0,.35);
+--shadow-soft:0 10px 25px rgba(0,0,0,.25);
 
 }
 
-/* ==========================================
-RESET
-========================================== */
-
 *{
-
 margin:0;
 padding:0;
 box-sizing:border-box;
-
 }
 
 html{
-
 scroll-behavior:smooth;
-
 }
 
 body{
 
 font-family:'Inter',sans-serif;
 
-background:var(--bg);
+background:
+radial-gradient(circle at top,#1b1410,#0e0907);
 
-color:var(--dark);
+color:var(--ink);
 
 overflow-x:hidden;
 
-line-height:1.9;
+line-height:1.85;
 
 }
 
 /* ==========================================
-BACKGROUND TEXTURE
+TEXTURE LAYER
 ========================================== */
 
 body::before{
@@ -82,25 +71,16 @@ body::before{
 content:"";
 
 position:fixed;
-
 inset:0;
 
 background:
+url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1800");
 
-linear-gradient(
-rgba(255,255,255,.2),
-rgba(0,0,0,.03)
-),
-
-url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
-
-background-size:cover;
-
-opacity:.08;
+opacity:.05;
 
 pointer-events:none;
 
-z-index:-2;
+mix-blend-mode:overlay;
 
 }
 
@@ -109,1051 +89,371 @@ SELECTION
 ========================================== */
 
 ::selection{
-
 background:var(--gold);
-color:white;
-
+color:#000;
 }
 
 /* ==========================================
-GENERAL
+GLOBAL
 ========================================== */
 
-a{
-
-text-decoration:none;
-color:inherit;
-
-}
-
-img{
-
-width:100%;
-display:block;
-
-}
-
-ul{
-
-list-style:none;
-
-}
-
 section{
-
 padding:120px 7%;
+}
 
+a{
+color:inherit;
+text-decoration:none;
 }
 
 .small-line{
-
-font-size:12px;
-
+font-size:.75rem;
 letter-spacing:4px;
-
 text-transform:uppercase;
-
 color:var(--gold);
-
-margin-bottom:20px;
-
-font-weight:600;
-
+margin-bottom:18px;
 }
 
 .section-title{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:5rem;
-
-line-height:.9;
-
+font-family:'Cormorant Garamond';
+font-size:4.8rem;
+line-height:1;
 margin-bottom:20px;
-
+color:var(--ink);
 }
 
 .section-sub{
-
 max-width:750px;
-
-color:var(--soft);
-
-font-size:1rem;
-
+color:var(--muted);
 }
 
 /* ==========================================
-NAVBAR
+NAVBAR (DARK GLASS LIBRARY)
 ========================================== */
 
 nav{
 
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 
-padding:20px 6%;
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
-background:
-rgba(248,239,229,.92);
+padding:18px 6%;
 
+background:rgba(10,7,5,.7);
 backdrop-filter:blur(18px);
 
-border-bottom:
-1px solid rgba(0,0,0,.05);
+border-bottom:1px solid rgba(255,255,255,.06);
 
 z-index:9999;
 
 }
 
-/* ==========================================
-LOGO
-========================================== */
-
 .logo h1{
-
 font-family:'Cinzel';
-
-font-size:2rem;
-
+font-size:1.8rem;
 letter-spacing:4px;
-
-line-height:.85;
-
+color:var(--ink);
+line-height:.9;
 }
 
 .logo p{
-
 font-family:'Great Vibes';
-
-font-size:1.4rem;
-
 color:var(--gold);
-
+font-size:1.3rem;
 margin-top:5px;
-
 }
 
-/* ==========================================
-NAV LINKS
-========================================== */
-
 nav ul{
-
 display:flex;
-
-gap:24px;
-
+gap:18px;
 flex-wrap:wrap;
-
-justify-content:flex-end;
-
 }
 
 nav a{
-
 font-size:.72rem;
-
 letter-spacing:2px;
-
 text-transform:uppercase;
-
+color:var(--muted);
 transition:.3s;
-
 }
 
 nav a:hover{
-
 color:var(--gold);
-
 }
 
 /* ==========================================
-HERO
+HERO (DARK CINEMATIC)
 ========================================== */
 
 .hero{
 
 min-height:100vh;
 
-padding-top:180px;
-
 display:grid;
-
-grid-template-columns:
-1.15fr .85fr;
-
-gap:80px;
+grid-template-columns:1.2fr .8fr;
+gap:70px;
 
 align-items:center;
 
-}
+padding-top:160px;
 
-/* ==========================================
-HERO TEXT
-========================================== */
+}
 
 .hero h1{
 
-font-family:
-'Cormorant Garamond',
-serif;
+font-family:'Cormorant Garamond';
+font-size:6.2rem;
+line-height:.9;
 
-font-size:7rem;
-
-line-height:.82;
-
-margin-bottom:30px;
+color:var(--ink);
 
 }
 
-.hero-text p{
-
+.hero p{
+margin-top:20px;
+color:var(--muted);
 max-width:650px;
-
-font-size:1rem;
-
-color:var(--soft);
-
-}
-
-.device-note{
-
-margin-top:35px;
-
-padding:16px 22px;
-
-background:
-rgba(255,255,255,.4);
-
-border-left:
-3px solid var(--gold);
-
-font-family:
-'Special Elite';
-
-font-size:.85rem;
-
-max-width:420px;
-
-}
-
-/* ==========================================
-QUOTE
-========================================== */
-
-.hero-quote{
-
-margin-top:40px;
-
-font-family:
-'Great Vibes';
-
-font-size:2.4rem;
-
-color:var(--gold-dark);
-
-}
-
-/* ==========================================
-ARCH IMAGE
-========================================== */
-
-.hero-image{
-
-height:700px;
-
-overflow:hidden;
-
-border-radius:
-260px 260px 30px 30px;
-
-box-shadow:
-var(--shadow-lg);
-
 }
 
 .hero-image img{
 
-height:100%;
+height:680px;
+width:100%;
 
 object-fit:cover;
 
-}
-
-/* ==========================================
-ABOUT
-========================================== */
-
-.about-card{
-
-background:var(--paper);
-
-padding:70px;
-
-border-radius:35px;
+border-radius:260px 260px 35px 35px;
 
 box-shadow:var(--shadow);
 
-margin-top:50px;
+filter:contrast(1.05) brightness(.9);
 
 }
 
 /* ==========================================
-ABOUT TITLE
+QUOTE STYLE
 ========================================== */
 
-.about-card h3{
-
-font-family:
-'Cormorant Garamond';
-
-font-size:4rem;
-
-margin-bottom:25px;
-
-}
-
-/* ==========================================
-ABOUT TEXT
-========================================== */
-
-.about-card p{
-
-font-size:1rem;
-
-color:var(--soft);
-
-}
-
-/* ==========================================
-SIGNATURE
-========================================== */
-
-.signature{
-
+.hero-quote{
 margin-top:35px;
+font-family:'Great Vibes';
+font-size:2.4rem;
+color:var(--gold);
+}
 
-font-family:
-'Great Vibes';
+/* ==========================================
+DEVICE NOTE
+========================================== */
 
-font-size:4rem;
+.device-note{
+margin-top:30px;
+padding:14px 18px;
 
-color:var(--gold-dark);
+border-left:3px solid var(--gold);
+
+background:rgba(255,255,255,.03);
+
+font-family:'Special Elite';
+font-size:.85rem;
+
+max-width:420px;
+
+color:var(--muted);
 
 }
 
 /* ==========================================
-TABLET
+RESPONSIVE CORE
 ========================================== */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
 .hero{
-
 grid-template-columns:1fr;
-
-gap:50px;
-
+gap:40px;
 }
 
 .hero h1{
-
-font-size:5rem;
-
+font-size:3.6rem;
 }
 
-.hero-image{
-
-height:550px;
-
-max-width:550px;
-
-margin:auto;
-
-}
-
-.section-title{
-
-font-size:4rem;
-
-}
-
-}
-
-/* ==========================================
-MOBILE
-========================================== */
-
-@media(max-width:768px){
-
-nav{
-
-flex-direction:column;
-
-gap:15px;
-
-padding:18px;
-
-}
-
-nav ul{
-
-justify-content:center;
-
-gap:14px;
-
-}
-
-nav a{
-
-font-size:.62rem;
-
-}
-
-.hero{
-
-padding-top:210px;
-
-}
-
-.hero h1{
-
-font-size:3.8rem;
-
-}
-
-.hero-image{
-
+.hero-image img{
 height:420px;
-
-border-radius:
-180px 180px 25px 25px;
-
+border-radius:180px 180px 30px 30px;
 }
 
 .section-title{
-
 font-size:3rem;
-
-}
-
-.about-card{
-
-padding:35px;
-
-}
-
-.about-card h3{
-
-font-size:2.7rem;
-
-}
-
-.signature{
-
-font-size:3rem;
-
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- ==========================================
-NAVBAR
-========================================== -->
-
+<!-- NAV -->
 <nav>
 
 <div class="logo">
-
-<h1>
-BOOK<br>
-NOOK
-</h1>
-
-<p>By Pranjal</p>
-
+<h1>BOOK<br>NOOK</h1>
+<p>2.0</p>
 </div>
 
 <ul>
-
-<li><a href="#">Bestsellers</a></li>
-
-<li><a href="#">Favourites</a></li>
-
-<li><a href="#">Snippets</a></li>
-
-<li><a href="#">Genres</a></li>
-
+<li><a href="#home">Home</a></li>
+<li><a href="#reading">Reading</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#papers">Papers</a></li>
+<li><a href="#shelf">Shelf</a></li>
+<li><a href="#passport">Passport</a></li>
+<li><a href="#court">Court</a></li>
+<li><a href="#mood">Mood</a></li>
+<li><a href="#letters">Letters</a></li>
 <li><a href="#contact">Contact</a></li>
-
 </ul>
 
 </nav>
 
-<!-- ==========================================
-HERO
-========================================== -->
+<!-- HERO -->
+<section id="home" class="hero">
 
-<section class="hero">
+<div>
 
-<div class="hero-text">
-
-<div class="small-line">
-Stories That Stay
-</div>
+<div class="small-line">A Library of Thoughts</div>
 
 <h1>
-Bookmarked
+Bookmarked<br>
 Forever
 </h1>
 
 <p>
-
-Some stories stay behind in highlighted passages,
-rainy evenings,
-coffee stains,
-and fictional characters that continue living rent-free in my mind long after the final page.
-
-Book Nook is where I collect those stories,
-those thoughts,
-and the occasional emotional damage caused by fictional people.
-
+Some stories don’t end on the last page.
+They settle into silence, into memory, into the way we think afterward.
+Book Nook is where those stories stay.
 </p>
 
 <div class="device-note">
-
-Best experienced on a laptop.
-But loved on every screen.
-
+Best experienced on a laptop.  
+Feels like a quiet library on every screen.
 </div>
 
 <div class="hero-quote">
-
-“Some books arrive exactly when your soul needs them.”
-
+“Every book leaves a fingerprint on the reader.”
 </div>
 
 </div>
 
 <div class="hero-image">
-
 <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=1400">
+</div>
+
+</section>
+
+<!-- PLACEHOLDER FOR NEXT CHUNKS -->
+ <!-- ==========================================
+CURRENTLY READING
+========================================== -->
+
+<section id="reading">
+
+<div class="small-line">Reading Desk</div>
+
+<h2 class="section-title">Currently Reading</h2>
+
+<p class="section-sub">
+A live snapshot of what’s on the desk right now — unfinished thoughts, bookmarked pages, and half-lived worlds.
+</p>
+
+<div class="card">
+
+<h3 style="font-family:'Cormorant Garamond'; font-size:2rem; margin-bottom:10px;">
+📖 Example Book Title
+</h3>
+
+<p style="color:var(--muted);">
+Progress: 42%  
+<br><br>
+Current Mood: Quiet obsession  
+<br><br>
+Notes: This book is slowly rearranging my brain chemistry.
+</p>
 
 </div>
 
 </section>
 
 <!-- ==========================================
-ABOUT
+ABOUT (REFINED DARK ACADEMIC)
 ========================================== -->
 
 <section id="about">
 
-<div class="small-line">
-A Reader's Introduction
-</div>
+<div class="small-line">The Reader</div>
 
-<h2 class="section-title">
-About Me
-</h2>
+<h2 class="section-title">About Me</h2>
 
-<p class="section-sub">
+<div class="card">
 
-A reader trying to become a writer.
+<p style="color:var(--muted); line-height:2;">
 
-</p>
-
-<div class="about-card">
-
-<h3>
-Hey There,
-I'm Pranjal.
-</h3>
-
-<p>
-
-I recently closed the chapter on my school years and am officially dedicating my time to the two things I love most:
-reading books and learning how to write them.
+A reader first.  
+A writer in progress.  
+A collector of unfinished thoughts and over-highlighted pages.
 
 <br><br>
 
-My obsession with literature spans across genres.
-If a book can make me think,
-cry,
-laugh,
-question reality,
-or keep me awake until 3 AM,
-it has a place on my shelf.
+I don’t just read books — I live inside them temporarily, and leave quietly when they end.
 
 <br><br>
 
-I started Book Nook as a literary journal —
-a place to document my reading journey,
-collect unforgettable quotes,
-leave behind midnight annotations,
-and celebrate stories that linger long after the final page.
-
-<br><br>
-
-Thank you for stopping by.
-
-<br><br>
-
-Happy Reading 🤎
+Somewhere between annotations, late-night chapters, and emotional damage disguised as fiction,
+I started building this place.
 
 </p>
-
-<div class="signature">
-
-— Pranjal
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CHUNK 1 ENDS HERE -->
- <!-- ==========================================
-THE SHELF THAT CHANGED ME
-========================================== -->
-
-<style>
-
-/* ==========================================
-BOOK SHELF
-========================================== */
-
-.shelf-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:28px;
-
-margin-top:60px;
-
-}
-
-.book-card{
-
-background:
-linear-gradient(
-180deg,
-#4f392d,
-#2b1f18
-);
-
-color:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:var(--shadow);
-
-transition:.4s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.book-card:hover{
-
-transform:
-translateY(-10px);
-
-}
-
-.book-card::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-top:0;
-
-width:7px;
-height:100%;
-
-background:var(--gold);
-
-}
-
-.book-card h3{
-
-font-family:
-'Cormorant Garamond';
-
-font-size:2rem;
-
-margin-bottom:15px;
-
-}
-
-.book-card p{
-
-color:
-rgba(255,255,255,.85);
-
-font-size:.95rem;
-
-line-height:1.9;
-
-}
-
-/* ==========================================
-QUOTE VAULT
-========================================== */
-
-.quote-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
-
-gap:35px;
-
-margin-top:60px;
-
-}
-
-.quote-paper{
-
-background:var(--paper);
-
-padding:40px;
-
-position:relative;
-
-border-radius:15px;
-
-box-shadow:var(--shadow);
-
-font-family:
-'Special Elite';
-
-line-height:2;
-
-transition:.4s;
-
-}
-
-.quote-paper:hover{
-
-transform:
-translateY(-8px);
-
-}
-
-.quote-paper::before{
-
-content:"";
-
-position:absolute;
-
-top:-12px;
-
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:80px;
-height:24px;
-
-background:
-rgba(255,255,255,.65);
-
-}
-
-/* ==========================================
-MIDNIGHT NOTES
-========================================== */
-
-.notes-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-margin-top:60px;
-
-}
-
-.note{
-
-padding:28px;
-
-font-family:
-'Special Elite';
-
-line-height:2;
-
-font-size:.95rem;
-
-box-shadow:
-0 15px 30px rgba(0,0,0,.08);
-
-transition:.4s;
-
-}
-
-.note:hover{
-
-transform:
-translateY(-8px)
-rotate(0deg);
-
-}
-
-.note:nth-child(1){
-
-background:#fff3b7;
-transform:rotate(-3deg);
-
-}
-
-.note:nth-child(2){
-
-background:#ffdbe6;
-transform:rotate(2deg);
-
-}
-
-.note:nth-child(3){
-
-background:#dff4da;
-transform:rotate(-2deg);
-
-}
-
-.note:nth-child(4){
-
-background:#dce8ff;
-transform:rotate(3deg);
-
-}
-
-.note:nth-child(5){
-
-background:#ffe8cb;
-transform:rotate(-2deg);
-
-}
-
-.note:nth-child(6){
-
-background:#f3dcff;
-transform:rotate(2deg);
-
-}
-
-</style>
-
-<!-- ==========================================
-THE SHELF THAT CHANGED ME
-========================================== -->
-
-<section id="shelf">
-
-<div class="small-line">
-Books That Stayed
-</div>
-
-<h2 class="section-title">
-The Shelf
-That Changed Me
-</h2>
-
-<p class="section-sub">
-
-Five books that shaped the way I read,
-think,
-and understand stories.
-
-</p>
-
-<div class="shelf-grid">
-
-<div class="book-card">
-
-<h3>Gone Girl</h3>
-
-<p>
-
-The book that taught me how powerful an unreliable narrator can be.
-Every chapter felt like stepping deeper into a carefully constructed trap.
-
-</p>
-
-</div>
-
-<div class="book-card">
-
-<h3>A Man Called Ove</h3>
-
-<p>
-
-A reminder that quiet stories can leave the deepest marks.
-It made me laugh,
-cry,
-and appreciate ordinary kindness.
-
-</p>
-
-</div>
-
-<div class="book-card">
-
-<h3>
-The Monk Who Sold His Ferrari
-</h3>
-
-<p>
-
-A book that arrived at exactly the right time.
-It encouraged me to think about ambition,
-purpose,
-and balance.
-
-</p>
-
-</div>
-
-<div class="book-card">
-
-<h3>
-Pride and Prejudice
-</h3>
-
-<p>
-
-Sharp,
-witty,
-and endlessly readable.
-Jane Austen somehow makes observations about people feel timeless.
-
-</p>
-
-</div>
-
-<div class="book-card">
-
-<h3>
-The Catcher in the Rye
-</h3>
-
-<p>
-
-Proof that a character doesn't have to be perfect to feel unforgettable.
-Messy,
-frustrating,
-and deeply human.
-
-</p>
-
-</div>
 
 </div>
 
 </section>
 
 <!-- ==========================================
-QUOTE VAULT
+PRINTABLE PAPERS (TORN ARCHIVE STYLE)
 ========================================== -->
 
-<section>
+<section id="papers">
 
-<div class="small-line">
-Collected Fragments
-</div>
+<div class="small-line">Paper Archive</div>
 
-<h2 class="section-title">
-Quote
-Vault
-</h2>
+<h2 class="section-title">Printable Papers</h2>
 
 <p class="section-sub">
-
-The lines that refused to stay on the page.
-
+Fragments meant to be printed, folded, and forgotten inside real books.
 </p>
 
 <div class="quote-grid">
 
 <div class="quote-paper">
-
-“Books are the mirrors of the soul.”
-
-<br><br>
-
-— Virginia Woolf
-
+“To-Read List No. 01<br><br>
+• Book one<br>
+• Book two<br>
+• Book three”
 </div>
 
 <div class="quote-paper">
-
-“Whatever our souls are made of,
-his and mine are the same.”
-
-<br><br>
-
-— Emily Brontë
-
+Reading Notes<br><br>
+Some books don’t teach lessons.<br>
+They change temperature.
 </div>
 
 <div class="quote-paper">
-
-“I am not afraid of storms,
-for I am learning how to sail my ship.”
-
-<br><br>
-
-— Louisa May Alcott
-
-</div>
-
-<div class="quote-paper">
-
-“The most dangerous liars are those who think they are telling the truth.”
-
-<br><br>
-
-— Gillian Flynn
-
-</div>
-
-<div class="quote-paper">
-
-“We underline the lines we secretly needed to hear.”
-
+Bookmarks are just love letters<br>
+we leave inside stories.
 </div>
 
 </div>
@@ -1161,456 +461,235 @@ for I am learning how to sail my ship.”
 </section>
 
 <!-- ==========================================
-MIDNIGHT NOTES
+SHELF THAT CHANGED ME (UPGRADED)
 ========================================== -->
 
-<section>
+<section id="shelf">
 
-<div class="small-line">
-Margin Thoughts
-</div>
+<div class="small-line">Memory Shelf</div>
 
-<h2 class="section-title">
-Midnight
-Notes
-</h2>
+<h2 class="section-title">The Shelf That Changed Me</h2>
 
 <p class="section-sub">
+Books that didn’t just get read — they stayed.
+</p>
 
-The thoughts that appear somewhere between
-“just one more chapter”
-and
-“why is it 3 AM?”
+<div class="shelf-grid">
 
+<div class="book-card">
+<h3>Gone Girl</h3>
+<p>A masterclass in deception and narrative control.</p>
+</div>
+
+<div class="book-card">
+<h3>A Man Called Ove</h3>
+<p>Quiet grief, quiet love, loud impact.</p>
+</div>
+
+<div class="book-card">
+<h3>Pride & Prejudice</h3>
+<p>Wit disguised as romance, or romance disguised as wit.</p>
+</div>
+
+<div class="book-card">
+<h3>The Catcher in the Rye</h3>
+<p>Messy, human, unforgettable voice.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+LITERARY PASSPORT (NEW SYSTEM)
+========================================== -->
+
+<section id="passport">
+
+<div class="small-line">Identity File</div>
+
+<h2 class="section-title">Literary Passport</h2>
+
+<div class="card">
+
+<p style="font-family:'Special Elite'; line-height:2; color:var(--muted);">
+
+Name: Reader Unknown  
+<br>
+Nationality: Fictional Realist  
+<br>
+Visa Type: Permanent Resident of Imaginary Worlds  
+<br>
+Favorite Genre: Emotional Damage (Literary Fiction)  
+<br>
+Status: Currently Reading Everything at Once  
+<br><br>
+
+Stamp History:  
+✔ 19th Century England  
+✔ Psychological Thrillers  
+✔ Modern Sadness Era  
+✔ Fantasy Escapism
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+COURT BOARD (BOOK VERDICT SYSTEM)
+========================================== -->
+
+<section id="court">
+
+<div class="small-line">Judgement Desk</div>
+
+<h2 class="section-title">Court Board</h2>
+
+<p class="section-sub">
+Where books are not reviewed — they are tried.
+</p>
+
+<div class="quote-grid">
+
+<div class="quote-paper">
+CASE: Overhyped Novel<br><br>
+VERDICT: Guilty<br>
+Reason: Style over substance.
+</div>
+
+<div class="quote-paper">
+CASE: Underrated Gem<br><br>
+VERDICT: Innocent<br>
+Reason: Hidden brilliance.
+</div>
+
+<div class="quote-paper">
+CASE: Emotional Damage Book<br><br>
+VERDICT: Life Sentence<br>
+Reason: Still thinking about it.
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+MOOD METER
+========================================== -->
+
+<section id="mood">
+
+<div class="small-line">Emotional Index</div>
+
+<h2 class="section-title">Mood Meter</h2>
+
+<p class="section-sub">
+Your reading mood decides your next world.
 </p>
 
 <div class="notes-grid">
 
-<div class="note">
-Started for fun.
-Ended with an existential crisis.
+<div class="note">🌙 Quiet introspection</div>
+<div class="note">🔥 Chaotic reading spree</div>
+<div class="note">💔 Emotional breakdown phase</div>
+<div class="note">☕ Comfort reading only</div>
+<div class="note">📚 Academic overload mode</div>
+<div class="note">✨ Existential literature dive</div>
+
 </div>
 
-<div class="note">
-Trusted the narrator.
+</section>
+<!-- ==========================================
+DEAR FUTURE WRITER (WITH TYPING EFFECT)
+========================================== -->
 
-Rookie mistake.
-</div>
+<section id="letters">
 
-<div class="note">
-Page 214 changed everything.
-</div>
+<div class="small-line">A Letter in Progress</div>
 
-<div class="note">
-This character desperately needs therapy.
-</div>
+<h2 class="section-title">Dear Future Writer</h2>
 
-<div class="note">
-Bought it for the cover.
+<div class="letter">
 
-Stayed for the heartbreak.
-</div>
+<p id="typeText"></p>
 
-<div class="note">
-Some books don't break your heart.
-
-They simply know where to press.
+<div style="margin-top:30px; font-family:'Great Vibes'; font-size:2.5rem; color:var(--gold);">
+— Pranjal
 </div>
 
 </div>
 
 </section>
 
-<!-- CHUNK 2 ENDS HERE -->
-
- <!-- ==========================================
-CHUNK 3 STYLES
+<!-- ==========================================
+LETTERS ARCHIVE
 ========================================== -->
 
-<style>
+<section>
 
-/* ==========================================
-LETTER SECTION
-========================================== */
+<div class="small-line">Archived Pages</div>
 
-.letter-wrapper{
+<h2 class="section-title">Letters</h2>
 
-max-width:900px;
+<p class="section-sub">
+Fragments of thoughts left behind after finishing books.
+</p>
 
-margin:auto;
+<div class="quote-grid">
 
-}
+<div class="quote-paper">
+“To the book that broke me gently — thank you.”
+</div>
 
-.letter-paper{
+<div class="quote-paper">
+“I don’t remember the plot, only how it felt.”
+</div>
 
-background:var(--paper);
+<div class="quote-paper">
+“Some characters never leave, they just go silent.”
+</div>
 
-padding:70px;
+<div class="quote-paper">
+“Reading is just controlled dreaming.”
+</div>
 
-border-radius:30px;
+</div>
 
-box-shadow:var(--shadow-lg);
+</section>
 
-position:relative;
-
-overflow:hidden;
-
-}
-
-.letter-paper::before{
-
-content:"TO: FUTURE PRANJAL";
-
-position:absolute;
-
-top:25px;
-right:35px;
-
-font-size:.75rem;
-
-letter-spacing:2px;
-
-color:rgba(0,0,0,.25);
-
-}
-
-.letter-paper p{
-
-font-size:1rem;
-
-line-height:2.2;
-
-color:var(--soft);
-
-}
-
-.letter-sign{
-
-margin-top:40px;
-
-font-family:'Great Vibes';
-
-font-size:4rem;
-
-color:var(--gold-dark);
-
-}
-
-/* ==========================================
+<!-- ==========================================
 CONTACT
-========================================== */
+========================================== -->
 
-.contact-board{
+<section id="contact">
 
-text-align:center;
+<div class="small-line">Library Desk</div>
 
-background:var(--paper);
+<h2 class="section-title">Send a Letter</h2>
 
-padding:70px;
+<div class="card">
 
-border-radius:30px;
+<p style="color:var(--muted); line-height:2;">
+For book discussions, recommendations, or shared literary damage stories.
+</p>
 
-box-shadow:var(--shadow);
+<br>
 
-}
-
-.mail-btn{
-
+<a href="mailto:pranjalvats.work@gmail.com"
+style="
 display:inline-block;
-
-margin-top:25px;
-
-padding:18px 36px;
-
+padding:14px 28px;
 background:var(--gold);
-
-color:white;
-
+color:black;
 border-radius:999px;
-
-font-size:.9rem;
-
-letter-spacing:1px;
-
-transition:.3s;
-
-}
-
-.mail-btn:hover{
-
-transform:translateY(-4px);
-
-background:var(--gold-dark);
-
-}
-
-/* ==========================================
-FOOTER
-========================================== */
-
-footer{
-
-padding:140px 7%;
-
-text-align:center;
-
-margin-top:60px;
-
-background:
-
-linear-gradient(
-rgba(18,12,9,.94),
-rgba(18,12,9,.97)
-),
-
-url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1800");
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-.footer-quote{
-
-font-family:'Great Vibes';
-
-font-size:4rem;
-
-color:#d8b998;
-
-margin-bottom:30px;
-
-}
-
-footer h2{
-
-font-family:'Cinzel';
-
-font-size:5rem;
-
-letter-spacing:8px;
-
-color:white;
-
-margin-bottom:20px;
-
-}
-
-footer p{
-
-max-width:700px;
-
-margin:auto;
-
-color:#d8c8b8;
-
-line-height:2;
-
-}
-
-.footer-links{
-
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-
-margin-top:40px;
-
-}
-
-.footer-links a{
-
-font-size:.75rem;
-
+font-size:.85rem;
 letter-spacing:2px;
-
 text-transform:uppercase;
+">
 
-color:#c8ae92;
-
-}
-
-.copyright{
-
-margin-top:50px;
-
-font-size:.8rem;
-
-line-height:2;
-
-color:#a78b70;
-
-}
-
-/* ==========================================
-SCROLL REVEAL
-========================================== */
-
-.reveal{
-
-opacity:0;
-
-transform:translateY(40px);
-
-transition:all 1s ease;
-
-}
-
-.reveal.active{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-/* ==========================================
-MOBILE
-========================================== */
-
-@media(max-width:768px){
-
-.letter-paper{
-
-padding:35px;
-
-}
-
-.letter-sign{
-
-font-size:3rem;
-
-}
-
-.contact-board{
-
-padding:35px;
-
-}
-
-.footer-quote{
-
-font-size:2.7rem;
-
-}
-
-footer h2{
-
-font-size:3rem;
-
-letter-spacing:4px;
-
-}
-
-}
-
-</style>
-
-<!-- ==========================================
-DEAR FUTURE WRITER
-========================================== -->
-
-<section class="reveal">
-
-<div class="small-line">
-A Letter Left Between Pages
-</div>
-
-<h2 class="section-title">
-Dear
-Future Writer
-</h2>
-
-<div class="letter-wrapper">
-
-<div class="letter-paper">
-
-<p>
-
-When I first fell in love with books,
-I never imagined I would someday dream of writing one.
-
-At first,
-I simply wanted more stories.
-More worlds.
-More characters to carry with me after the final page.
-
-But somewhere between underlining favourite passages,
-annotating margins,
-and staying awake far later than I should have,
-a different dream quietly appeared.
-
-The dream of creating something that might one day sit on someone else's shelf.
-
-Maybe years from now,
-when you look back on this version of yourself,
-Book Nook will feel small.
-
-But remember:
-
-Every library begins with a single book.
-
-Every writer begins as a reader.
-
-And every story begins with a blank page.
-
-Keep reading.
-
-Keep writing.
-
-Keep believing there is room for your voice among all the others.
-
-</p>
-
-<div class="letter-sign">
-
-— Love,
-Pranjal
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================================
-CONTACT
-========================================== -->
-
-<section id="contact" class="reveal">
-
-<div class="small-line">
-Let's Stay Connected
-</div>
-
-<h2 class="section-title">
-Send A Letter
-To The Nook
-</h2>
-
-<div class="contact-board">
-
-<p>
-
-For book discussions,
-recommendations,
-future collaborations,
-or simply sharing your latest literary obsession.
-
-</p>
-
-<a
-href="mailto:pranjalvats.work@gmail.com"
-class="mail-btn">
-
-pranjalvats.work@gmail.com
+Write to the Nook
 
 </a>
 
@@ -1619,86 +698,98 @@ pranjalvats.work@gmail.com
 </section>
 
 <!-- ==========================================
-FOOTER
+FOOTER (DARK CINEMATIC END)
 ========================================== -->
 
 <footer>
 
-<div class="footer-quote">
+<h2>BOOK NOOK</h2>
 
-“Every reader lives a thousand lives before they die.”
-
-</div>
-
-<h2>
-BOOK NOOK
-</h2>
-
-<p>
-
-A literary journal dedicated to stories that linger long after the final page.
-
-Created with love,
-coffee,
-and far too many bookmarked passages.
-
+<p style="max-width:700px; margin:20px auto; color:var(--muted); line-height:2;">
+A quiet archive of stories, emotions, and fictional worlds that refuse to leave.
 </p>
 
-<div class="footer-links">
+<p style="margin-top:40px; color:var(--gold); font-family:'Great Vibes'; font-size:2rem;">
+“Every reader lives a thousand lives.”
+</p>
 
-<a href="#">Bestsellers</a>
-<a href="#">Favourites</a>
-<a href="#">Snippets</a>
-<a href="#">Genres</a>
-
-</div>
-
-<div class="copyright">
-
+<p style="margin-top:50px; font-size:.8rem; color:var(--muted);">
 © 2026 Book Nook by Pranjal
-
-<br><br>
-
-Made for readers,
-dreamers,
-and future writers.
-
-</div>
+</p>
 
 </footer>
 
 <!-- ==========================================
-SCRIPT
+SCRIPT: TYPING + SCROLL REVEAL
 ========================================== -->
 
 <script>
 
-const reveals =
-document.querySelectorAll('.reveal');
+// ==========================================
+// TYPING EFFECT (DEAR FUTURE WRITER)
+// ==========================================
 
-function revealSections(){
+const text =
+`When I first fell in love with books,
+I never imagined I would someday dream of writing them.
 
-reveals.forEach(item=>{
+At first, I just wanted more stories.
+More worlds to disappear into.
+More characters to keep me company in silence.
 
-const top =
-item.getBoundingClientRect().top;
+But somewhere between late-night reading and over-highlighting sentences,
+a quieter dream appeared —
+
+To create something that stays with someone,
+the way books stayed with me.
+
+So if you're reading this in the future,
+remember:
+
+You didn't start as a writer.
+You started as a reader who refused to stop thinking.`;
+
+let i = 0;
+function typeWriter(){
+
+if(i < text.length){
+
+document.getElementById("typeText").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter, 35);
+
+}
+
+}
+
+window.addEventListener("load", typeWriter);
+
+
+// ==========================================
+// SCROLL REVEAL (SMOOTH ENTRY)
+// ==========================================
+
+const reveals = document.querySelectorAll("section");
+
+function reveal(){
+
+reveals.forEach(el => {
+
+const top = el.getBoundingClientRect().top;
 
 if(top < window.innerHeight - 100){
-
-item.classList.add('active');
-
+el.style.opacity = 1;
+el.style.transform = "translateY(0)";
+el.style.transition = "all 0.8s ease";
 }
 
 });
 
 }
 
-window.addEventListener(
-'scroll',
-revealSections
-);
+window.addEventListener("scroll", reveal);
 
-revealSections();
+reveal();
 
 </script>
 
