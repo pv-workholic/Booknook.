@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Nook | Snippets</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--gold:#b18a5f;
+--paper:#f4ead8;
+--text:#2f2118;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#0f0c0a;
+overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(
+rgba(8,6,5,.88),
+rgba(8,6,5,.92)
+),
+url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2000");
+background-size:cover;
+background-position:center;
+z-index:-2;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(12,8,6,.55);
+backdrop-filter:blur(18px);
+z-index:999;
+}
+
+.logo h1{
+font-family:'Cinzel';
+font-size:34px;
+letter-spacing:6px;
+color:white;
+line-height:.9;
+}
+
+.logo p{
+font-family:'Great Vibes';
+font-size:24px;
+color:#d0ab82;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#f1e5d7;
+}
+
+/* HERO */
+
+.hero{
+padding:180px 8% 80px;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond';
+font-size:90px;
+margin-bottom:15px;
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+line-height:2;
+opacity:.8;
+}
+
+/* WALL */
+
+.wall{
+padding:40px 8% 120px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+/* PAPER */
+
+.snippet{
+background:var(--paper);
+padding:35px;
+position:relative;
+
+box-shadow:
+0 20px 30px rgba(0,0,0,.25);
+
+clip-path:polygon(
+0% 4%, 6% 0%, 15% 3%, 26% 0%,
+40% 4%, 55% 1%, 70% 4%, 82% 0%,
+100% 3%, 97% 95%, 86% 100%,
+73% 96%, 58% 100%, 43% 96%,
+25% 100%, 12% 96%, 0% 100%
+);
+
+transition:.4s;
+}
+
+/* TAPE */
+
+.snippet::before{
+content:"";
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%) rotate(-3deg);
+
+width:90px;
+height:28px;
+
+background:
+rgba(255,255,255,.45);
+
+backdrop-filter:blur(3px);
+}
+
+/* ROTATIONS */
+
+.snippet:nth-child(odd){
+transform:rotate(-2deg);
+}
+
+.snippet:nth-child(even){
+transform:rotate(2deg);
+}
+
+.snippet:nth-child(3n){
+transform:rotate(-4deg);
+}
+
+.snippet:nth-child(5n){
+transform:rotate(3deg);
+}
+
+.snippet:hover{
+transform:
+translateY(-10px)
+rotate(0deg);
+}
+
+/* TEXT */
+
+.snippet p{
+font-family:'Caveat',cursive;
+font-size:30px;
+line-height:1.5;
+color:var(--text);
+}
+
+.snippet span{
+display:block;
+margin-top:20px;
+font-family:'Special Elite';
+font-size:12px;
+letter-spacing:2px;
+color:#7a5a44;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+nav ul{
+display:none;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.snippet p{
+font-size:26px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<h1>BOOK<br>NOOK</h1>
+<p>By Pranjal</p>
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="bestsellers.html">Bestsellers</a></li>
+<li><a href="favorites.html">My Favorites</a></li>
+<li><a href="genre.html">Genres</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="index.html#contact">Contact Me</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>Snippets</h1>
+
+<p>
+Small pieces of dialogue, thoughts, and lines that stayed with me long after the page ended.
+</p>
+
+</section>
+
+<section class="wall">
+
+<div class="snippet">
+<p>Some books do not end when you close them. They simply move into your thoughts.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>There are stories we read, and stories that quietly rewrite us.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>The right book finds you exactly when you need it.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Growing up is realizing every character was fighting a battle you never noticed the first time.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Not every story changes the world. Some only change one person. Sometimes that's enough.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>A library is proof that people leave pieces of themselves behind for strangers.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Some chapters hurt because they remind us of our own.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>The most dangerous thing a book can give you is a new way of seeing yourself.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Nostalgia is just memory wearing soft lighting.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Every reader carries a private bookshelf inside their mind.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>Some stories feel less like fiction and more like finding a forgotten part of yourself.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+<div class="snippet">
+<p>The best books don't give answers. They leave better questions.</p>
+<span>BOOK NOOK NOTE</span>
+</div>
+
+</section>
+
+</body>
+</html>
