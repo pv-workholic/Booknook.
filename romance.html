@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Nook | Romance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#e8d7c6;
+--paper:#f6ebde;
+--dark:#140c08;
+--brown:#3d2b21;
+--gold:#b18a5f;
+--wine:#5b3938;
+--pink:#c96b7c;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--dark);
+overflow-x:hidden;
+padding-top:90px;
+}
+
+/* BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(255,248,240,0.08),rgba(0,0,0,0.2)),
+url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
+background-size:cover;
+opacity:.3;
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(12,8,6,.55);
+backdrop-filter:blur(18px);
+z-index:999;
+}
+
+.logo h1{
+font-family:'Cinzel';
+font-size:34px;
+letter-spacing:6px;
+color:white;
+line-height:.9;
+}
+
+.logo p{
+font-family:'Great Vibes';
+font-size:24px;
+color:#d0ab82;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#f1e5d7;
+}
+
+/* HERO */
+.hero{
+padding:120px 8% 80px;
+text-align:center;
+background:
+linear-gradient(rgba(10,6,8,.85),rgba(10,6,8,.9)),
+url("https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2000");
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond';
+font-size:90px;
+}
+
+.hero p{
+margin-top:15px;
+opacity:.85;
+}
+
+/* SECTION */
+section{
+padding:100px 8%;
+}
+
+/* LETTER CARD */
+.letter-card{
+background:var(--paper);
+border-radius:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+overflow:hidden;
+margin-bottom:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.letter-card:hover{
+transform:translateY(-6px);
+}
+
+.letter-header{
+padding:30px;
+}
+
+.letter-title{
+font-family:'Cormorant Garamond';
+font-size:40px;
+color:var(--brown);
+}
+
+.letter-sub{
+font-family:'Special Elite';
+font-size:13px;
+color:#7a5a44;
+margin-top:8px;
+letter-spacing:2px;
+}
+
+.rating{
+color:#d4a017;
+font-size:20px;
+margin-top:10px;
+}
+
+.letter-body{
+max-height:0;
+overflow:hidden;
+transition:max-height .6s ease, padding .6s ease;
+padding:0 30px;
+}
+
+.letter-card.active .letter-body{
+max-height:2000px;
+padding:20px 30px 40px;
+}
+
+.section{
+margin-bottom:20px;
+line-height:2;
+font-size:15px;
+}
+
+.divider{
+text-align:center;
+margin:25px 0;
+letter-spacing:3px;
+opacity:.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h1{font-size:55px;}
+.letter-title{font-size:30px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+<h1>BOOK<br>NOOK</h1>
+<p>By Pranjal</p>
+</div>
+
+<ul>
+<li><a href="bestsellers.html">Bestsellers</a></li>
+<li><a href="index.html#favorites">My Favourites</a></li>
+<li><a href="index.html#reviews">Reviews</a></li>
+<li><a href="genre.html">Genres</a></li>
+<li><a href="index.html#contact">Contact Me</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Romance</h1>
+<p>Stories of love, heartbreak, longing and everything in between</p>
+</div>
+
+<!-- CONTENT -->
+<section>
+
+<!-- BOOK 1 -->
+<div class="letter-card">
+
+<div class="letter-header">
+<div class="letter-title">OUR PERFECT STORM</div>
+<div class="letter-sub">Author: Carley Fortune • Pages: ~336</div>
+<div class="rating">★★★★☆</div>
+</div>
+
+<div class="letter-body">
+
+<div class="section">
+<strong>The Premise</strong><br><br>
+Two people reconnect during what was meant to be a temporary trip, but nothing about it stays temporary for long. What begins as a chance encounter slowly deepens into something emotionally complicated—built on unfinished conversations, lingering memories, and feelings that were never fully resolved.
+</div>
+
+<div class="divider">━━━━━━━━━━━━━━</div>
+
+<div class="section">
+<strong>What Makes It Worth Picking Up</strong><br><br>
+A soft, atmospheric romance shaped by nostalgia, timing, and the quiet question of “what if.” It leans heavily into mood—summer air, quiet tension, and emotional pauses that say more than dialogue ever could. It’s less about falling in love, and more about returning to a version of yourself you thought you had already outgrown.
+</div>
+
+<div class="divider">━━━━━━━━━━━━━━</div>
+
+<div class="section">
+<strong>My Reading Experience</strong><br><br>
+This book felt like being caught in an emotional tide 🌊😭<br><br>
+
+It starts gently—almost comforting—and then slowly you realize you’re deeply attached to people making very questionable emotional decisions 🫠💔<br><br>
+
+I kept thinking: “just communicate properly,” while also rooting for them to figure it out anyway 💭😭
+</div>
+
+<div class="divider">━━━━━━━━━━━━━━</div>
+
+<div class="section">
+<strong>Read This If You Enjoy...</strong><br><br>
+• 🌊 Second-chance romance<br>
+• 💔 Slow emotional burn<br>
+• 🌙 Nostalgic summer settings<br>
+• 🫶 Character-driven stories<br>
+• 💬 Unspoken feelings resurfacing
+</div>
+
+<div class="divider">━━━━━━━━━━━━━━</div>
+
+<div class="section">
+<strong>Shelf Tags</strong><br><br>
+#Romance #SecondChance #Emotional #SlowBurn #Nostalgia
+</div>
+
+<div class="divider">━━━━━━━━━━━━━━</div>
+
+<div class="section">
+<strong>One Last Note From the Nook</strong><br><br>
+📖 Reader’s Warning: Emotional overflow possible 🌊💔<br><br>
+
+This story doesn’t hit loudly—it seeps in quietly and stays longer than expected.<br><br>
+
+You’ll start reading casually, and somewhere along the way realize you’re emotionally revisiting old memories you didn’t plan to open 🌙✨
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- JS -->
+<script>
+document.querySelectorAll(".letter-card").forEach(card=>{
+card.addEventListener("click", ()=>{
+card.classList.toggle("active");
+});
+});
+</script>
+
+</body>
+</html>
