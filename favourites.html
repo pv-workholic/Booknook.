@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Nook | My Favorites</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#e8d7c6;
+--paper:#f6ebde;
+--dark:#140c08;
+--brown:#3d2b21;
+--gold:#b18a5f;
+--wine:#5b3938;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--dark);
+overflow-x:hidden;
+padding-top:90px;
+}
+
+/* BACKGROUND */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(10,8,6,.85),rgba(10,8,6,.92)),
+url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
+background-size:cover;
+opacity:.35;
+z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(12,8,6,.55);
+backdrop-filter:blur(18px);
+z-index:999;
+}
+
+.logo h1{
+font-family:'Cinzel';
+font-size:34px;
+letter-spacing:6px;
+color:white;
+line-height:.9;
+}
+
+.logo p{
+font-family:'Great Vibes';
+font-size:24px;
+color:#d0ab82;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#f1e5d7;
+}
+
+nav a:hover{
+color:var(--gold);
+}
+
+/* HERO */
+.hero{
+padding:140px 8% 60px;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond';
+font-size:85px;
+}
+
+.hero p{
+margin-top:15px;
+opacity:.85;
+}
+
+/* GRID */
+.favorites{
+padding:80px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+}
+
+/* CARD */
+.fav-card{
+background:var(--paper);
+border-radius:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+padding:40px;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.fav-card:hover{
+transform:translateY(-8px);
+}
+
+.book-title{
+font-family:'Cormorant Garamond';
+font-size:34px;
+color:var(--brown);
+margin-bottom:10px;
+}
+
+.author{
+font-family:'Special Elite';
+font-size:13px;
+color:#7a5a44;
+letter-spacing:2px;
+margin-bottom:15px;
+}
+
+.rating{
+color:#d4a017;
+font-size:20px;
+margin-bottom:20px;
+}
+
+.note{
+font-family:'Special Elite';
+font-size:14px;
+line-height:1.8;
+background:#f3e5d3;
+padding:15px;
+border-left:4px solid var(--gold);
+transform:rotate(-1deg);
+margin-bottom:20px;
+}
+
+.tag{
+position:absolute;
+top:20px;
+right:20px;
+font-family:'Special Elite';
+font-size:12px;
+color:var(--gold);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+<h1>BOOK<br>NOOK</h1>
+<p>By Pranjal</p>
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="bestsellers.html">Bestsellers</a></li>
+<li><a href="favorites.html">My Favorites</a></li>
+<li><a href="genre.html">Genres</a></li>
+<li><a href="index.html#contact">Contact Me</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>My Favorites</h1>
+<p>A quiet shelf of stories I keep returning to 📖</p>
+</div>
+
+<!-- FAVORITES -->
+<section class="favorites">
+
+<!-- 1 -->
+<div class="fav-card">
+<div class="tag">ROMANCE</div>
+<div class="book-title">The Twisted Love</div>
+<div class="author">Ana Huang</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+A dark, addictive romance filled with tension, obsession, and emotional intensity that keeps you hooked.
+</div>
+</div>
+
+<!-- 2 -->
+<div class="fav-card">
+<div class="tag">ROMANCE</div>
+<div class="book-title">The Perfect Storm</div>
+<div class="author">Carley Fortune</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+A nostalgic, emotional second-chance romance that feels like summer memories you cannot let go of.
+</div>
+</div>
+
+<!-- 3 -->
+<div class="fav-card">
+<div class="tag">THRILLER</div>
+<div class="book-title">The Project</div>
+<div class="author">Courtney Summers</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+A gripping investigative story that slowly pulls you into obsession, truth, and manipulation.
+</div>
+</div>
+
+<!-- 4 -->
+<div class="fav-card">
+<div class="tag">HORROR / THRILLER</div>
+<div class="book-title">The Butcher and the Blackbird</div>
+<div class="author">Brynne Weaver</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+Dark, chaotic, and violent in tone with a strange addictive energy that keeps escalating.
+</div>
+</div>
+
+<!-- 5 -->
+<div class="fav-card">
+<div class="tag">ROMANCE</div>
+<div class="book-title">Too Good to Be True</div>
+<div class="author">Carola Lovering</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+A psychological romance where love and deception blur into each other beautifully.
+</div>
+</div>
+
+<!-- 6 -->
+<div class="fav-card">
+<div class="tag">ROMANCE</div>
+<div class="book-title">The American Roommate Experiment</div>
+<div class="author">Elena Armas</div>
+<div class="rating">★★★★☆</div>
+<div class="note">
+A soft, slow-burn romantic comedy filled with warmth, chaos, and unexpected chemistry.
+</div>
+</div>
+
+</section>
+
+</body>
+</html>
