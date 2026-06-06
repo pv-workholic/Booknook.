@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Nook | Genres</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#e8d7c6;
+--paper:#f6ebde;
+--dark:#140c08;
+--brown:#3d2b21;
+--gold:#b18a5f;
+--wine:#5b3938;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--dark);
+}
+
+/* HERO */
+.hero{
+padding:160px 8% 80px;
+text-align:center;
+background:
+linear-gradient(rgba(10,8,6,.85),rgba(10,8,6,.85)),
+url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
+background-size:cover;
+color:white;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond';
+font-size:80px;
+}
+
+.hero p{
+margin-top:20px;
+opacity:.8;
+}
+
+/* GENRE GRID */
+.genres{
+padding:100px 8%;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+}
+
+.genre-card{
+background:var(--paper);
+padding:50px;
+border-radius:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+cursor:pointer;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.genre-card:hover{
+transform:translateY(-8px);
+}
+
+.genre-card h2{
+font-family:'Cormorant Garamond';
+font-size:50px;
+color:var(--brown);
+}
+
+.genre-card p{
+margin-top:15px;
+line-height:2;
+font-size:15px;
+}
+
+.tag{
+position:absolute;
+top:20px;
+right:20px;
+font-family:'Special Elite';
+font-size:12px;
+color:var(--gold);
+}
+
+/* COLORS PER GENRE */
+.romance{border-left:8px solid #c96b7c;}
+.horror{border-left:8px solid #3b2a2a;}
+.thriller{border-left:8px solid #2f3b3b;}
+.fantasy{border-left:8px solid #5a4b8a;}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+.genres{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:55px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>Explore Genres</h1>
+<p>Step into different worlds through curated book reviews</p>
+</div>
+
+<section class="genres">
+
+<a href="romance.html" style="text-decoration:none;color:inherit;">
+<div class="genre-card romance">
+<span class="tag">LOVE</span>
+<h2>Romance</h2>
+<p>Stories of love, longing, heartbreak, and everything in between.</p>
+</div>
+</a>
+
+<a href="horror.html" style="text-decoration:none;color:inherit;">
+<div class="genre-card horror">
+<span class="tag">FEAR</span>
+<h2>Horror</h2>
+<p>Dark tales that linger in silence and stay long after the last page.</p>
+</div>
+</a>
+
+<a href="thriller.html" style="text-decoration:none;color:inherit;">
+<div class="genre-card thriller">
+<span class="tag">SUSPENSE</span>
+<h2>Thriller</h2>
+<p>Twists, secrets, and stories that keep your heart racing.</p>
+</div>
+</a>
+
+<a href="fantasy.html" style="text-decoration:none;color:inherit;">
+<div class="genre-card fantasy">
+<span class="tag">MAGIC</span>
+<h2>Fantasy</h2>
+<p>Worlds beyond reality where magic and myth come alive.</p>
+</div>
+</a>
+
+</section>
+
+</body>
+</html>
