@@ -32,6 +32,54 @@ background:var(--bg);
 color:var(--dark);
 }
 
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(12,8,6,.55);
+backdrop-filter:blur(18px);
+z-index:999;
+}
+
+.logo h1{
+font-family:'Cinzel';
+font-size:34px;
+letter-spacing:6px;
+color:white;
+line-height:.9;
+}
+
+.logo p{
+font-family:'Great Vibes';
+font-size:24px;
+color:#d0ab82;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#f1e5d7;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--gold);
+}
+
 /* HERO */
 .hero{
 padding:160px 8% 80px;
@@ -41,6 +89,7 @@ linear-gradient(rgba(10,8,6,.85),rgba(10,8,6,.85)),
 url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
 background-size:cover;
 color:white;
+margin-top:90px;
 }
 
 .hero h1{
@@ -111,6 +160,9 @@ grid-template-columns:1fr;
 .hero h1{
 font-size:55px;
 }
+nav ul{
+display:none;
+}
 }
 
 </style>
@@ -118,11 +170,32 @@ font-size:55px;
 
 <body>
 
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+<h1>BOOK<br>NOOK</h1>
+<p>By Pranjal</p>
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="bestsellers.html">Bestsellers</a></li>
+<li><a href="index.html#favorites">My Favourites</a></li>
+<li><a href="index.html#reviews">Reviews</a></li>
+<li><a href="genre.html">Genres</a></li>
+<li><a href="index.html#contact">Contact Me</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
 <div class="hero">
 <h1>Explore Genres</h1>
 <p>Step into different worlds through curated book reviews</p>
 </div>
 
+<!-- GENRES -->
 <section class="genres">
 
 <a href="romance.html" style="text-decoration:none;color:inherit;">
