@@ -562,9 +562,12 @@ Jane Austen
 one proposal rejected.
 another accepted.
 literature was never the same.
-</div><button class="read-btn" onclick="toggleReview()">
+</div>
+    <button class="read-btn" onclick="toggleReview('review1')">
 Read Journal Entry
-</button></div></div></section><section class="review" id="reviewSection"><div class="letter"><div class="letter-label">
+</button></div></div>
+    </section>
+    <section class="review" id="review1"><div class="letter"><div class="letter-label">
 TO: FELLOW READER
 </div><h2>
 A Letter From A Reader
@@ -612,9 +615,11 @@ Fredrik Backman
 grumpy old man.
 softest heart.
 prepare to cry.
-</div><button class="read-btn" onclick="toggleReview()">
+</div>
+    <button class="read-btn" onclick="toggleReview('review2')">
 Read Journal Entry
-</button></div></div></section><section class="review" id="review 1"><div class="letter"><div class="letter-label">
+</button></div></div>
+    </section><section class="review" id="review2"><div class="letter"><div class="letter-label">
 TO: FELLOW READER
 </div><h2>
 A Letter From A Reader
@@ -657,9 +662,10 @@ Markus Zusak
 words were stolen.
 hearts were broken.
 and this book never left.
-</div><button class="read-btn" onclick="toggleReview()">
+</div>
+    <button class="read-btn" onclick="toggleReview('review3')">
 Read Journal Entry
-</button></div></div></section><section class="review" id="review 2"><div class="letter"><div class="letter-label">
+</button></div></div></section><section class="review" id="review3 "><div class="letter"><div class="letter-label">
 TO: FELLOW READER
 </div><h2>
 A Letter From A Reader
@@ -719,7 +725,7 @@ and yes...
 this book still hurts.
 </div>
 
-<button class="read-btn" onclick="toggleReview()">
+<button class="read-btn" onclick="toggleReview('review4')">
 Read Journal Entry
 </button>
 
@@ -728,7 +734,7 @@ Read Journal Entry
 </div>
 
 </section>
-<section class="review" id="review 3">
+<section class="review" id="review4">
 
 <div class="letter">
 
@@ -810,9 +816,9 @@ and are ready for a 10/10 emotional rollercoaster! 🍦🎢✨
 
 <script>
 
-function toggleReview(){
+function toggleReview(reviewId){
 
-const review = document.getElementById("reviewSection");
+const review = document.getElementById(reviewId);
 
 if(
 review.style.display === "none" ||
