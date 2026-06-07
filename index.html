@@ -2406,8 +2406,10 @@ SCRIPT (ONLY LETTER CHANGED)
 <script>
 
 /* ==========================
-TYPEWRITER LETTER
+TYPEWRITER LETTER (FIXED)
 ========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
 
 const letter = `
 
@@ -2446,27 +2448,25 @@ Keep believing there is room for your voice among all the others.
 
 `;
 
-const typingTarget =
-document.getElementById("typingText");
+const typingTarget = document.getElementById("typingText");
 
 let i = 0;
 
 function typeLetter(){
 
+if(!typingTarget) return;
+
 if(i < letter.length){
-
-typingTarget.innerHTML +=
-letter.charAt(i);
-
+typingTarget.innerHTML += letter.charAt(i);
 i++;
-
-setTimeout(typeLetter,18);
-
+setTimeout(typeLetter, 18);
 }
 
 }
 
-setTimeout(typeLetter,800);
+setTimeout(typeLetter, 800);
+
+});
 
 </script>
 
