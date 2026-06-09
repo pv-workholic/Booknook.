@@ -1915,13 +1915,20 @@ DEAR FUTURE WRITER + CONTACT + FOOTER + JS
 <style>
 
 /* ==========================================
-DEAR FUTURE WRITER (ONLY LETTER ENHANCEMENT)
+DEAR FUTURE WRITER
 ========================================== */
+
+.future-wrap{
+
+max-width:900px;
+margin:auto;
+margin-top:60px;
+
+}
 
 .future-letter{
 
-background:
-linear-gradient(135deg, var(--paper), #fbf6ef);
+background:var(--paper);
 
 padding:60px;
 
@@ -1932,10 +1939,6 @@ box-shadow:var(--shadow-lg);
 position:relative;
 
 overflow:hidden;
-
-line-height:1.8;
-
-letter-spacing:0.3px;
 
 }
 
@@ -1973,25 +1976,18 @@ opacity:.2;
 
 }
 
-/* LETTER TEXT ONLY */
-
 .typewriter{
 
-font-size:1.05rem;
+font-size:1rem;
 
-line-height:2.4;
+line-height:2.2;
 
 color:var(--soft);
 
 min-height:420px;
 
-white-space:pre-wrap;
-
-font-family:'Special Elite', monospace;
-
 }
 
-/* cursor kept for your design consistency */
 .cursor{
 
 display:inline-block;
@@ -2002,16 +1998,19 @@ animation:blink 1s infinite;
 
 @keyframes blink{
 
-0%,50%{opacity:1;}
-51%,100%{opacity:0;}
+0%,50%{
+opacity:1;
+}
+
+51%,100%{
+opacity:0;
+}
 
 }
 
-/* signature stays same but slightly refined spacing */
-
 .future-sign{
 
-margin-top:45px;
+margin-top:40px;
 
 }
 
@@ -2035,12 +2034,10 @@ color:var(--gold-dark);
 
 margin-top:-10px;
 
-letter-spacing:1px;
-
 }
 
 /* ==========================================
-CONTACT (UNCHANGED)
+CONTACT
 ========================================== */
 
 .contact-card{
@@ -2100,7 +2097,7 @@ background:var(--gold-dark);
 }
 
 /* ==========================================
-FOOTER (UNCHANGED)
+FOOTER
 ========================================== */
 
 .book-footer{
@@ -2196,7 +2193,7 @@ line-height:2;
 }
 
 /* ==========================================
-REVEAL (UNCHANGED)
+REVEAL
 ========================================== */
 
 .reveal{
@@ -2218,7 +2215,7 @@ transform:translateY(0);
 }
 
 /* ==========================================
-MOBILE (LETTER ONLY TOUCH)
+MOBILE
 ========================================== */
 
 @media(max-width:768px){
@@ -2271,43 +2268,510 @@ font-size:2.2rem;
 
 </style>
 
-<!-- ==========================================
+  <!-- ==========================================
+CHUNK 4 REIMAGINED
 DEAR FUTURE WRITER
-========================================== -->
+========================================== --><style>
 
-<section class="reveal">
+/* ==========================================
+DEAR FUTURE WRITER
+========================================== */
 
-<div class="small-line">
+.future-section{
+
+position:relative;
+
+}
+
+.future-container{
+
+max-width:950px;
+
+margin:auto;
+
+margin-top:60px;
+
+position:relative;
+
+}
+
+/* ==========================================
+ENVELOPE
+========================================== */
+
+.envelope{
+
+position:absolute;
+
+bottom:-20px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:90%;
+
+height:180px;
+
+background:#d8c0a6;
+
+border-radius:0 0 18px 18px;
+
+box-shadow:
+0 25px 50px rgba(0,0,0,.12);
+
+z-index:1;
+
+}
+
+.envelope:before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+linear-gradient(
+135deg,
+transparent 49%,
+#c5ac91 50%
+),
+
+linear-gradient(
+225deg,
+transparent 49%,
+#c5ac91 50%
+);
+
+}
+
+/* ==========================================
+LETTER
+========================================== */
+
+.future-letter{
+
+position:relative;
+
+z-index:2;
+
+background:var(--paper);
+
+padding:70px;
+
+box-shadow:var(--shadow-lg);
+
+border-radius:10px;
+
+overflow:hidden;
+
+transform:rotate(-.4deg);
+
+}
+
+/* Fold line */
+
+.future-letter::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:50%;
+
+width:100%;
+height:1px;
+
+background:
+rgba(0,0,0,.08);
+
+}
+
+/* Paperclip */
+
+.future-letter::after{
+
+content:"📎";
+
+position:absolute;
+
+top:20px;
+right:25px;
+
+font-size:2rem;
+
+}
+
+/* Coffee stain */
+
+.coffee-ring{
+
+position:absolute;
+
+top:60px;
+left:60px;
+
+width:90px;
+height:90px;
+
+border:
+8px solid rgba(150,90,40,.08);
+
+border-radius:50%;
+
+}
+
+/* Stamp */
+
+.future-stamp{
+
+position:absolute;
+
+top:30px;
+left:30px;
+
+border:
+2px dashed rgba(0,0,0,.18);
+
+padding:10px 14px;
+
+font-size:.7rem;
+
+letter-spacing:2px;
+
+font-family:'Special Elite';
+
+transform:rotate(-8deg);
+
+color:rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+TITLE
+========================================== */
+
+.future-heading{
+
+margin-bottom:50px;
+
+}
+
+.future-heading h2{
+
+font-family:
+'Cormorant Garamond';
+
+font-size:5rem;
+
+line-height:.8;
+
+}
+
+.future-script{
+
+font-family:
+'Great Vibes';
+
+font-size:4rem;
+
+color:var(--gold-dark);
+
+margin-left:140px;
+
+margin-top:-5px;
+
+transform:rotate(-4deg);
+
+}
+
+/* ==========================================
+LETTER TEXT
+========================================== */
+
+.typewriter{
+
+font-size:1rem;
+
+line-height:2.2;
+
+color:var(--soft);
+
+min-height:450px;
+
+white-space:pre-wrap;
+
+}
+
+/* ==========================================
+MARGIN NOTES
+========================================== */
+
+.margin-note{
+
+position:absolute;
+
+font-family:'Caveat';
+
+font-size:1.5rem;
+
+color:rgba(120,90,60,.45);
+
+}
+
+.note-one{
+
+right:30px;
+top:180px;
+
+transform:rotate(6deg);
+
+}
+
+.note-two{
+
+left:25px;
+bottom:120px;
+
+transform:rotate(-8deg);
+
+}
+
+.note-three{
+
+right:40px;
+bottom:180px;
+
+transform:rotate(4deg);
+
+}
+
+/* ==========================================
+SIGNATURE
+========================================== */
+
+.future-sign{
+
+margin-top:50px;
+
+}
+
+.future-sign .love{
+
+font-family:'Caveat';
+
+font-size:2rem;
+
+}
+
+.future-sign .name{
+
+font-family:'Great Vibes';
+
+font-size:5rem;
+
+margin-top:-10px;
+
+color:var(--gold-dark);
+
+}
+
+/* ==========================================
+CONTACT
+========================================== */
+
+.contact-letter{
+
+max-width:750px;
+
+margin:auto;
+
+background:var(--paper);
+
+padding:50px;
+
+border-radius:18px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+transform:rotate(.3deg);
+
+}
+
+.contact-icon{
+
+font-size:3rem;
+
+margin-bottom:20px;
+
+}
+
+.contact-mail{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:18px 30px;
+
+background:var(--gold);
+
+color:white;
+
+border-radius:999px;
+
+font-family:'Special Elite';
+
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.book-footer{
+
+margin-top:120px;
+
+padding:160px 30px;
+
+text-align:center;
+
+background:
+
+linear-gradient(
+rgba(18,12,9,.96),
+rgba(18,12,9,.98)
+);
+
+position:relative;
+
+}
+
+.book-footer:before{
+
+content:"THE END";
+
+position:absolute;
+
+top:40px;
+left:50%;
+
+transform:translateX(-50%);
+
+font-family:'Special Elite';
+
+letter-spacing:6px;
+
+font-size:.8rem;
+
+color:rgba(255,255,255,.15);
+
+}
+
+.footer-script{
+
+font-family:'Great Vibes';
+
+font-size:4rem;
+
+color:#d4b392;
+
+margin-bottom:25px;
+
+}
+
+.book-footer h2{
+
+font-family:'Cinzel';
+
+font-size:5rem;
+
+letter-spacing:10px;
+
+color:white;
+
+margin-bottom:25px;
+
+}
+
+/* ==========================================
+MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.future-letter{
+
+padding:35px;
+
+}
+
+.future-heading h2{
+
+font-size:3rem;
+
+}
+
+.future-script{
+
+font-size:2.6rem;
+
+margin-left:60px;
+
+}
+
+.typewriter{
+
+min-height:auto;
+
+}
+
+.margin-note{
+
+display:none;
+
+}
+
+.future-sign .name{
+
+font-size:3.5rem;
+
+}
+
+.envelope{
+
+height:120px;
+
+}
+
+}
+
+</style><section class="future-section reveal"><div class="small-line">
 A Letter Left Between Pages
-</div>
-
-<h2 class="section-title">
-Dear
+</div><div class="future-container"><div class="envelope"></div><div class="future-letter"><div class="future-stamp">
+OPEN IN 2035
+</div><div class="coffee-ring"></div><div class="future-heading"><h2>Dear</h2><div class="future-script">
 Future Writer
-</h2>
-
-<div class="future-wrap">
-
-<div class="future-letter">
-
-<div class="typewriter" id="typingText"></div>
-
-<div class="future-sign">
-
-<div class="love">
+</div></div><div class="margin-note note-one">
+keep writing.
+</div><div class="margin-note note-two">
+start before you're ready.
+</div><div class="margin-note note-three">
+don't give up.
+</div><div class="typewriter" id="typingText"></div><div class="future-sign"><div class="love">
 With Love,
-</div>
-
-<div class="name">
+</div><div class="name">
 Pranjal
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+</div></div></div></div>
 </section>
 
 <!-- ==========================================
@@ -2400,16 +2864,14 @@ and future writers.
 </footer>
 
 <!-- ==========================================
-SCRIPT (ONLY LETTER CHANGED)
+SCRIPT
 ========================================== -->
 
 <script>
 
 /* ==========================
-TYPEWRITER LETTER (FIXED)
+TYPEWRITER LETTER
 ========================== */
-
-document.addEventListener("DOMContentLoaded", () => {
 
 const letter = `
 
@@ -2419,7 +2881,7 @@ I never imagined I would someday dream of writing one.
 At first,
 I simply wanted more stories.
 More worlds.
-More characters to carry me after the final page.
+More characters to carry with me after the final page.
 
 But somewhere between underlining favourite passages,
 annotating margins,
@@ -2448,23 +2910,97 @@ Keep believing there is room for your voice among all the others.
 
 `;
 
-const typingTarget = document.getElementById("typingText");
+const typingTarget =
+document.getElementById("typingText");
 
 let i = 0;
 
 function typeLetter(){
 
-if(!typingTarget) return;
-
 if(i < letter.length){
-typingTarget.innerHTML += letter.charAt(i);
+
+typingTarget.innerHTML +=
+letter.charAt(i);
+
 i++;
-setTimeout(typeLetter, 18);
-}
+
+setTimeout(typeLetter,18);
 
 }
 
-setTimeout(typeLetter, 800);
+}
+
+setTimeout(typeLetter,800);
+
+/* ==========================
+SCROLL REVEAL
+========================== */
+
+const reveals =
+document.querySelectorAll('.reveal');
+
+function revealSections(){
+
+reveals.forEach(section=>{
+
+const top =
+section.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+section.classList.add('active');
+
+}
+
+});
+
+}
+
+window.addEventListener(
+'scroll',
+revealSections
+);
+
+revealSections();
+
+/* ==========================
+BOOK SPINE INTERACTION
+========================== */
+
+const books =
+document.querySelectorAll('.book-spine');
+
+const note =
+document.querySelector('.book-note');
+
+const notes = [
+
+"The book that taught me how powerful an unreliable narrator can be. Every chapter felt like stepping deeper into a carefully constructed trap.",
+
+"A reminder that quiet stories can leave the deepest marks. It made me laugh, cry, and appreciate ordinary kindness.",
+
+"A book that arrived at exactly the right time. It encouraged me to think about ambition, purpose, and balance.",
+
+"Sharp, witty, and endlessly readable. Jane Austen somehow makes observations about people feel timeless.",
+
+"Proof that a character doesn't have to be perfect to feel unforgettable. Messy, frustrating, and deeply human."
+
+];
+
+books.forEach((book,index)=>{
+
+book.addEventListener('click',()=>{
+
+books.forEach(item=>
+item.classList.remove('active')
+);
+
+book.classList.add('active');
+
+note.innerHTML =
+notes[index];
+
+});
 
 });
 
@@ -2474,4 +3010,3 @@ setTimeout(typeLetter, 800);
 </html>
 
 <!-- CHUNK 4 ENDS HERE -->
-
