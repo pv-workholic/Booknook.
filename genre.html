@@ -1,236 +1,3198 @@
+<!-- ==========================================
+CHUNK 1
+THE LITERARY MAP
+NAVBAR + HERO + LETTER
+========================================== -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Book Nook | Genres</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
+<title>
+Book Nook | The Literary Map
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Caveat:wght@400;500;600;700&family=Special+Elite&display=swap"
+rel="stylesheet">
 
 <style>
 
+/* ==========================================
+ROOT
+========================================== */
+
 :root{
---bg:#e8d7c6;
---paper:#f6ebde;
---dark:#140c08;
---brown:#3d2b21;
---gold:#b18a5f;
---wine:#5b3938;
+
+--bg:#eadac8;
+
+--paper:#f8efe5;
+
+--paper-dark:#efdfce;
+
+--brown:#3f2d23;
+
+--gold:#b78a5f;
+
+--accent:#6b4b3f;
+
+--shadow:
+0 15px 40px rgba(0,0,0,.08);
+
+--shadow-lg:
+0 25px 55px rgba(0,0,0,.12);
+
 }
 
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
+
 }
 
 body{
+
 font-family:'Inter',sans-serif;
+
 background:var(--bg);
-color:var(--dark);
+
+color:var(--brown);
+
+overflow-x:hidden;
+
 }
 
-/* NAVBAR */
-nav{
+/* ==========================================
+VINTAGE MAP BACKGROUND
+========================================== */
+
+body::before{
+
+content:"";
+
 position:fixed;
+
+inset:0;
+
+background:
+
+url("https://www.transparenttextures.com/patterns/old-map.png");
+
+opacity:.15;
+
+pointer-events:none;
+
+z-index:-2;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle,
+transparent 50%,
+rgba(0,0,0,.08));
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+/* ==========================================
+NAVBAR
+========================================== */
+
+nav{
+
+position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
+
 padding:22px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-background:rgba(12,8,6,.55);
-backdrop-filter:blur(18px);
+
+background:
+rgba(248,239,229,.92);
+
+backdrop-filter:blur(15px);
+
 z-index:999;
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
 }
 
 .logo h1{
+
 font-family:'Cinzel';
-font-size:34px;
-letter-spacing:6px;
-color:white;
+
+font-size:30px;
+
 line-height:.9;
+
+letter-spacing:4px;
+
 }
 
 .logo p{
-font-family:'Great Vibes';
+
+font-family:'Caveat';
+
 font-size:24px;
-color:#d0ab82;
+
+color:var(--gold);
+
 }
 
 nav ul{
+
 display:flex;
+
 gap:30px;
+
 list-style:none;
+
 }
 
 nav a{
+
 text-decoration:none;
+
 font-size:11px;
+
 letter-spacing:3px;
+
 text-transform:uppercase;
-color:#f1e5d7;
-transition:.3s;
-}
 
-nav a:hover{
-color:var(--gold);
-}
-
-/* HERO */
-.hero{
-padding:160px 8% 80px;
-text-align:center;
-background:
-linear-gradient(rgba(10,8,6,.85),rgba(10,8,6,.85)),
-url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
-background-size:cover;
-color:white;
-margin-top:90px;
-}
-
-.hero h1{
-font-family:'Cormorant Garamond';
-font-size:80px;
-}
-
-.hero p{
-margin-top:20px;
-opacity:.8;
-}
-
-/* GENRE GRID */
-.genres{
-padding:100px 8%;
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:40px;
-}
-
-.genre-card{
-background:var(--paper);
-padding:50px;
-border-radius:30px;
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-cursor:pointer;
-transition:.3s;
-position:relative;
-overflow:hidden;
-}
-
-.genre-card:hover{
-transform:translateY(-8px);
-}
-
-.genre-card h2{
-font-family:'Cormorant Garamond';
-font-size:50px;
 color:var(--brown);
+
 }
 
-.genre-card p{
-margin-top:15px;
-line-height:2;
-font-size:15px;
+/* ==========================================
+HERO
+========================================== */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+padding:150px 8% 100px;
+
+position:relative;
+
 }
 
-.tag{
+/* COMPASS */
+
+.compass{
+
 position:absolute;
-top:20px;
-right:20px;
-font-family:'Special Elite';
+
+top:120px;
+
+right:10%;
+
+font-size:140px;
+
+opacity:.08;
+
+font-family:'Cinzel';
+
+}
+
+.hero-content{
+
+max-width:900px;
+
+}
+
+.map-tag{
+
 font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
 color:var(--gold);
+
+margin-bottom:25px;
+
 }
 
-/* COLORS PER GENRE */
-.romance{border-left:8px solid #c96b7c;}
-.horror{border-left:8px solid #3b2a2a;}
-.thriller{border-left:8px solid #2f3b3b;}
-.fantasy{border-left:8px solid #5a4b8a;}
-
-/* RESPONSIVE */
-@media(max-width:800px){
-.genres{
-grid-template-columns:1fr;
-}
 .hero h1{
-font-size:55px;
+
+font-family:
+'Cormorant Garamond';
+
+font-size:110px;
+
+line-height:.9;
+
+margin-bottom:20px;
+
 }
+
+.hero-sub{
+
+font-size:24px;
+
+color:var(--accent);
+
+margin-bottom:40px;
+
+}
+
+.hero-text{
+
+font-size:18px;
+
+line-height:2.2;
+
+max-width:800px;
+
+margin:auto;
+
+}
+
+/* ==========================================
+LETTER
+========================================== */
+
+.map-letter{
+
+padding:120px 8%;
+
+}
+
+.letter-wrap{
+
+max-width:900px;
+
+margin:auto;
+
+background:var(--paper);
+
+padding:60px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow-lg);
+
+position:relative;
+
+}
+
+/* MAP STAMP */
+
+.letter-wrap::before{
+
+content:"BOOK NOOK PASSPORT";
+
+position:absolute;
+
+top:30px;
+
+right:30px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+padding:10px 15px;
+
+border:2px dashed var(--gold);
+
+color:var(--gold);
+
+transform:rotate(8deg);
+
+}
+
+.letter-small{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.letter-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:60px;
+
+margin-bottom:25px;
+
+}
+
+.letter-content{
+
+line-height:2.2;
+
+font-size:17px;
+
+}
+
+.signature{
+
+margin-top:35px;
+
+font-family:'Caveat';
+
+font-size:34px;
+
+color:var(--gold);
+
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
 nav ul{
+
 display:none;
+
 }
+
+.hero h1{
+
+font-size:70px;
+
+}
+
+.letter-title{
+
+font-size:45px;
+
+}
+
+.compass{
+
+display:none;
+
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ==========================================
+NAVBAR
+========================================== -->
+
 <nav>
 
 <div class="logo">
-<h1>BOOK<br>NOOK</h1>
-<p>By Pranjal</p>
+
+<h1>
+
+BOOK<br>
+NOOK
+
+</h1>
+
+<p>
+
+By Pranjal
+
+</p>
+
 </div>
 
 <ul>
+
 <li><a href="index.html">Home</a></li>
+
 <li><a href="bestsellers.html">Bestsellers</a></li>
-<li><a href="index.html#favorites">My Favourites</a></li>
-<li><a href="index.html#reviews">Reviews</a></li>
+
+<li><a href="favourites.html">Favourites</a></li>
+
+<li><a href="snippets.html">Snippets</a></li>
+
 <li><a href="genre.html">Genres</a></li>
-<li><a href="index.html#contact">Contact Me</a></li>
+
+  <li><a href="mailto: pranjalvats.work@gmail.com">Contact</a></li>
+
 </ul>
 
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Explore Genres</h1>
-<p>Step into different worlds through curated book reviews</p>
+<!-- ==========================================
+HERO
+========================================== -->
+
+<section class="hero">
+
+<div class="compass">
+
+✦
+
 </div>
 
-<!-- GENRES -->
-<section class="genres">
+<div class="hero-content">
 
-<a href="romance.html" style="text-decoration:none;color:inherit;">
-<div class="genre-card romance">
-<span class="tag">LOVE</span>
-<h2>Romance</h2>
-<p>Stories of love, longing, heartbreak, and everything in between.</p>
-</div>
-</a>
+<div class="map-tag">
 
-<a href="horror.html" style="text-decoration:none;color:inherit;">
-<div class="genre-card horror">
-<span class="tag">FEAR</span>
-<h2>Horror</h2>
-<p>Dark tales that linger in silence and stay long after the last page.</p>
-</div>
-</a>
+THE LITERARY MAP
 
-<a href="thriller.html" style="text-decoration:none;color:inherit;">
-<div class="genre-card thriller">
-<span class="tag">SUSPENSE</span>
-<h2>Thriller</h2>
-<p>Twists, secrets, and stories that keep your heart racing.</p>
 </div>
-</a>
 
-<a href="fantasy.html" style="text-decoration:none;color:inherit;">
-<div class="genre-card fantasy">
-<span class="tag">MAGIC</span>
-<h2>Fantasy</h2>
-<p>Worlds beyond reality where magic and myth come alive.</p>
+<h1>
+
+Wander Through
+The Stacks
+
+</h1>
+
+<div class="hero-sub">
+
+Every shelf is a destination.
+
 </div>
-</a>
+
+<div class="hero-text">
+
+Sometimes we want dragons.
+
+Sometimes we want heartbreak.
+
+Sometimes we want a mystery so good
+we forget to sleep.
+
+<br><br>
+
+This map isn't about finding the perfect genre.
+
+It's about discovering new places
+hidden between book covers.
+
+</div>
+
+</div>
 
 </section>
 
+<!-- ==========================================
+LETTER FROM MY SHELF
+========================================== -->
+
+<section class="map-letter">
+
+<div class="letter-wrap">
+
+<div class="letter-small">
+
+BEFORE YOU WANDER
+
+</div>
+
+<h2 class="letter-title">
+
+A Letter To Fellow Readers
+
+</h2>
+
+<div class="letter-content">
+
+Dear Reader,
+
+<br><br>
+
+Every bookshelf tells a different story.
+
+Some readers love dragons and destiny.
+
+Some prefer mysteries that keep them awake until 2 AM.
+
+Others want characters who feel like old friends.
+
+<br><br>
+
+This page isn't a list of the "best" books.
+
+It's a literary map.
+
+A collection of shelves waiting to be explored.
+
+<br><br>
+
+Wander wherever your curiosity takes you.
+
+You might discover your next favourite book
+on a shelf you never expected to visit.
+
+</div>
+
+<div class="signature">
+
+— Pranjal 📖
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 2 STARTS BELOW -->
+
+  <!-- ==========================================
+CHUNK 2
+GENRE DIRECTORY
+THE DESTINATIONS
+========================================== -->
+
+<style>
+
+/* ==========================================
+MAP DIRECTORY
+========================================== */
+
+.directory-section{
+
+padding:120px 8%;
+
+position:relative;
+
+}
+
+.directory-section::before{
+
+content:"";
+
+position:absolute;
+
+left:10%;
+
+right:10%;
+
+top:50%;
+
+height:3px;
+
+background:
+repeating-linear-gradient(
+to right,
+var(--gold) 0 12px,
+transparent 12px 24px
+);
+
+opacity:.35;
+
+z-index:0;
+
+}
+
+.section-tag{
+
+text-align:center;
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.section-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:80px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+color:var(--brown);
+
+}
+
+.section-intro{
+
+max-width:700px;
+
+margin:auto;
+
+text-align:center;
+
+line-height:2;
+
+margin-bottom:80px;
+
+}
+
+/* ==========================================
+DESTINATIONS GRID
+========================================== */
+
+.destination-grid{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:35px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.destination{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+transition:.35s;
+
+overflow:hidden;
+
+}
+
+.destination:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+0 25px 45px rgba(0,0,0,.12);
+
+}
+
+.destination::before{
+
+content:"✦";
+
+position:absolute;
+
+right:25px;
+
+top:20px;
+
+font-size:30px;
+
+color:rgba(183,138,95,.25);
+
+}
+
+.destination-icon{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.destination h3{
+
+font-family:'Cormorant Garamond';
+
+font-size:42px;
+
+margin-bottom:12px;
+
+}
+
+.destination p{
+
+line-height:1.9;
+
+margin-bottom:25px;
+
+font-size:15px;
+
+}
+
+.travel-tag{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:#efe2d3;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--brown);
+
+}
+
+/* ==========================================
+PASSPORT STRIP
+========================================== */
+
+.passport-strip{
+
+max-width:1100px;
+
+margin:90px auto 0;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+}
+
+.passport-stamp{
+
+padding:18px 22px;
+
+border:2px dashed var(--gold);
+
+border-radius:14px;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+background:var(--paper);
+
+transform:rotate(-3deg);
+
+}
+
+.passport-stamp:nth-child(even){
+
+transform:rotate(3deg);
+
+}
+
+@media(max-width:900px){
+
+.section-title{
+
+font-size:55px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+GENRE DIRECTORY
+========================================== -->
+
+<section class="directory-section">
+
+<div class="section-tag">
+
+CHOOSE YOUR DESTINATION
+
+</div>
+
+<h2 class="section-title">
+
+The Literary Atlas
+
+</h2>
+
+<p class="section-intro">
+
+Every genre is a different country.
+
+Some are filled with dragons.
+
+Some hide murder mysteries.
+
+Some quietly break your heart.
+
+Choose a destination and begin your journey.
+
+</p>
+
+<div class="destination-grid">
+
+<div class="destination">
+
+<div class="destination-icon">📜</div>
+
+<h3>Classics</h3>
+
+<p>
+
+Timeless stories, unforgettable characters,
+and proof that great writing never expires.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Classics
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">❤️</div>
+
+<h3>Romance</h3>
+
+<p>
+
+Slow burns, grand gestures,
+and enough emotional chaos
+to keep readers invested.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Romance
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🔍</div>
+
+<h3>Mystery</h3>
+
+<p>
+
+Suspicious people.
+
+Missing clues.
+
+Questionable decisions.
+
+Perfect.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Thriller
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">✨</div>
+
+<h3>Fantasy</h3>
+
+<p>
+
+Magic systems, impossible worlds,
+dangerous quests,
+and unforgettable adventures.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Fantasy
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🌙</div>
+
+<h3>Magical Realism</h3>
+
+<p>
+
+Reality with a touch of wonder.
+
+Strange, beautiful,
+and quietly unforgettable.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Wonder
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🥹</div>
+
+<h3>Literary Fiction</h3>
+
+<p>
+
+Character-driven stories that
+linger in your thoughts long after
+the final page.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Feelings
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🚀</div>
+
+<h3>Science Fiction</h3>
+
+<p>
+
+The future, the unknown,
+and questions humanity still
+hasn't answered.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Tomorrow
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🏰</div>
+
+<h3>Historical Fiction</h3>
+
+<p>
+
+Travel through centuries,
+wars, kingdoms,
+and forgotten lives.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: History
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">😱</div>
+
+<h3>Horror</h3>
+
+<p>
+
+For readers who willingly pay
+to lose sleep.
+
+A fascinating choice.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Nightmares
+
+</div>
+
+</div>
+
+<div class="destination">
+
+<div class="destination-icon">🌸</div>
+
+<h3>Contemporary</h3>
+
+<p>
+
+Modern stories,
+real people,
+and emotions that feel close to home.
+
+</p>
+
+<div class="travel-tag">
+
+Destination: Everyday Life
+
+</div>
+
+</div>
+
+</div>
+
+<div class="passport-strip">
+
+<div class="passport-stamp">
+✓ DRAGONS VISITED
+</div>
+
+<div class="passport-stamp">
+✓ HEART BROKEN
+</div>
+
+<div class="passport-stamp">
+✓ MYSTERY SOLVED
+</div>
+
+<div class="passport-stamp">
+✓ SLEEP LOST
+</div>
+
+<div class="passport-stamp">
+✓ TEARS SHED
+</div>
+
+<div class="passport-stamp">
+✓ NEW FAVOURITE FOUND
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+CHUNK 3
+GENRE SHELVES BEGIN
+CLASSICS + ROMANCE
+========================================== -->
+
+  <!-- ==========================================
+CHUNK 3
+GENRE SHELVES
+CLASSICS + ROMANCE
+========================================== -->
+
+<style>
+
+/* ==========================================
+GENRE SHELVES
+========================================== */
+
+.genre-shelf{
+
+padding:120px 8%;
+
+}
+
+.genre-header{
+
+text-align:center;
+
+margin-bottom:70px;
+
+}
+
+.genre-icon{
+
+font-size:55px;
+
+margin-bottom:15px;
+
+}
+
+.genre-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:80px;
+
+margin-bottom:15px;
+
+}
+
+.genre-desc{
+
+max-width:700px;
+
+margin:auto;
+
+line-height:2;
+
+}
+
+/* ==========================================
+BOOK CARD
+========================================== */
+
+.genre-book{
+
+max-width:1100px;
+
+margin:0 auto 50px;
+
+background:var(--paper);
+
+border-radius:30px;
+
+padding:45px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.genre-book::before{
+
+content:"BOOK NOOK RECOMMENDS";
+
+position:absolute;
+
+top:25px;
+
+right:-40px;
+
+padding:10px 50px;
+
+background:#ead8c5;
+
+font-size:10px;
+
+letter-spacing:3px;
+
+transform:rotate(35deg);
+
+}
+
+.book-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:60px;
+
+margin-bottom:8px;
+
+}
+
+.book-author{
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+/* ==========================================
+WARNING LABEL
+========================================== */
+
+.warning-label{
+
+background:#fff8dc;
+
+padding:20px;
+
+border-radius:15px;
+
+margin-bottom:25px;
+
+border-left:5px solid var(--gold);
+
+}
+
+.warning-heading{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+margin-bottom:10px;
+
+color:var(--gold);
+
+}
+
+.warning-label p{
+
+line-height:1.9;
+
+}
+
+/* ==========================================
+BOOK DETAILS
+========================================== */
+
+.book-block{
+
+margin-bottom:25px;
+
+}
+
+.book-block h4{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+margin-bottom:10px;
+
+color:var(--gold);
+
+}
+
+.book-block p{
+
+line-height:2;
+
+}
+
+.verdict{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+font-family:'Caveat';
+
+font-size:30px;
+
+line-height:1.6;
+
+margin-top:20px;
+
+}
+
+/* ==========================================
+PASSPORT STAMPS
+========================================== */
+
+.genre-passports{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-top:25px;
+
+}
+
+.genre-stamp{
+
+padding:10px 16px;
+
+border:2px dashed var(--gold);
+
+border-radius:10px;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.genre-title{
+
+font-size:55px;
+
+}
+
+.book-title{
+
+font-size:42px;
+
+}
+
+.verdict{
+
+font-size:24px;
+
+}
+
+.genre-book{
+
+padding:30px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+CLASSICS
+========================================== -->
+
+<section class="genre-shelf">
+
+<div class="genre-header">
+
+<div class="genre-icon">
+
+📜
+
+</div>
+
+<h2 class="genre-title">
+
+Classics
+
+</h2>
+
+<p class="genre-desc">
+
+Stories that survived generations,
+outlived trends,
+and still manage to feel surprisingly modern.
+
+</p>
+
+</div>
+
+<!-- Pride & Prejudice -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+Pride and Prejudice
+
+</h3>
+
+<div class="book-author">
+
+Jane Austen
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Reader Advisory
+
+</div>
+
+<p>
+
+Contains excessive yearning,
+social embarrassment,
+dramatic misunderstandings,
+and one man who desperately needed better communication skills.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Sharp wit, unforgettable characters,
+and one of literature's greatest romances.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who love character-driven stories,
+slow-burn romance,
+and clever dialogue.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+Like drinking tea with very dramatic people
+and somehow enjoying every second of it.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Timeless</div>
+
+<div class="genre-stamp">Slow Burn</div>
+
+<div class="genre-stamp">Re-read Worthy</div>
+
+<div class="genre-stamp">Iconic Heroine</div>
+
+</div>
+
+</div>
+
+<!-- Jane Eyre -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+Jane Eyre
+
+</h3>
+
+<div class="book-author">
+
+Charlotte Brontë
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Travel Notice
+
+</div>
+
+<p>
+
+Includes mysterious mansions,
+questionable life choices,
+and enough gothic atmosphere
+to power an entire season of Netflix.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+A powerful story about independence,
+self-respect,
+love,
+and resilience.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who enjoy strong protagonists,
+gothic settings,
+and emotional depth.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+Dark, beautiful,
+and impossible to forget.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Gothic</div>
+
+<div class="genre-stamp">Strong Heroine</div>
+
+<div class="genre-stamp">Atmospheric</div>
+
+<div class="genre-stamp">Classic Favourite</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+ROMANCE
+========================================== -->
+
+<section class="genre-shelf">
+
+<div class="genre-header">
+
+<div class="genre-icon">
+
+❤️
+
+</div>
+
+<h2 class="genre-title">
+
+Romance
+
+</h2>
+
+<p class="genre-desc">
+
+For readers who enjoy butterflies,
+heartbreak,
+and emotionally devastating fictional people.
+
+</p>
+
+</div>
+
+<!-- Book Lovers -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+Book Lovers
+
+</h3>
+
+<div class="book-author">
+
+Emily Henry
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Side Effects May Include
+
+</div>
+
+<p>
+
+Laughing unexpectedly,
+wanting to move to a small town,
+and developing unrealistic standards for banter.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Funny, heartfelt,
+and refreshingly self-aware.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who love witty dialogue,
+bookish characters,
+and contemporary romance.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+A warm hug disguised as a romance novel.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Comfort Read</div>
+
+<div class="genre-stamp">Bookish</div>
+
+<div class="genre-stamp">Funny</div>
+
+<div class="genre-stamp">Feel Good</div>
+
+</div>
+
+</div>
+
+<!-- The Seven Husbands of Evelyn Hugo -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+The Seven Husbands of Evelyn Hugo
+
+</h3>
+
+<div class="book-author">
+
+Taylor Jenkins Reid
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Emotional Hazard
+
+</div>
+
+<p>
+
+May result in heartbreak,
+obsession,
+and loudly recommending this book to everyone you know.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Glamorous,
+heartbreaking,
+and packed with unforgettable characters.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who enjoy complex relationships,
+Hollywood drama,
+and emotional stories.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+You'll come for the glamour.
+You'll stay for the feelings.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Heartbreaking</div>
+
+<div class="genre-stamp">Character Driven</div>
+
+<div class="genre-stamp">Emotional Damage</div>
+
+<div class="genre-stamp">Unforgettable</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+CHUNK 4
+MYSTERY + FANTASY + PASSPORT SECTION
+========================================== -->
+
+  <!-- ==========================================
+CHUNK 4
+MYSTERY & THRILLER
+FANTASY
+READER PASSPORT STAMPS
+========================================== -->
+
+<!-- ==========================================
+MYSTERY & THRILLER
+========================================== -->
+
+<section class="genre-shelf">
+
+<div class="genre-header">
+
+<div class="genre-icon">
+
+🔍
+
+</div>
+
+<h2 class="genre-title">
+
+Mystery & Thriller
+
+</h2>
+
+<p class="genre-desc">
+
+For readers who enjoy suspicious people,
+missing clues,
+and the inability to stop reading at midnight.
+
+</p>
+
+</div>
+
+<!-- Gone Girl -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+Gone Girl
+
+</h3>
+
+<div class="book-author">
+
+Gillian Flynn
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Safety Warning
+
+</div>
+
+<p>
+
+May cause trust issues.
+
+Side effects include suspecting literally everyone,
+including yourself.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+A brilliant psychological thriller filled with twists,
+manipulation,
+and unforgettable reveals.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who enjoy unreliable narrators,
+mind games,
+and stories that constantly surprise them.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+Every time you think you've figured it out,
+the book laughs at you.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Plot Twists</div>
+
+<div class="genre-stamp">Psychological</div>
+
+<div class="genre-stamp">Unreliable Narrator</div>
+
+<div class="genre-stamp">Sleep Destroyer</div>
+
+</div>
+
+</div>
+
+<!-- The Silent Patient -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+The Silent Patient
+
+</h3>
+
+<div class="book-author">
+
+Alex Michaelides
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Reader Advisory
+
+</div>
+
+<p>
+
+Contains suspicious therapists,
+dangerous secrets,
+and one ending capable of making readers stare into space.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Fast-paced,
+intriguing,
+and built around a mystery that keeps readers guessing.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers looking for an addictive thriller with a memorable twist.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+A one-sitting read.
+Your sleep schedule has been warned.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Twisty</div>
+
+<div class="genre-stamp">Fast Paced</div>
+
+<div class="genre-stamp">Addictive</div>
+
+<div class="genre-stamp">Mind Blown</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FANTASY
+========================================== -->
+
+<section class="genre-shelf">
+
+<div class="genre-header">
+
+<div class="genre-icon">
+
+✨
+
+</div>
+
+<h2 class="genre-title">
+
+Fantasy
+
+</h2>
+
+<p class="genre-desc">
+
+Magic.
+Impossible worlds.
+Dangerous adventures.
+And the irresistible urge to live there forever.
+
+</p>
+
+</div>
+
+<!-- The Night Circus -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+The Night Circus
+
+</h3>
+
+<div class="book-author">
+
+Erin Morgenstern
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Travel Notice
+
+</div>
+
+<p>
+
+You may develop unrealistic expectations
+for ordinary circuses after reading this.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Dreamlike writing,
+beautiful imagery,
+and one of the most atmospheric settings ever created.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who love magical worlds,
+beautiful prose,
+and immersive experiences.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+Like wandering through a dream
+you never want to leave.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Atmospheric</div>
+
+<div class="genre-stamp">Beautiful Writing</div>
+
+<div class="genre-stamp">Magical</div>
+
+<div class="genre-stamp">Midnight Read</div>
+
+</div>
+
+</div>
+
+<!-- Six of Crows -->
+
+<div class="genre-book">
+
+<h3 class="book-title">
+
+Six of Crows
+
+</h3>
+
+<div class="book-author">
+
+Leigh Bardugo
+
+</div>
+
+<div class="warning-label">
+
+<div class="warning-heading">
+
+⚠ Criminal Activity Ahead
+
+</div>
+
+<p>
+
+You are about to become emotionally attached
+to six highly questionable people.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Why Read It
+
+</h4>
+
+<p>
+
+Brilliant characters,
+high-stakes heists,
+and incredible found-family dynamics.
+
+</p>
+
+</div>
+
+<div class="book-block">
+
+<h4>
+
+Perfect For
+
+</h4>
+
+<p>
+
+Readers who enjoy clever plans,
+morally grey characters,
+and nonstop excitement.
+
+</p>
+
+</div>
+
+<div class="verdict">
+
+Book Nook Verdict:
+
+Ocean's Eleven but make it fantasy.
+
+</div>
+
+<div class="genre-passports">
+
+<div class="genre-stamp">Found Family</div>
+
+<div class="genre-stamp">Heist</div>
+
+<div class="genre-stamp">Adventure</div>
+
+<div class="genre-stamp">Obsessive Favourite</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+READER PASSPORT STAMPS
+========================================== -->
+
+<section class="directory-section">
+
+<div class="section-tag">
+
+TRAVEL RECORDS
+
+</div>
+
+<h2 class="section-title">
+
+Reader Passport Stamps
+
+</h2>
+
+<p class="section-intro">
+
+Every destination leaves a mark.
+Some books leave several.
+
+</p>
+
+<div class="destination-grid">
+
+<div class="destination">
+
+<h3>The Night Circus</h3>
+
+<p>
+
+✓ Atmospheric<br>
+✓ Midnight Read<br>
+✓ Beautiful Writing<br>
+✓ Re-read Worthy<br>
+✓ Stayed In My Head For Weeks
+
+</p>
+
+</div>
+
+<div class="destination">
+
+<h3>Gone Girl</h3>
+
+<p>
+
+✓ Plot Twist Certified<br>
+✓ Trust Issues Included<br>
+✓ Sleep Schedule Destroyer<br>
+✓ Impossible To Predict
+
+</p>
+
+</div>
+
+<div class="destination">
+
+<h3>Pride & Prejudice</h3>
+
+<p>
+
+✓ Timeless Favourite<br>
+✓ Slow Burn Approved<br>
+✓ Character Driven<br>
+✓ Comfort Classic
+
+</p>
+
+</div>
+
+<div class="destination">
+
+<h3>Six of Crows</h3>
+
+<p>
+
+✓ Found Family<br>
+✓ Adventure Ready<br>
+✓ Criminally Good<br>
+✓ Obsession Certified
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+CHUNK 5
+IF YOU LIKED...
+MOOD METER
+HIDDEN GEMS
+SUPERLATIVES
+MATCHMAKER
+MORE REVIEWS COMING
+FINAL SHELF
+HTML END
+========================================== -->
+
+  <!-- ==========================================
+CHUNK 5
+IF YOU LIKED...
+MOOD METER
+HIDDEN GEMS
+SUPERLATIVES
+BOOK MATCHMAKER
+MORE REVIEWS COMING
+FINAL SHELF
+========================================== -->
+
+<style>
+
+/* ==========================================
+RECOMMENDATION BOARD
+========================================== */
+
+.recommend-board{
+
+padding:120px 8%;
+
+}
+
+.rec-grid{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.rec-card{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.rec-card h3{
+
+font-family:'Cormorant Garamond';
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.rec-card ul{
+
+padding-left:20px;
+
+line-height:2.2;
+
+}
+
+/* ==========================================
+MOOD METER
+========================================== */
+
+.mood-meter{
+
+padding:120px 8%;
+
+background:rgba(255,255,255,.25);
+
+}
+
+.mood-card{
+
+max-width:900px;
+
+margin:0 auto 35px;
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.mood-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:45px;
+
+margin-bottom:25px;
+
+}
+
+.bar{
+
+margin-bottom:18px;
+
+}
+
+.bar-label{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+margin-bottom:8px;
+
+}
+
+.progress{
+
+height:12px;
+
+background:#e7d6c5;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.fill{
+
+height:100%;
+
+background:var(--gold);
+
+}
+
+/* ==========================================
+HIDDEN GEMS
+========================================== */
+
+.gems{
+
+padding:120px 8%;
+
+}
+
+.gem-card{
+
+max-width:950px;
+
+margin:0 auto 30px;
+
+background:var(--paper);
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.gem-card h3{
+
+font-family:'Cormorant Garamond';
+
+font-size:52px;
+
+margin-bottom:15px;
+
+}
+
+/* ==========================================
+SUPERLATIVES
+========================================== */
+
+.awards{
+
+padding:120px 8%;
+
+background:rgba(255,255,255,.25);
+
+}
+
+.awards-grid{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.award{
+
+background:var(--paper);
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:var(--shadow);
+
+}
+
+.award-icon{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.award h3{
+
+font-family:'Cormorant Garamond';
+
+font-size:32px;
+
+margin-bottom:10px;
+
+}
+
+/* ==========================================
+MATCHMAKER
+========================================== */
+
+.matchmaker{
+
+padding:120px 8%;
+
+}
+
+.match-box{
+
+max-width:900px;
+
+margin:auto;
+
+background:var(--paper);
+
+padding:50px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow-lg);
+
+}
+
+.match-box ul{
+
+line-height:2.4;
+
+padding-left:20px;
+
+}
+
+/* ==========================================
+COMING SOON
+========================================== */
+
+.coming-soon{
+
+padding:120px 8%;
+
+text-align:center;
+
+}
+
+.soon-box{
+
+max-width:850px;
+
+margin:auto;
+
+background:var(--paper);
+
+padding:60px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow-lg);
+
+}
+
+/* ==========================================
+FINAL SHELF
+========================================== */
+
+.final-shelf{
+
+padding:150px 8%;
+
+text-align:center;
+
+}
+
+.final-shelf h2{
+
+font-family:'Cormorant Garamond';
+
+font-size:90px;
+
+margin-bottom:25px;
+
+}
+
+.final-shelf p{
+
+max-width:850px;
+
+margin:auto;
+
+line-height:2.2;
+
+font-size:18px;
+
+}
+
+.final-sign{
+
+margin-top:40px;
+
+font-family:'Caveat';
+
+font-size:42px;
+
+color:var(--gold);
+
+}
+
+footer{
+
+padding:50px;
+
+text-align:center;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#8a6d52;
+
+}
+
+@media(max-width:768px){
+
+.final-shelf h2{
+
+font-size:60px;
+
+}
+
+.gem-card h3{
+
+font-size:40px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+IF YOU LIKED...
+========================================== -->
+
+<section class="recommend-board">
+
+<div class="section-tag">
+
+RECOMMENDATION ROUTES
+
+</div>
+
+<h2 class="section-title">
+
+If You Liked...
+
+</h2>
+
+<div class="rec-grid">
+
+<div class="rec-card">
+
+<h3>Pride & Prejudice</h3>
+
+<ul>
+<li>Persuasion</li>
+<li>Emma</li>
+<li>Jane Eyre</li>
+</ul>
+
+</div>
+
+<div class="rec-card">
+
+<h3>Gone Girl</h3>
+
+<ul>
+<li>The Silent Patient</li>
+<li>Sharp Objects</li>
+<li>The Girl on the Train</li>
+</ul>
+
+</div>
+
+<div class="rec-card">
+
+<h3>The Night Circus</h3>
+
+<ul>
+<li>Caraval</li>
+<li>The Starless Sea</li>
+<li>Once Upon a Broken Heart</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+MOOD METER
+========================================== -->
+
+<section class="mood-meter">
+
+<div class="section-tag">
+
+TRAVEL CONDITIONS
+
+</div>
+
+<h2 class="section-title">
+
+Genre Mood Meter
+
+</h2>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+Mystery & Thriller
+
+</div>
+
+<div class="bar">
+<div class="bar-label">Suspense</div>
+<div class="progress"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="bar">
+<div class="bar-label">Sleep Loss</div>
+<div class="progress"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="bar">
+<div class="bar-label">Trust Issues</div>
+<div class="progress"><div class="fill" style="width:100%"></div></div>
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+Romance
+
+</div>
+
+<div class="bar">
+<div class="bar-label">Butterflies</div>
+<div class="progress"><div class="fill" style="width:95%"></div></div>
+</div>
+
+<div class="bar">
+<div class="bar-label">Emotional Damage</div>
+<div class="progress"><div class="fill" style="width:75%"></div></div>
+</div>
+
+<div class="bar">
+<div class="bar-label">Comfort</div>
+<div class="progress"><div class="fill" style="width:85%"></div></div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+HIDDEN GEMS
+========================================== -->
+
+<section class="gems">
+
+<div class="section-tag">
+
+SECRET DESTINATIONS
+
+</div>
+
+<h2 class="section-title">
+
+Hidden Gems Shelf
+
+</h2>
+
+<div class="gem-card">
+
+<h3>
+
+The Guernsey Literary and Potato Peel Pie Society
+
+</h3>
+
+<p>
+
+Warm, charming, and full of bookish love.
+One of those stories that quietly sneaks into your heart.
+
+</p>
+
+</div>
+
+<div class="gem-card">
+
+<h3>
+
+I Capture The Castle
+
+</h3>
+
+<p>
+
+Beautiful writing,
+memorable characters,
+and a coming-of-age story that deserves far more attention.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+SUPERLATIVES
+========================================== -->
+
+<section class="awards">
+
+<div class="section-tag">
+
+ANNUAL AWARDS
+
+</div>
+
+<h2 class="section-title">
+
+Book Nook Superlatives
+
+</h2>
+
+<div class="awards-grid">
+
+<div class="award">
+
+<div class="award-icon">🏆</div>
+
+<h3>Biggest Plot Twist</h3>
+
+<p>Gone Girl</p>
+
+</div>
+
+<div class="award">
+
+<div class="award-icon">🏆</div>
+
+<h3>Most Beautiful Writing</h3>
+
+<p>The Night Circus</p>
+
+</div>
+
+<div class="award">
+
+<div class="award-icon">🏆</div>
+
+<h3>Best Comfort Read</h3>
+
+<p>Book Lovers</p>
+
+</div>
+
+<div class="award">
+
+<div class="award-icon">🏆</div>
+
+<h3>Most Timeless</h3>
+
+<p>Pride & Prejudice</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+BOOK MATCHMAKER
+========================================== -->
+
+<section class="matchmaker">
+
+<div class="match-box">
+
+<div class="section-tag">
+
+FIND YOUR NEXT DESTINATION
+
+</div>
+
+<h2 class="section-title">
+
+Book Matchmaker
+
+</h2>
+
+<ul>
+
+<li>Want dragons and adventure? → Fantasy ✨</li>
+
+<li>Want butterflies and feelings? → Romance ❤️</li>
+
+<li>Want sleep deprivation? → Mystery 🔍</li>
+
+<li>Want unforgettable characters? → Literary Fiction 🥹</li>
+
+<li>Want beautiful prose? → Classics 📜</li>
+
+<li>Want magic hidden in reality? → Magical Realism 🌙</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+MORE REVIEWS COMING
+========================================== -->
+
+<section class="coming-soon">
+
+<div class="soon-box">
+
+<div class="section-tag">
+
+WORK IN PROGRESS
+
+</div>
+
+<h2 class="section-title">
+
+More Reviews Are On Their Way
+
+</h2>
+
+<p>
+
+Every reader has a never-ending TBR.
+
+Mine seems determined to grow faster than I can read.
+
+<br><br>
+
+More genres.
+
+More recommendations.
+
+More emotional damage.
+
+More fictional people becoming far too important.
+
+<br><br>
+
+These shelves are still being filled.
+
+Come back soon.
+
+There's always another book on the way.
+
+📚✨
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FINAL SHELF
+========================================== -->
+
+<section class="final-shelf">
+
+<div class="section-tag">
+
+ONE MORE BOOK
+
+</div>
+
+<h2>
+
+Every Reader Has A Shelf
+
+</h2>
+
+<p>
+
+Some readers live among classics.
+
+Some wander through fantasy kingdoms.
+
+Some chase mysteries until sunrise.
+
+Some collect stories that feel like home.
+
+<br><br>
+
+The joy of reading isn't finding the perfect genre.
+
+It's discovering that every shelf has something worth taking home.
+
+<br><br>
+
+So wander.
+
+Explore.
+
+And don't be surprised if you leave with more books than you planned.
+
+</p>
+
+<div class="final-sign">
+
+— Pranjal 📖
+
+</div>
+
+</section>
+
+<footer>
+
+BOOK NOOK • THE LITERARY MAP
+
+</footer>
+
 </body>
+
 </html>
+  
