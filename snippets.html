@@ -1,321 +1,3064 @@
+<!-- ==========================================
+CHUNK 1
+SNIPPETS PAGE
+HERO + EVIDENCE BOARD
+========================================== -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Book Nook | Snippets</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<title>
+Book Nook | Snippets
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Caveat:wght@400;500;600;700&family=Special+Elite&display=swap"
+rel="stylesheet">
 
 <style>
 
+/* ==========================================
+ROOT
+========================================== */
+
 :root{
---gold:#b18a5f;
---paper:#f4ead8;
---text:#2f2118;
+
+--bg:#efe1d1;
+
+--paper:#fbf4ec;
+
+--paper-dark:#f2e4d4;
+
+--brown:#4b3427;
+
+--gold:#b88b5d;
+
+--accent:#6f4f43;
+
+--shadow:
+0 12px 30px rgba(0,0,0,.08);
+
+--shadow-lg:
+0 25px 50px rgba(0,0,0,.12);
+
 }
 
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
+scroll-behavior:smooth;
+
 }
 
 body{
+
 font-family:'Inter',sans-serif;
-background:#0f0c0a;
+
+background:var(--bg);
+
+color:var(--brown);
+
 overflow-x:hidden;
+
 }
 
-/* BACKGROUND */
+/* ==========================================
+BACKGROUND
+========================================== */
 
 body::before{
+
 content:"";
+
 position:fixed;
+
 inset:0;
+
 background:
-linear-gradient(
-rgba(8,6,5,.88),
-rgba(8,6,5,.92)
+
+radial-gradient(
+circle at top left,
+rgba(255,255,255,.45),
+transparent 40%
 ),
-url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2000");
-background-size:cover;
-background-position:center;
-z-index:-2;
+
+radial-gradient(
+circle at bottom right,
+rgba(184,139,93,.12),
+transparent 45%
+);
+
+pointer-events:none;
+
+z-index:-1;
+
 }
 
-/* NAVBAR */
+/* ==========================================
+NAVBAR
+========================================== */
 
 nav{
+
 position:fixed;
+
 top:0;
+
 left:0;
+
 width:100%;
+
 padding:22px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-background:rgba(12,8,6,.55);
+
+background:
+rgba(251,244,236,.88);
+
 backdrop-filter:blur(18px);
+
 z-index:999;
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
 }
 
 .logo h1{
+
 font-family:'Cinzel';
-font-size:34px;
-letter-spacing:6px;
-color:white;
+
+font-size:30px;
+
 line-height:.9;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
 }
 
 .logo p{
-font-family:'Great Vibes';
+
+font-family:'Caveat';
+
 font-size:24px;
-color:#d0ab82;
+
+color:var(--gold);
+
 }
 
 nav ul{
+
 display:flex;
+
 gap:30px;
+
 list-style:none;
+
 }
 
 nav a{
+
 text-decoration:none;
+
 font-size:11px;
+
 letter-spacing:3px;
+
 text-transform:uppercase;
-color:#f1e5d7;
+
+color:var(--brown);
+
 }
 
-/* HERO */
+/* ==========================================
+COMMON
+========================================== */
+
+section{
+
+padding:120px 8%;
+
+}
+
+.section-tag{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+text-align:center;
+
+}
+
+.section-title{
+
+font-family:
+'Cormorant Garamond';
+
+font-size:72px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+color:var(--brown);
+
+}
+
+/* ==========================================
+HERO
+========================================== */
 
 .hero{
-padding:180px 8% 80px;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
 text-align:center;
-color:white;
+
+padding-top:140px;
+
+}
+
+.hero-content{
+
+max-width:850px;
+
+}
+
+.archive-tag{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
 }
 
 .hero h1{
-font-family:'Cormorant Garamond';
-font-size:90px;
-margin-bottom:15px;
+
+font-family:
+'Cormorant Garamond';
+
+font-size:110px;
+
+line-height:.9;
+
+margin-bottom:25px;
+
 }
 
-.hero p{
-max-width:650px;
+.hero-sub{
+
+font-size:22px;
+
+color:var(--accent);
+
+margin-bottom:45px;
+
+}
+
+.hero-text{
+
+line-height:2.2;
+
+font-size:18px;
+
+}
+
+/* ==========================================
+EVIDENCE BOARD
+========================================== */
+
+.evidence-board{
+
+max-width:1200px;
+
 margin:auto;
-line-height:2;
-opacity:.8;
-}
 
-/* WALL */
+background:#e7d3bf;
 
-.wall{
-padding:40px 8% 120px;
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-gap:40px;
-}
+padding:50px;
 
-/* PAPER */
+border-radius:25px;
 
-.snippet{
-background:var(--paper);
-padding:35px;
+box-shadow:var(--shadow-lg);
+
 position:relative;
 
-box-shadow:
-0 20px 30px rgba(0,0,0,.25);
-
-clip-path:polygon(
-0% 4%, 6% 0%, 15% 3%, 26% 0%,
-40% 4%, 55% 1%, 70% 4%, 82% 0%,
-100% 3%, 97% 95%, 86% 100%,
-73% 96%, 58% 100%, 43% 96%,
-25% 100%, 12% 96%, 0% 100%
-);
-
-transition:.4s;
 }
 
-/* TAPE */
+.evidence-grid{
 
-.snippet::before{
-content:"";
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+.evidence-card{
+
+background:var(--paper);
+
+padding:25px;
+
+border-radius:10px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+transform:rotate(-1deg);
+
+}
+
+.evidence-card:nth-child(even){
+
+transform:rotate(1deg);
+
+}
+
+.pin{
+
 position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%) rotate(-3deg);
 
-width:90px;
-height:28px;
+top:-10px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:22px;
+
+}
+
+.book-name{
+
+font-family:
+'Cormorant Garamond';
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+.evidence-note{
+
+font-size:14px;
+
+line-height:1.9;
+
+margin-bottom:20px;
+
+}
+
+.snippet{
+
+background:#fff;
+
+padding:18px;
+
+border-left:4px solid var(--gold);
+
+font-family:
+'Caveat';
+
+font-size:28px;
+
+line-height:1.6;
+
+border-radius:8px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ==========================================
+NAVBAR
+========================================== -->
+
+<nav>
+
+<div class="logo">
+
+<h1>
+
+BOOK<br>
+NOOK
+
+</h1>
+
+<p>
+
+By Pranjal
+
+</p>
+
+</div>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="bestsellers.html">
+Bestsellers
+</a>
+</li>
+
+<li>
+<a href="favourites.html">
+Favourites
+</a>
+</li>
+
+<li>
+<a href="snippets.html">
+Snippets
+</a>
+</li>
+
+<li>
+<a href="index.html#contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<!-- ==========================================
+HERO
+========================================== -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="archive-tag">
+
+ARCHIVE 03
+
+</div>
+
+<h1>
+
+Evidence Room
+
+</h1>
+
+<div class="hero-sub">
+
+Proof that books leave traces behind.
+
+</div>
+
+<div class="hero-text">
+
+Most books end when the final page does.
+
+<br><br>
+
+Some don't.
+
+<br><br>
+
+They leave fragments behind.
+
+A sentence.
+
+A feeling.
+
+A thought that returns weeks later for no apparent reason.
+
+<br><br>
+
+This is a collection of those fragments.
+
+The evidence that certain books were here.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+EVIDENCE BOARD
+========================================== -->
+
+<section>
+
+<div class="section-tag">
+
+RECOVERED EVIDENCE
+
+</div>
+
+<h2 class="section-title">
+
+Evidence Board
+
+</h2>
+
+<div class="evidence-board">
+
+<div class="evidence-grid">
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+Rebecca
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Fog.
+
+Secrets.
+
+Obsession.
+
+A house that somehow felt alive.
+
+</div>
+
+<div class="snippet">
+
+"Last night I dreamt
+I went to Manderley
+again."
+
+</div>
+
+</div>
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+Jane Eyre
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Independence.
+
+Resilience.
+
+A heroine who refused
+to become less.
+
+</div>
+
+<div class="snippet">
+
+"I am no bird;
+and no net
+ensnares me."
+
+</div>
+
+</div>
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+Persuasion
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Regret.
+
+Second chances.
+
+A letter that ruined lives.
+
+</div>
+
+<div class="snippet">
+
+"I am half agony,
+half hope."
+
+</div>
+
+</div>
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+The Secret History
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Beauty.
+
+Terror.
+
+Questionable choices.
+
+Academic obsession.
+
+</div>
+
+<div class="snippet">
+
+"Beauty is terror."
+
+</div>
+
+</div>
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+The Bell Jar
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Honesty.
+
+Isolation.
+
+Thoughts impossible
+to ignore.
+
+</div>
+
+<div class="snippet">
+
+"I took a deep breath
+and listened to the
+old brag of my heart."
+
+</div>
+
+</div>
+
+<div class="evidence-card">
+
+<div class="pin">📌</div>
+
+<div class="book-name">
+
+The Shadow
+of the Wind
+
+</div>
+
+<div class="evidence-note">
+
+Evidence recovered:
+
+Bookstores.
+
+Mystery.
+
+A love letter to reading.
+
+</div>
+
+<div class="snippet">
+
+"Every book,
+every volume you see,
+has a soul."
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 2 STARTS BELOW -->
+
+  <!-- ==========================================
+CHUNK 2
+EXHIBIT FILES
+THE SENTENCE MUSEUM
+========================================== -->
+
+<style>
+
+/* ==========================================
+EXHIBIT FILES
+========================================== */
+
+.case-files{
+
+padding:120px 8%;
+
+}
+
+.case-grid{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(340px,1fr));
+
+gap:30px;
+
+}
+
+.case-file{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.case-file::before{
+
+content:"CASE FILE";
+
+position:absolute;
+
+top:18px;
+right:20px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:rgba(0,0,0,.15);
+
+font-weight:bold;
+
+}
+
+.case-number{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.case-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:48px;
+
+color:var(--brown);
+
+margin-bottom:20px;
+
+}
+
+.case-label{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-top:15px;
+
+margin-bottom:8px;
+
+}
+
+.case-content{
+
+line-height:1.9;
+
+}
+
+.case-quote{
+
+margin-top:20px;
+
+background:white;
+
+padding:18px;
+
+border-left:4px solid var(--gold);
+
+border-radius:10px;
+
+font-family:'Caveat';
+
+font-size:28px;
+
+line-height:1.5;
+
+}
+
+/* ==========================================
+SENTENCE MUSEUM
+========================================== */
+
+.museum{
+
+padding:120px 8%;
 
 background:
-rgba(255,255,255,.45);
+rgba(255,255,255,.25);
 
-backdrop-filter:blur(3px);
 }
 
-/* ROTATIONS */
+.museum-wrap{
 
-.snippet:nth-child(odd){
-transform:rotate(-2deg);
+max-width:1000px;
+
+margin:auto;
+
 }
 
-.snippet:nth-child(even){
-transform:rotate(2deg);
+.exhibit{
+
+background:var(--paper);
+
+padding:50px;
+
+border-radius:25px;
+
+margin-bottom:35px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
 }
 
-.snippet:nth-child(3n){
-transform:rotate(-4deg);
-}
+.exhibit-no{
 
-.snippet:nth-child(5n){
-transform:rotate(3deg);
-}
-
-.snippet:hover{
-transform:
-translateY(-10px)
-rotate(0deg);
-}
-
-/* TEXT */
-
-.snippet p{
-font-family:'Caveat',cursive;
-font-size:30px;
-line-height:1.5;
-color:var(--text);
-}
-
-.snippet span{
-display:block;
-margin-top:20px;
-font-family:'Special Elite';
 font-size:12px;
-letter-spacing:2px;
-color:#7a5a44;
+
+letter-spacing:4px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
 }
 
-/* MOBILE */
+.exhibit-quote{
 
-@media(max-width:800px){
+font-family:'Cormorant Garamond';
 
-nav ul{
-display:none;
+font-size:52px;
+
+line-height:1.3;
+
+color:var(--brown);
+
+margin-bottom:25px;
+
 }
 
-.hero h1{
-font-size:60px;
+.exhibit-book{
+
+font-size:14px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--accent);
+
+margin-bottom:15px;
+
 }
 
-.snippet p{
-font-size:26px;
+.exhibit-status{
+
+font-family:'Caveat';
+
+font-size:28px;
+
+color:var(--gold);
+
+}
+
+@media(max-width:768px){
+
+.exhibit-quote{
+
+font-size:36px;
+
+}
+
+.case-book{
+
+font-size:40px;
+
 }
 
 }
 
 </style>
-</head>
 
-<body>
+<!-- ==========================================
+EXHIBIT FILES
+========================================== -->
 
-<nav>
+<section class="case-files">
 
-<div class="logo">
-<h1>BOOK<br>NOOK</h1>
-<p>By Pranjal</p>
+<div class="section-tag">
+
+ARCHIVED RECORDS
+
 </div>
 
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="bestsellers.html">Bestsellers</a></li>
-<li><a href="favourites.html">My Favorites</a></li>
-<li><a href="genre.html">Genres</a></li>
-<li><a href="snippets.html">Snippets</a></li>
-<li><a href="index.html#contact">Contact Me</a></li>
-</ul>
+<h2 class="section-title">
 
-</nav>
+Exhibit Files
 
-<section class="hero">
+</h2>
 
-<h1>Snippets</h1>
+<div class="case-grid">
 
-<p>
-Small pieces of dialogue, thoughts, and lines that stayed with me long after the page ended.
-</p>
+<div class="case-file">
+
+<div class="case-number">
+
+CASE FILE 01
+
+</div>
+
+<div class="case-book">
+
+Jane Eyre
+
+</div>
+
+<div class="case-label">
+
+Evidence Collected
+
+</div>
+
+<div class="case-content">
+
+• resilience<br>
+• self-respect<br>
+• independence<br>
+• stubborn courage
+
+</div>
+
+<div class="case-label">
+
+Recovered Fragment
+
+</div>
+
+<div class="case-quote">
+
+"I am no bird;
+and no net ensnares me."
+
+</div>
+
+<div class="case-label">
+
+Status
+
+</div>
+
+<div class="case-content">
+
+Still living rent free in my head.
+
+</div>
+
+</div>
+
+<div class="case-file">
+
+<div class="case-number">
+
+CASE FILE 02
+
+</div>
+
+<div class="case-book">
+
+Persuasion
+
+</div>
+
+<div class="case-label">
+
+Evidence Collected
+
+</div>
+
+<div class="case-content">
+
+• longing<br>
+• missed chances<br>
+• patience<br>
+• heartbreak
+
+</div>
+
+<div class="case-label">
+
+Recovered Fragment
+
+</div>
+
+<div class="case-quote">
+
+"I am half agony,
+half hope."
+
+</div>
+
+<div class="case-label">
+
+Status
+
+</div>
+
+<div class="case-content">
+
+Recovery impossible.
+
+</div>
+
+</div>
+
+<div class="case-file">
+
+<div class="case-number">
+
+CASE FILE 03
+
+</div>
+
+<div class="case-book">
+
+The Shadow
+of the Wind
+
+</div>
+
+<div class="case-label">
+
+Evidence Collected
+
+</div>
+
+<div class="case-content">
+
+• bookstores<br>
+• mystery<br>
+• forgotten stories<br>
+• literary magic
+
+</div>
+
+<div class="case-label">
+
+Recovered Fragment
+
+</div>
+
+<div class="case-quote">
+
+"Every book has
+a soul."
+
+</div>
+
+<div class="case-label">
+
+Status
+
+</div>
+
+<div class="case-content">
+
+Still making me want to buy more books.
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<section class="wall">
+<!-- ==========================================
+THE SENTENCE MUSEUM
+========================================== -->
 
-<div class="snippet">
-<p>"I am not a psychopath , i am a high functioning sociopath, Do your research"</p>
-<span>-Sherlock</span>
+<section class="museum">
+
+<div class="section-tag">
+
+PRESERVED FRAGMENTS
+
 </div>
 
-<div class="snippet">
-<p>There are stories we read, and stories that quietly rewrite us.</p>
-<span>BOOK NOOK NOTE</span>
+<h2 class="section-title">
+
+The Sentence Museum
+
+</h2>
+
+<div class="museum-wrap">
+
+<div class="exhibit">
+
+<div class="exhibit-no">
+
+EXHIBIT #12
+
 </div>
 
-<div class="snippet">
-</p>When you realise you want to spend rest of your life with somebody, you want the rest of your life to start as as possible..</p>
-<span>-'When Harry met Sally</span>
+<div class="exhibit-quote">
+
+"Last night I dreamt
+I went to Manderley again."
+
 </div>
 
-<div class="snippet">
-<p>Growing up is realizing every character was fighting a battle you never noticed the first time.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit-book">
+
+Rebecca
+
 </div>
 
-<div class="snippet">
-<p>Not every story changes the world. Some only change one person. Sometimes that's enough.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit-status">
+
+Condition: Perfectly preserved.
+
 </div>
 
-<div class="snippet">
-<p>A library is proof that people leave pieces of themselves behind for strangers.</p>
-<span>BOOK NOOK NOTE</span>
 </div>
 
-<div class="snippet">
-<p>Some chapters hurt because they remind us of our own.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit">
+
+<div class="exhibit-no">
+
+EXHIBIT #17
+
 </div>
 
-<div class="snippet">
-<p>The most dangerous thing a book can give you is a new way of seeing yourself.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit-quote">
+
+"There is no charm
+equal to tenderness
+of heart."
+
 </div>
 
-<div class="snippet">
-<p>Nostalgia is just memory wearing soft lighting.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit-book">
+
+Sense and Sensibility
+
 </div>
 
-<div class="snippet">
-<p>Every reader carries a private bookshelf inside their mind.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit-status">
+
+Condition: Still beautiful.
+
 </div>
 
-<div class="snippet">
-<p>Some stories feel less like fiction and more like finding a forgotten part of yourself.</p>
-<span>BOOK NOOK NOTE</span>
 </div>
 
-<div class="snippet">
-<p>The best books don't give answers. They leave better questions.</p>
-<span>BOOK NOOK NOTE</span>
+<div class="exhibit">
+
+<div class="exhibit-no">
+
+EXHIBIT #23
+
+</div>
+
+<div class="exhibit-quote">
+
+"Beauty is terror."
+
+</div>
+
+<div class="exhibit-book">
+
+The Secret History
+
+</div>
+
+<div class="exhibit-status">
+
+Condition: Continues to haunt visitors.
+
+</div>
+
+</div>
+
+<div class="exhibit">
+
+<div class="exhibit-no">
+
+EXHIBIT #31
+
+</div>
+
+<div class="exhibit-quote">
+
+"Whatever our souls are made of,
+his and mine are the same."
+
+</div>
+
+<div class="exhibit-book">
+
+Wuthering Heights
+
+</div>
+
+<div class="exhibit-status">
+
+Condition: Emotionally dangerous.
+
+</div>
+
+</div>
+
 </div>
 
 </section>
+
+<!-- CHUNK 3 STARTS BELOW -->
+
+  <!-- ==========================================
+CHUNK 3
+READING AUTOPSY REPORTS
+LOST & FOUND DEPARTMENT
+========================================== -->
+
+<style>
+
+/* ==========================================
+READING AUTOPSY REPORTS
+========================================== */
+
+.autopsy-section{
+
+padding:120px 8%;
+
+}
+
+.autopsy-grid{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(340px,1fr));
+
+gap:30px;
+
+}
+
+.autopsy-card{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.autopsy-card::before{
+
+content:"READING AUTOPSY";
+
+position:absolute;
+
+top:20px;
+
+right:-30px;
+
+transform:rotate(25deg);
+
+font-size:11px;
+
+letter-spacing:3px;
+
+padding:8px 35px;
+
+background:#e6d0b7;
+
+color:var(--brown);
+
+}
+
+.autopsy-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:48px;
+
+margin-bottom:20px;
+
+color:var(--brown);
+
+}
+
+.autopsy-item{
+
+margin-bottom:18px;
+
+line-height:1.8;
+
+}
+
+.autopsy-label{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:6px;
+
+}
+
+.autopsy-quote{
+
+margin-top:25px;
+
+padding:20px;
+
+background:white;
+
+border-radius:12px;
+
+border-left:4px solid var(--gold);
+
+font-family:'Caveat';
+
+font-size:28px;
+
+line-height:1.5;
+
+}
+
+/* ==========================================
+LOST & FOUND
+========================================== */
+
+.lost-found{
+
+padding:120px 8%;
+
+background:
+rgba(255,255,255,.25);
+
+}
+
+.department-wrap{
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.missing-file{
+
+background:var(--paper);
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+margin-bottom:35px;
+
+position:relative;
+
+}
+
+.file-tag{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.missing-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.missing-list{
+
+line-height:2.1;
+
+font-size:17px;
+
+margin-bottom:25px;
+
+}
+
+.prime-suspect{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+}
+
+.suspect-label{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+.suspect-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:38px;
+
+margin-bottom:15px;
+
+}
+
+.suspect-quote{
+
+font-family:'Caveat';
+
+font-size:30px;
+
+line-height:1.6;
+
+}
+
+@media(max-width:768px){
+
+.autopsy-book{
+
+font-size:40px;
+
+}
+
+.missing-title{
+
+font-size:42px;
+
+}
+
+.suspect-book{
+
+font-size:30px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+READING AUTOPSY REPORTS
+========================================== -->
+
+<section class="autopsy-section">
+
+<div class="section-tag">
+
+FORENSIC ANALYSIS
+
+</div>
+
+<h2 class="section-title">
+
+Reading Autopsy Reports
+
+</h2>
+
+<div class="autopsy-grid">
+
+<div class="autopsy-card">
+
+<div class="autopsy-book">
+
+The Secret History
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Cause Of Obsession
+
+</div>
+
+Atmosphere.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Duration
+
+</div>
+
+Several weeks.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Side Effects
+
+</div>
+
+Sudden desire to study classics and wear turtlenecks.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Recovery Status
+
+</div>
+
+Unsuccessful.
+
+</div>
+
+<div class="autopsy-quote">
+
+"Beauty is terror."
+
+</div>
+
+</div>
+
+<div class="autopsy-card">
+
+<div class="autopsy-book">
+
+Rebecca
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Cause Of Obsession
+
+</div>
+
+Manderley.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Duration
+
+</div>
+
+Still ongoing.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Side Effects
+
+</div>
+
+Trust issues and fascination with old houses.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Recovery Status
+
+</div>
+
+Patient refuses treatment.
+
+</div>
+
+<div class="autopsy-quote">
+
+"Last night I dreamt I went to Manderley again."
+
+</div>
+
+</div>
+
+<div class="autopsy-card">
+
+<div class="autopsy-book">
+
+The Bell Jar
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Cause Of Obsession
+
+</div>
+
+Brutal honesty.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Duration
+
+</div>
+
+Permanent.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Side Effects
+
+</div>
+
+Staring out windows contemplating existence.
+
+</div>
+
+<div class="autopsy-item">
+
+<div class="autopsy-label">
+
+Recovery Status
+
+</div>
+
+Unknown.
+
+</div>
+
+<div class="autopsy-quote">
+
+"I took a deep breath and listened to the old brag of my heart."
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+LOST & FOUND DEPARTMENT
+========================================== -->
+
+<section class="lost-found">
+
+<div class="section-tag">
+
+UNCLAIMED ITEMS
+
+</div>
+
+<h2 class="section-title">
+
+Lost & Found Department
+
+</h2>
+
+<div class="department-wrap">
+
+<div class="missing-file">
+
+<div class="file-tag">
+
+MISSING REPORT #01
+
+</div>
+
+<div class="missing-title">
+
+Emotional Stability
+
+</div>
+
+<div class="missing-list">
+
+Last seen before reading several emotionally devastating novels.
+
+<br>
+
+Has not returned since.
+
+<br>
+
+Family members are concerned.
+
+</div>
+
+<div class="prime-suspect">
+
+<div class="suspect-label">
+
+Prime Suspect
+
+</div>
+
+<div class="suspect-book">
+
+A Little Life
+
+</div>
+
+<div class="suspect-quote">
+
+"And so I try to be kind to everything I see."
+
+</div>
+
+</div>
+
+</div>
+
+<div class="missing-file">
+
+<div class="file-tag">
+
+MISSING REPORT #02
+
+</div>
+
+<div class="missing-title">
+
+Sleep Schedule
+
+</div>
+
+<div class="missing-list">
+
+Disappeared after promising to read
+"just one more chapter."
+
+<br>
+
+Investigation remains open.
+
+</div>
+
+<div class="prime-suspect">
+
+<div class="suspect-label">
+
+Prime Suspect
+
+</div>
+
+<div class="suspect-book">
+
+The Night Circus
+
+</div>
+
+<div class="suspect-quote">
+
+"The circus arrives without warning."
+
+</div>
+
+</div>
+
+</div>
+
+<div class="missing-file">
+
+<div class="file-tag">
+
+MISSING REPORT #03
+
+</div>
+
+<div class="missing-title">
+
+Ability To Move On
+
+</div>
+
+<div class="missing-list">
+
+Victim finished the book months ago.
+
+<br>
+
+Still talking about it.
+
+<br>
+
+No signs of recovery.
+
+</div>
+
+<div class="prime-suspect">
+
+<div class="suspect-label">
+
+Prime Suspect
+
+</div>
+
+<div class="suspect-book">
+
+The Song of Achilles
+
+</div>
+
+<div class="suspect-quote">
+
+"He is half of my soul, as the poets say."
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 4 STARTS BELOW -->
+  <!-- ==========================================
+CHUNK 4
+THE NOISE THEY LEFT BEHIND
+BOOKS THAT LEFT FINGERPRINTS
+========================================== -->
+
+<style>
+
+/* ==========================================
+THE NOISE THEY LEFT BEHIND
+========================================== */
+
+.noise-section{
+
+padding:120px 8%;
+
+}
+
+.noise-wall{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:25px;
+
+}
+
+.sticky{
+
+padding:25px;
+
+border-radius:12px;
+
+box-shadow:var(--shadow);
+
+min-height:220px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+transform:rotate(-2deg);
+
+}
+
+.sticky:nth-child(2n){
+
+transform:rotate(2deg);
+
+}
+
+.sticky:nth-child(1){
+
+background:#fff5bf;
+
+}
+
+.sticky:nth-child(2){
+
+background:#ffd6d6;
+
+}
+
+.sticky:nth-child(3){
+
+background:#dff5dc;
+
+}
+
+.sticky:nth-child(4){
+
+background:#dfe8ff;
+
+}
+
+.sticky:nth-child(5){
+
+background:#ffe6c7;
+
+}
+
+.sticky:nth-child(6){
+
+background:#f4dfff;
+
+}
+
+.sticky-book{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+margin-bottom:15px;
+
+color:var(--brown);
+
+}
+
+.sticky-reaction{
+
+font-family:'Caveat';
+
+font-size:34px;
+
+line-height:1.4;
+
+color:var(--brown);
+
+}
+
+/* ==========================================
+FINGERPRINTS
+========================================== */
+
+.fingerprint-section{
+
+padding:120px 8%;
+
+background:
+rgba(255,255,255,.25);
+
+}
+
+.fingerprint-wrap{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.fingerprint-card{
+
+background:var(--paper);
+
+padding:40px;
+
+border-radius:25px;
+
+margin-bottom:30px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.fingerprint-card::after{
+
+content:"✦";
+
+position:absolute;
+
+right:30px;
+
+top:25px;
+
+font-size:40px;
+
+color:rgba(184,139,93,.25);
+
+}
+
+.fp-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:52px;
+
+margin-bottom:15px;
+
+}
+
+.fp-left{
+
+font-size:18px;
+
+line-height:2;
+
+margin-bottom:20px;
+
+}
+
+.fp-quote{
+
+background:white;
+
+padding:20px;
+
+border-left:4px solid var(--gold);
+
+border-radius:12px;
+
+font-family:'Caveat';
+
+font-size:30px;
+
+line-height:1.6;
+
+}
+
+@media(max-width:768px){
+
+.fp-book{
+
+font-size:40px;
+
+}
+
+.sticky-reaction{
+
+font-size:28px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+THE NOISE THEY LEFT BEHIND
+========================================== -->
+
+<section class="noise-section">
+
+<div class="section-tag">
+
+RECORDED REACTIONS
+
+</div>
+
+<h2 class="section-title">
+
+The Noise They Left Behind
+
+</h2>
+
+<div class="noise-wall">
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+Rebecca
+
+</div>
+
+<div class="sticky-reaction">
+
+"excuse me???
+
+what do you mean that's the ending?"
+
+</div>
+
+</div>
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+The Bell Jar
+
+</div>
+
+<div class="sticky-reaction">
+
+"closed the book.
+
+stared at the ceiling.
+
+reconsidered life."
+
+</div>
+
+</div>
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+Persuasion
+
+</div>
+
+<div class="sticky-reaction">
+
+"that letter had absolutely no reason to hit that hard."
+
+</div>
+
+</div>
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+The Secret History
+
+</div>
+
+<div class="sticky-reaction">
+
+"everyone here is a terrible person.
+
+i love them."
+
+</div>
+
+</div>
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+The Night Circus
+
+</div>
+
+<div class="sticky-reaction">
+
+"just one chapter.
+
+famous last words."
+
+</div>
+
+</div>
+
+<div class="sticky">
+
+<div class="sticky-book">
+
+The Song of Achilles
+
+</div>
+
+<div class="sticky-reaction">
+
+"i would like a refund for my emotional damage."
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+BOOKS THAT LEFT FINGERPRINTS
+========================================== -->
+
+<section class="fingerprint-section">
+
+<div class="section-tag">
+
+LASTING IMPRESSIONS
+
+</div>
+
+<h2 class="section-title">
+
+Books That Left Fingerprints
+
+</h2>
+
+<div class="fingerprint-wrap">
+
+<div class="fingerprint-card">
+
+<div class="fp-book">
+
+Jane Eyre
+
+</div>
+
+<div class="fp-left">
+
+Left behind:
+
+Resilience.
+
+The courage to choose yourself.
+
+The reminder that self-respect matters.
+
+</div>
+
+<div class="fp-quote">
+
+"I care for myself."
+
+</div>
+
+</div>
+
+<div class="fingerprint-card">
+
+<div class="fp-book">
+
+Persuasion
+
+</div>
+
+<div class="fp-left">
+
+Left behind:
+
+Hope.
+
+Second chances.
+
+The belief that some feelings survive time.
+
+</div>
+
+<div class="fp-quote">
+
+"I am half agony, half hope."
+
+</div>
+
+</div>
+
+<div class="fingerprint-card">
+
+<div class="fp-book">
+
+The Shadow of the Wind
+
+</div>
+
+<div class="fp-left">
+
+Left behind:
+
+A deeper love for stories.
+
+Bookshops.
+
+And the magic hidden inside pages.
+
+</div>
+
+<div class="fp-quote">
+
+"Every book has a soul."
+
+</div>
+
+</div>
+
+<div class="fingerprint-card">
+
+<div class="fp-book">
+
+The Bell Jar
+
+</div>
+
+<div class="fp-left">
+
+Left behind:
+
+Honesty.
+
+Questions.
+
+And the courage to look inward.
+
+</div>
+
+<div class="fp-quote">
+
+"I took a deep breath and listened to the old brag of my heart."
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 5 STARTS BELOW -->
+
+  <!-- ==========================================
+CHUNK 5
+VOICEMAIL ARCHIVE
+ARCHIVE DRAWER
+FINAL EXHIBIT
+CLOSING TAGS + JS
+========================================== -->
+
+<style>
+
+/* ==========================================
+VOICEMAIL ARCHIVE
+========================================== */
+
+.voicemail-section{
+
+padding:120px 8%;
+
+}
+
+.voicemail-wrap{
+
+max-width:1000px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:30px;
+
+}
+
+.voicemail{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+}
+
+.call-tag{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:12px;
+
+}
+
+.caller{
+
+font-family:'Cormorant Garamond';
+
+font-size:48px;
+
+margin-bottom:20px;
+
+}
+
+.message{
+
+background:white;
+
+padding:22px;
+
+border-radius:12px;
+
+font-family:'Caveat';
+
+font-size:30px;
+
+line-height:1.6;
+
+border-left:4px solid var(--gold);
+
+}
+
+/* ==========================================
+ARCHIVE DRAWER
+========================================== */
+
+.drawer-section{
+
+padding:120px 8%;
+
+background:
+rgba(255,255,255,.25);
+
+}
+
+.drawer-grid{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+.library-card{
+
+background:#f7f0e6;
+
+padding:30px;
+
+border-radius:12px;
+
+box-shadow:var(--shadow);
+
+border-top:8px solid var(--gold);
+
+}
+
+.card-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:38px;
+
+margin-bottom:15px;
+
+}
+
+.card-item{
+
+margin-bottom:12px;
+
+line-height:1.8;
+
+}
+
+.card-label{
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+}
+
+/* ==========================================
+FINAL EXHIBIT
+========================================== */
+
+.final-exhibit{
+
+padding:150px 8%;
+
+text-align:center;
+
+}
+
+.final-tag{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.final-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:90px;
+
+margin-bottom:30px;
+
+}
+
+.final-text{
+
+max-width:800px;
+
+margin:auto;
+
+line-height:2.2;
+
+font-size:18px;
+
+}
+
+.signature{
+
+margin-top:40px;
+
+font-family:'Caveat';
+
+font-size:40px;
+
+color:var(--gold);
+
+}
+
+footer{
+
+padding:40px;
+
+text-align:center;
+
+font-size:13px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#8a735e;
+
+}
+
+@media(max-width:768px){
+
+.caller{
+
+font-size:38px;
+
+}
+
+.message{
+
+font-size:26px;
+
+}
+
+.final-title{
+
+font-size:58px;
+
+}
+
+}
+
+</style>
+
+<!-- ==========================================
+VOICEMAIL ARCHIVE
+========================================== -->
+
+<section class="voicemail-section">
+
+<div class="section-tag">
+
+RECORDED MESSAGES
+
+</div>
+
+<h2 class="section-title">
+
+Voicemail Archive
+
+</h2>
+
+<div class="voicemail-wrap">
+
+<div class="voicemail">
+
+<div class="call-tag">
+
+📞 Message Received
+
+</div>
+
+<div class="caller">
+
+The Shadow of the Wind
+
+</div>
+
+<div class="message">
+
+"Every book has a soul.
+The soul of the person who wrote it
+and the souls of those who read it."
+
+</div>
+
+</div>
+
+<div class="voicemail">
+
+<div class="call-tag">
+
+📞 Message Received
+
+</div>
+
+<div class="caller">
+
+Rebecca
+
+</div>
+
+<div class="message">
+
+"You're still thinking
+about Manderley,
+aren't you?"
+
+</div>
+
+</div>
+
+<div class="voicemail">
+
+<div class="call-tag">
+
+📞 Message Received
+
+</div>
+
+<div class="caller">
+
+Persuasion
+
+</div>
+
+<div class="message">
+
+"Some letters arrive late.
+Some arrive exactly when needed."
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+ARCHIVE DRAWER
+========================================== -->
+
+<section class="drawer-section">
+
+<div class="section-tag">
+
+CATALOGUE CARDS
+
+</div>
+
+<h2 class="section-title">
+
+Archive Drawer
+
+</h2>
+
+<div class="drawer-grid">
+
+<div class="library-card">
+
+<div class="card-book">
+
+Rebecca
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Memory</span>
+
+<br>
+
+Manderley
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Status</span>
+
+<br>
+
+Still haunting me
+
+</div>
+
+</div>
+
+<div class="library-card">
+
+<div class="card-book">
+
+Jane Eyre
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Memory</span>
+
+<br>
+
+Strength
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Status</span>
+
+<br>
+
+Frequently revisited
+
+</div>
+
+</div>
+
+<div class="library-card">
+
+<div class="card-book">
+
+The Bell Jar
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Memory</span>
+
+<br>
+
+Honesty
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Status</span>
+
+<br>
+
+Permanently archived
+
+</div>
+
+</div>
+
+<div class="library-card">
+
+<div class="card-book">
+
+The Secret History
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Memory</span>
+
+<br>
+
+Atmosphere
+
+</div>
+
+<div class="card-item">
+
+<span class="card-label">Status</span>
+
+<br>
+
+Dangerously memorable
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FINAL EXHIBIT
+========================================== -->
+
+<section class="final-exhibit">
+
+<div class="final-tag">
+
+ARCHIVE CLOSED
+
+</div>
+
+<h2 class="final-title">
+
+The Echoes
+
+</h2>
+
+<div class="final-text">
+
+Most stories end.
+
+<br><br>
+
+The strange ones don't.
+
+<br><br>
+
+They echo.
+
+Through sentences.
+
+Through memories.
+
+Through random afternoons years later.
+
+<br><br>
+
+Long after the cover is closed.
+
+Long after the page number is forgotten.
+
+<br><br>
+
+This room is full of echoes.
+
+</div>
+
+<div class="signature">
+
+— Pranjal ✦
+
+</div>
+
+</section>
+
+<footer>
+
+BOOK NOOK • SNIPPETS ARCHIVE
+
+</footer>
 
 </body>
+
 </html>
