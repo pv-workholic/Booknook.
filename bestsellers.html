@@ -472,7 +472,141 @@ font-size:34px;
 
 }
 
-</style><!-- ==========================================
+  /* ==========================================
+NAVBAR
+========================================== */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:18px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(246,235,222,.85);
+
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid rgba(0,0,0,.05);
+
+z-index:9999;
+
+}
+
+.nav-logo a{
+
+text-decoration:none;
+
+}
+
+.nav-logo h1{
+
+font-family:'Cinzel';
+
+font-size:28px;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
+}
+
+.nav-logo span{
+
+font-family:'Caveat';
+
+font-size:24px;
+
+color:var(--gold);
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--brown);
+
+transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--gold);
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
+}
+
+}
+</style>
+<!-- ==========================================
+NAVBAR
+========================================== -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+
+<a href="index.html">
+
+<h1>BOOK NOOK</h1>
+
+<span>By Pranjal</span>
+
+</a>
+
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="bestsellers.html">Bestsellers</a></li>
+
+<li><a href="index.html#shelf">Shelf</a></li>
+
+<li><a href="index.html#passport">Passport</a></li>
+
+<li><a href="mailto: pranjalvats.work@gmail.com">Contact</a></li>
+
+</ul>
+
+</nav>
+<!-- ==========================================
 HERO
 ========================================== --><section class="hero"><div class="hero-content"><div class="hero-tag">
 BOOK NOOK COLLECTION
