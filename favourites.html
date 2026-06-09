@@ -1,279 +1,2847 @@
+<!-- ==========================================
+CHUNK 1
+HTML + FONTS + ROOT
+NAVBAR
+HERO
+INTRO
+========================================== -->
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>Book Nook | My Favorites</title>
+<title>
+Book Nook | My Favourites
+</title><link rel="preconnect"
+href="https://fonts.googleapis.com"><link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Special+Elite&family=Caveat:wght@400;500;600&display=swap"
+rel="stylesheet"><style>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Great+Vibes&family=Special+Elite&display=swap" rel="stylesheet">
-
-<style>
+/* ==========================================
+ROOT
+========================================== */
 
 :root{
---bg:#e8d7c6;
---paper:#f6ebde;
---dark:#140c08;
---brown:#3d2b21;
---gold:#b18a5f;
---wine:#5b3938;
+
+--bg:#efe1d1;
+--paper:#fbf5ee;
+--paper-dark:#f1e5d8;
+
+--brown:#4a3328;
+--gold:#bc9463;
+--accent:#7b5a4a;
+
+--ink:#2f221b;
+
+--shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+--shadow-lg:
+0 20px 45px rgba(0,0,0,.12);
+
 }
 
+/* ==========================================
+GLOBAL
+========================================== */
+
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 body{
+
 font-family:'Inter',sans-serif;
+
 background:var(--bg);
-color:var(--dark);
+
+color:var(--ink);
+
 overflow-x:hidden;
-padding-top:90px;
+
 }
 
-/* BACKGROUND */
+/* PAPER TEXTURE */
+
 body::before{
+
 content:"";
+
 position:fixed;
+
 inset:0;
+
 background:
-linear-gradient(rgba(10,8,6,.85),rgba(10,8,6,.92)),
-url("https://images.unsplash.com/photo-1519682577862-22b62b24e493?q=80&w=1800");
-background-size:cover;
-opacity:.35;
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.45),
+transparent 40%
+),
+
+radial-gradient(
+circle at 80% 30%,
+rgba(255,255,255,.25),
+transparent 35%
+);
+
+pointer-events:none;
+
 z-index:-1;
+
 }
 
-/* NAVBAR */
+/* ==========================================
+NAVBAR
+========================================== */
+
 nav{
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
+
 padding:22px 8%;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
-background:rgba(12,8,6,.55);
-backdrop-filter:blur(18px);
-z-index:999;
+
+background:
+rgba(251,245,238,.88);
+
+backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
+z-index:9999;
+
 }
 
 .logo h1{
+
 font-family:'Cinzel';
-font-size:34px;
-letter-spacing:6px;
-color:white;
-line-height:.9;
+
+font-size:28px;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
+line-height:1;
+
 }
 
 .logo p{
-font-family:'Great Vibes';
+
+font-family:'Caveat';
+
 font-size:24px;
-color:#d0ab82;
+
+color:var(--gold);
+
+margin-top:4px;
+
 }
 
 nav ul{
+
 display:flex;
+
 gap:30px;
+
 list-style:none;
+
 }
 
 nav a{
+
 text-decoration:none;
-font-size:11px;
-letter-spacing:3px;
+
+font-size:12px;
+
+letter-spacing:2px;
+
 text-transform:uppercase;
-color:#f1e5d7;
+
+color:var(--brown);
+
+transition:.3s;
+
 }
 
 nav a:hover{
+
 color:var(--gold);
+
 }
 
-/* HERO */
+/* ==========================================
+HERO
+========================================== */
+
 .hero{
-padding:140px 8% 60px;
+
+min-height:100vh;
+
+padding:
+180px 8%
+120px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
 text-align:center;
-color:white;
+
+position:relative;
+
+}
+
+.hero-content{
+
+max-width:900px;
+
+}
+
+.hero-tag{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
 }
 
 .hero h1{
+
 font-family:'Cormorant Garamond';
-font-size:85px;
+
+font-size:120px;
+
+line-height:.85;
+
+color:var(--brown);
+
+margin-bottom:20px;
+
 }
 
-.hero p{
-margin-top:15px;
-opacity:.85;
+.hero-sub{
+
+font-family:'Caveat';
+
+font-size:42px;
+
+color:var(--accent);
+
+margin-bottom:35px;
+
 }
 
-/* GRID */
-.favorites{
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
+.hero-intro{
+
+max-width:750px;
+
+margin:auto;
+
+font-size:18px;
+
+line-height:2.2;
+
 }
 
-/* CARD */
-.fav-card{
+/* ==========================================
+INTRO SECTION
+========================================== */
+
+.intro-wrap{
+
+padding:0 8% 120px;
+
+}
+
+.intro-card{
+
+max-width:1000px;
+
+margin:auto;
+
 background:var(--paper);
+
+padding:70px;
+
 border-radius:30px;
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-padding:40px;
-transition:.3s;
+
+box-shadow:var(--shadow-lg);
+
 position:relative;
+
 overflow:hidden;
+
 }
 
-.fav-card:hover{
-transform:translateY(-8px);
+.intro-card::before{
+
+content:"📚";
+
+position:absolute;
+
+right:40px;
+top:35px;
+
+font-size:38px;
+
+opacity:.15;
+
+}
+
+.intro-label{
+
+font-family:'Special Elite';
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.intro-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:70px;
+
+line-height:.9;
+
+color:var(--brown);
+
+margin-bottom:30px;
+
+}
+
+.intro-card p{
+
+font-size:18px;
+
+line-height:2.1;
+
+margin-bottom:18px;
+
+}
+
+.highlight-line{
+
+margin-top:35px;
+
+padding:22px;
+
+background:var(--paper-dark);
+
+border-left:
+4px solid var(--gold);
+
+font-family:'Caveat';
+
+font-size:30px;
+
+color:var(--brown);
+
+}
+
+/* ==========================================
+SECTION TITLES
+========================================== */
+
+.section-tag{
+
+text-align:center;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.section-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:72px;
+
+line-height:.9;
+
+text-align:center;
+
+color:var(--brown);
+
+margin-bottom:25px;
+
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+nav ul{
+
+display:none;
+
+}
+
+.hero h1{
+
+font-size:80px;
+
+}
+
+.hero-sub{
+
+font-size:30px;
+
+}
+
+.intro-card{
+
+padding:45px;
+
+}
+
+.intro-title{
+
+font-size:50px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding:
+160px 7%
+90px;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+}
+
+.hero-sub{
+
+font-size:24px;
+
+}
+
+.hero-intro{
+
+font-size:16px;
+
+}
+
+.intro-card{
+
+padding:35px;
+
+}
+
+.intro-title{
+
+font-size:40px;
+
+}
+
+.highlight-line{
+
+font-size:24px;
+
+}
+
+}
+
+</style></head><body><!-- ==========================================
+NAVBAR
+========================================== --><nav><div class="logo"><h1>
+BOOK NOOK
+</h1><p>
+by Pranjal
+</p></div><ul><li>
+<a href="index.html">
+Home
+</a>
+</li><li>
+<a href="bestsellers.html">
+Bestsellers
+</a>
+</li><li>
+<a href="favourites.html">
+Favourites
+</a>
+</li><li>
+<a href="index.html#contact">
+Contact
+</a>
+</li></ul></nav><!-- ==========================================
+HERO
+========================================== --><section class="hero"><div class="hero-content"><div class="hero-tag">THE BOOKS THAT STAYED
+
+</div><h1>My Favourites
+
+</h1><div class="hero-sub">Not necessarily the best books ever written.
+Just the ones that refused to leave.
+
+</div><div class="hero-intro">Some books entertain us for a few days.
+
+Some stay on our shelves.
+
+And a rare few quietly move into our thoughts,
+changing the way we see stories,
+people,
+and sometimes even ourselves.
+
+These are the books I return to in conversations,
+recommend without hesitation,
+and think about long after the final page.
+
+If Book Nook is a map of my reading life,
+this shelf is the heart of it.
+
+</div></div></section><!-- ==========================================
+INTRO SECTION
+========================================== --><section class="intro-wrap"><div class="intro-card"><div class="intro-label">PERSONAL COLLECTION
+
+</div><h2 class="intro-title">A Shelf Built From
+Favourite Memories
+
+</h2><p>This isn't a list of the greatest books ever written.
+
+It's a collection of stories that arrived at the right time,
+introduced unforgettable characters,
+and somehow stayed longer than expected.
+
+</p><p>Some made me laugh.
+
+Some made me cry.
+
+Some made me stare at a wall after finishing them.
+
+And a few quietly became part of who I am as a reader.
+
+</p><div class="highlight-line">The books on this shelf aren't perfect.
+
+They're personal.
+
+</div></div></section>
+  <!-- CHUNK 2 STARTS BELOW -->
+
+  <!-- ==========================================
+CHUNK 2
+THE SHELF THAT BUILT ME
+WOODEN BOOKSHELF
+WHAT THEY LEFT BEHIND
+========================================== -->
+
+<style>
+
+/* ==========================================
+SHELF SECTION
+========================================== */
+
+.shelf-section{
+
+padding:120px 8%;
+
+}
+
+.bookshelf{
+
+max-width:1200px;
+
+margin:auto;
+
+background:#8b6b4f;
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow-lg);
+
+position:relative;
+
+}
+
+.bookshelf::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+right:0;
+top:50%;
+
+height:12px;
+
+background:#6f523b;
+
+transform:translateY(-50%);
+
+}
+
+.book-row{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:25px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.book{
+
+height:260px;
+
+border-radius:8px 8px 3px 3px;
+
+padding:20px 15px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:
+8px 0 15px rgba(0,0,0,.12);
+
+}
+
+.book:hover{
+
+transform:
+translateY(-10px)
+rotate(-2deg);
+
 }
 
 .book-title{
+
 font-family:'Cormorant Garamond';
-font-size:34px;
-color:var(--brown);
-margin-bottom:10px;
+
+font-size:28px;
+
+line-height:1;
+
+color:white;
+
 }
 
-.author{
-font-family:'Special Elite';
-font-size:13px;
-color:#7a5a44;
-letter-spacing:2px;
-margin-bottom:15px;
-}
+.book-author{
 
-.rating{
-color:#d4a017;
-font-size:20px;
-margin-bottom:20px;
-}
-
-.note{
-font-family:'Special Elite';
-font-size:14px;
-line-height:1.8;
-background:#f3e5d3;
-padding:15px;
-border-left:4px solid var(--gold);
-transform:rotate(-1deg);
-margin-bottom:20px;
-}
-
-.tag{
-position:absolute;
-top:20px;
-right:20px;
-font-family:'Special Elite';
 font-size:12px;
-color:var(--gold);
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:rgba(255,255,255,.8);
+
+}
+
+/* INDIVIDUAL BOOK COLORS */
+
+.hp{
+background:#5b3b82;
+}
+
+.anne{
+background:#3f7754;
+}
+
+.achilles{
+background:#35607d;
+}
+
+.evelyn{
+background:#7a4f3f;
+}
+
+.circus{
+background:#2f2f2f;
+}
+
+.booklovers{
+background:#d77d7d;
+}
+
+.percy{
+background:#2f6e79;
+}
+
+.women{
+background:#946b52;
+}
+
+.midnight{
+background:#334878;
+}
+
+.hobbit{
+background:#556b2f;
+}
+
+/* ==========================================
+LEFT BEHIND NOTES
+========================================== */
+
+.left-behind{
+
+max-width:1200px;
+
+margin:70px auto 0;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+}
+
+.memory-note{
+
+background:var(--paper);
+
+padding:28px;
+
+border-radius:18px;
+
+box-shadow:var(--shadow);
+
+transform:rotate(-1deg);
+
+}
+
+.memory-note:nth-child(even){
+
+transform:rotate(1deg);
+
+}
+
+.memory-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:32px;
+
+color:var(--brown);
+
+margin-bottom:10px;
+
+}
+
+.memory-text{
+
+line-height:1.9;
+
+font-size:15px;
+
+}
+
+/* ==========================================
+SECTION SPACING
+========================================== */
+
+.shelf-intro{
+
+max-width:800px;
+
+margin:0 auto 70px;
+
+text-align:center;
+
+font-size:17px;
+
+line-height:2;
+
 }
 
 </style>
-</head>
 
-<body>
+<!-- ==========================================
+THE SHELF THAT BUILT ME
+========================================== -->
 
-<!-- NAVBAR -->
-<nav>
+<section class="shelf-section">
 
-<div class="logo">
-<h1>BOOK<br>NOOK</h1>
-<p>By Pranjal</p>
+<div class="section-tag">
+
+PERSONAL FAVOURITES
+
 </div>
 
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="bestsellers.html">Bestsellers</a></li>
-<li><a href="favorites.html">My Favorites</a></li>
-<li><a href="genre.html">Genres</a></li>
-<li><a href="index.html#contact">Contact Me</a></li>
-</ul>
+<h2 class="section-title">
 
-</nav>
+The Shelf That Built Me
 
-<!-- HERO -->
-<div class="hero">
-<h1>My Favorites</h1>
-<p>A quiet shelf of stories I keep returning to 📖</p>
-</div>
+</h2>
 
-<!-- FAVORITES -->
-<section class="favorites">
+<div class="shelf-intro">
 
-<!-- 1 -->
-<div class="fav-card">
-<div class="tag">ROMANCE</div>
-<div class="book-title">The Twisted Love</div>
-<div class="author">Ana Huang</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-A dark, addictive romance filled with tension, obsession, and emotional intensity that keeps you hooked.
-</div>
+Every book here left something behind.
+
+A thought.
+
+A feeling.
+
+A character I couldn't forget.
+
+A lesson I didn't realize I needed.
+
 </div>
 
-<!-- 2 -->
-<div class="fav-card">
-<div class="tag">ROMANCE</div>
-<div class="book-title">The Perfect Storm</div>
-<div class="author">Carley Fortune</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-A nostalgic, emotional second-chance romance that feels like summer memories you cannot let go of.
-</div>
+<div class="bookshelf">
+
+<div class="book-row">
+
+<div class="book hp">
+
+<div class="book-title">
+Harry Potter &
+The Prisoner
+of Azkaban
 </div>
 
-<!-- 3 -->
-<div class="fav-card">
-<div class="tag">THRILLER</div>
-<div class="book-title">The Project</div>
-<div class="author">Courtney Summers</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-A gripping investigative story that slowly pulls you into obsession, truth, and manipulation.
-</div>
+<div class="book-author">
+J.K. Rowling
 </div>
 
-<!-- 4 -->
-<div class="fav-card">
-<div class="tag">HORROR / THRILLER</div>
-<div class="book-title">The Butcher and the Blackbird</div>
-<div class="author">Brynne Weaver</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-Dark, chaotic, and violent in tone with a strange addictive energy that keeps escalating.
-</div>
 </div>
 
-<!-- 5 -->
-<div class="fav-card">
-<div class="tag">ROMANCE</div>
-<div class="book-title">Too Good to Be True</div>
-<div class="author">Carola Lovering</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-A psychological romance where love and deception blur into each other beautifully.
-</div>
+<div class="book anne">
+
+<div class="book-title">
+Anne of
+Green Gables
 </div>
 
-<!-- 6 -->
-<div class="fav-card">
-<div class="tag">ROMANCE</div>
-<div class="book-title">The American Roommate Experiment</div>
-<div class="author">Elena Armas</div>
-<div class="rating">★★★★☆</div>
-<div class="note">
-A soft, slow-burn romantic comedy filled with warmth, chaos, and unexpected chemistry.
+<div class="book-author">
+L.M. Montgomery
 </div>
+
+</div>
+
+<div class="book achilles">
+
+<div class="book-title">
+The Song
+of Achilles
+</div>
+
+<div class="book-author">
+Madeline Miller
+</div>
+
+</div>
+
+<div class="book evelyn">
+
+<div class="book-title">
+The Seven
+Husbands of
+Evelyn Hugo
+</div>
+
+<div class="book-author">
+Taylor Jenkins Reid
+</div>
+
+</div>
+
+<div class="book circus">
+
+<div class="book-title">
+The Night
+Circus
+</div>
+
+<div class="book-author">
+Erin Morgenstern
+</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div class="book-row">
+
+<div class="book booklovers">
+
+<div class="book-title">
+Book
+Lovers
+</div>
+
+<div class="book-author">
+Emily Henry
+</div>
+
+</div>
+
+<div class="book percy">
+
+<div class="book-title">
+Percy Jackson
+&
+The Lightning
+Thief
+</div>
+
+<div class="book-author">
+Rick Riordan
+</div>
+
+</div>
+
+<div class="book women">
+
+<div class="book-title">
+Little
+Women
+</div>
+
+<div class="book-author">
+Louisa May Alcott
+</div>
+
+</div>
+
+<div class="book midnight">
+
+<div class="book-title">
+The Midnight
+Library
+</div>
+
+<div class="book-author">
+Matt Haig
+</div>
+
+</div>
+
+<div class="book hobbit">
+
+<div class="book-title">
+The Hobbit
+</div>
+
+<div class="book-author">
+J.R.R. Tolkien
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WHAT THEY LEFT BEHIND -->
+
+<div class="left-behind">
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+Harry Potter
+
+</div>
+
+<div class="memory-text">
+
+Made reading feel magical and taught me that courage often looks ordinary at first.
+
+</div>
+
+</div>
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+Anne of Green Gables
+
+</div>
+
+<div class="memory-text">
+
+Reminded me that imagination can turn even ordinary days into adventures.
+
+</div>
+
+</div>
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+The Song of Achilles
+
+</div>
+
+<div class="memory-text">
+
+Left behind beautiful writing and emotional damage that still hasn't fully healed.
+
+</div>
+
+</div>
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+Evelyn Hugo
+
+</div>
+
+<div class="memory-text">
+
+Proved that people can be complicated, flawed, brilliant, and unforgettable all at once.
+
+</div>
+
+</div>
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+The Night Circus
+
+</div>
+
+<div class="memory-text">
+
+Made me fall in love with atmosphere, wonder, and impossible places.
+
+</div>
+
+</div>
+
+<div class="memory-note">
+
+<div class="memory-book">
+
+Book Lovers
+
+</div>
+
+<div class="memory-text">
+
+Reminded me that sometimes the right story finds you exactly when you need it.
+
+</div>
+
+</div>
+
 </div>
 
 </section>
 
+<!-- CHUNK 3 STARTS BELOW -->
+  <!-- ==========================================
+CHUNK 3
+THE STORIES THAT FOUND ME
+LITERARY PASSPORT
+========================================== -->
+
+<style>
+
+/* ==========================================
+TIMELINE SECTION
+========================================== */
+
+.timeline-section{
+
+padding:120px 8%;
+
+background:
+linear-gradient(
+to bottom,
+transparent,
+rgba(255,255,255,.25)
+);
+
+}
+
+.timeline-wrap{
+
+max-width:900px;
+
+margin:auto;
+
+position:relative;
+
+}
+
+.timeline-wrap::before{
+
+content:"";
+
+position:absolute;
+
+left:22px;
+
+top:0;
+bottom:0;
+
+width:4px;
+
+background:var(--gold);
+
+border-radius:10px;
+
+}
+
+.timeline-item{
+
+position:relative;
+
+padding-left:80px;
+
+margin-bottom:60px;
+
+}
+
+.timeline-dot{
+
+position:absolute;
+
+left:10px;
+
+top:5px;
+
+width:28px;
+
+height:28px;
+
+border-radius:50%;
+
+background:var(--paper);
+
+border:4px solid var(--gold);
+
+z-index:2;
+
+}
+
+.timeline-card{
+
+background:var(--paper);
+
+padding:28px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+}
+
+.timeline-label{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+.timeline-book{
+
+font-family:'Cormorant Garamond';
+
+font-size:42px;
+
+color:var(--brown);
+
+margin-bottom:12px;
+
+}
+
+.timeline-text{
+
+line-height:1.9;
+
+}
+
+</style>
+
+<!-- ==========================================
+THE STORIES THAT FOUND ME
+========================================== -->
+
+<section class="timeline-section">
+
+<div class="section-tag">
+
+READING JOURNEY
+
+</div>
+
+<h2 class="section-title">
+
+The Stories That Found Me
+
+</h2>
+
+<div class="timeline-wrap">
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-label">
+
+First Book That Made Me Love Reading
+
+</div>
+
+<div class="timeline-book">
+
+Harry Potter and the Prisoner of Azkaban
+
+</div>
+
+<div class="timeline-text">
+
+The book that made reading feel less like a hobby and more like a doorway.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-label">
+
+First Book That Made Me Cry
+
+</div>
+
+<div class="timeline-book">
+
+The Song of Achilles
+
+</div>
+
+<div class="timeline-text">
+
+I finished it. Then stared at the wall for a suspiciously long time.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-label">
+
+First Classic I Adored
+
+</div>
+
+<div class="timeline-book">
+
+Little Women
+
+</div>
+
+<div class="timeline-text">
+
+Proof that some stories never grow old.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-label">
+
+First Book Hangover
+
+</div>
+
+<div class="timeline-book">
+
+The Seven Husbands of Evelyn Hugo
+
+</div>
+
+<div class="timeline-text">
+
+Finished the last page and immediately wanted to forget it so I could experience it again.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-label">
+
+Most Recent Favourite
+
+</div>
+
+<div class="timeline-book">
+
+Book Lovers
+
+</div>
+
+<div class="timeline-text">
+
+The kind of book that quietly sneaks onto the favourites shelf.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+LITERARY PASSPORT
+========================================== -->
+
+<style>
+
+/* ==========================================
+PASSPORT
+========================================== */
+
+.passport-section{
+
+padding:120px 8%;
+
+}
+
+.passport-book{
+
+max-width:1000px;
+
+margin:40px auto;
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.passport-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:48px;
+
+color:var(--brown);
+
+margin-bottom:25px;
+
+}
+
+.stamps{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+}
+
+.stamp{
+
+padding:12px 18px;
+
+border:2px dashed var(--gold);
+
+border-radius:50px;
+
+font-size:13px;
+
+letter-spacing:1px;
+
+background:white;
+
+transform:rotate(-2deg);
+
+}
+
+.stamp:nth-child(even){
+
+transform:rotate(2deg);
+
+}
+
+</style>
+
+<section class="passport-section">
+
+<div class="section-tag">
+
+LITERARY PASSPORT
+
+</div>
+
+<h2 class="section-title">
+
+Passport Stamps
+
+</h2>
+
+<div class="passport-book">
+
+<div class="passport-title">
+
+The Song of Achilles
+
+</div>
+
+<div class="stamps">
+
+<div class="stamp">✓ Made Me Cry</div>
+
+<div class="stamp">✓ Emotional Damage Certified</div>
+
+<div class="stamp">✓ Stayed In My Head For Weeks</div>
+
+<div class="stamp">✓ Beautiful Writing</div>
+
+<div class="stamp">✓ Re-read Approved</div>
+
+</div>
+
+</div>
+
+<div class="passport-book">
+
+<div class="passport-title">
+
+Harry Potter
+
+</div>
+
+<div class="stamps">
+
+<div class="stamp">✓ Childhood Favourite</div>
+
+<div class="stamp">✓ Comfort Read</div>
+
+<div class="stamp">✓ Magical Escape</div>
+
+<div class="stamp">✓ Re-read Approved</div>
+
+<div class="stamp">✓ Forever Shelf</div>
+
+</div>
+
+</div>
+
+<div class="passport-book">
+
+<div class="passport-title">
+
+Evelyn Hugo
+
+</div>
+
+<div class="stamps">
+
+<div class="stamp">✓ Couldn't Put Down</div>
+
+<div class="stamp">✓ Character Obsession</div>
+
+<div class="stamp">✓ Book Hangover</div>
+
+<div class="stamp">✓ Stayed Up Too Late</div>
+
+<div class="stamp">✓ Reader Recommended</div>
+
+</div>
+
+</div>
+
+<div class="passport-book">
+
+<div class="passport-title">
+
+Anne of Green Gables
+
+</div>
+
+<div class="stamps">
+
+<div class="stamp">✓ Comfort Read</div>
+
+<div class="stamp">✓ Warm & Cozy</div>
+
+<div class="stamp">✓ Made Me Smile</div>
+
+<div class="stamp">✓ Kindred Spirit Energy</div>
+
+<div class="stamp">✓ Forever Favourite</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 4 STARTS -->
+  <!-- ==========================================
+CHUNK 4
+PEOPLE WHO DON'T EXIST
+BUT SOMEHOW MATTER
+
+READING MOODBOARD
+
+FAVOURITE QUOTES VAULT
+========================================== -->
+
+<style>
+
+/* ==========================================
+CHARACTER BOARD
+========================================== */
+
+.characters-section{
+
+padding:120px 8%;
+
+}
+
+.character-board{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:35px;
+
+}
+
+.polaroid{
+
+background:white;
+
+padding:15px 15px 25px;
+
+box-shadow:var(--shadow-lg);
+
+border-radius:6px;
+
+transition:.4s;
+
+}
+
+.polaroid:nth-child(odd){
+
+transform:rotate(-3deg);
+
+}
+
+.polaroid:nth-child(even){
+
+transform:rotate(3deg);
+
+}
+
+.polaroid:hover{
+
+transform:
+translateY(-10px)
+rotate(0deg);
+
+}
+
+.photo{
+
+height:240px;
+
+background:var(--paper-dark);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:60px;
+
+border-radius:4px;
+
+margin-bottom:18px;
+
+}
+
+.character-name{
+
+font-family:'Cormorant Garamond';
+
+font-size:34px;
+
+color:var(--brown);
+
+margin-bottom:10px;
+
+}
+
+.character-note{
+
+line-height:1.8;
+
+font-size:14px;
+
+}
+
+.character-caption{
+
+text-align:center;
+
+margin-top:60px;
+
+font-family:'Caveat';
+
+font-size:34px;
+
+color:var(--accent);
+
+}
+
+/* ==========================================
+MOODBOARD
+========================================== */
+
+.moodboard-section{
+
+padding:120px 8%;
+
+background:
+rgba(255,255,255,.2);
+
+}
+
+.mood-grid{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.mood-card{
+
+background:var(--paper);
+
+padding:35px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+}
+
+.mood-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:38px;
+
+margin-bottom:15px;
+
+color:var(--brown);
+
+}
+
+.mood-books{
+
+line-height:2;
+
+}
+
+/* ==========================================
+QUOTES VAULT
+========================================== */
+
+.quotes-section{
+
+padding:120px 8%;
+
+}
+
+.quote-board{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.quote-card{
+
+background:var(--paper);
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+position:relative;
+
+}
+
+.quote-card::before{
+
+content:"❝";
+
+position:absolute;
+
+top:10px;
+left:15px;
+
+font-size:45px;
+
+opacity:.15;
+
+}
+
+.quote-text{
+
+font-family:'Caveat';
+
+font-size:30px;
+
+line-height:1.5;
+
+color:var(--brown);
+
+}
+
+.quote-book{
+
+margin-top:15px;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+}
+
+</style>
+
+<!-- ==========================================
+PEOPLE WHO DON'T EXIST
+BUT SOMEHOW MATTER
+========================================== -->
+
+<section class="characters-section">
+
+<div class="section-tag">
+
+CHARACTER COLLECTION
+
+</div>
+
+<h2 class="section-title">
+
+People Who Don't Exist
+But Somehow Matter
+
+</h2>
+
+<div class="character-board">
+
+<div class="polaroid">
+
+<div class="photo">📚</div>
+
+<div class="character-name">
+
+Anne Shirley
+
+</div>
+
+<div class="character-note">
+
+Would probably talk for six hours and somehow make even the clouds sound interesting.
+
+</div>
+
+</div>
+
+<div class="polaroid">
+
+<div class="photo">⚡</div>
+
+<div class="character-name">
+
+Percy Jackson
+
+</div>
+
+<div class="character-note">
+
+The conversation would last ten minutes before chaos arrived.
+
+</div>
+
+</div>
+
+<div class="polaroid">
+
+<div class="photo">🌊</div>
+
+<div class="character-name">
+
+Patroclus
+
+</div>
+
+<div class="character-note">
+
+Still not emotionally recovered.
+
+</div>
+
+</div>
+
+<div class="polaroid">
+
+<div class="photo">✨</div>
+
+<div class="character-name">
+
+Evelyn Hugo
+
+</div>
+
+<div class="character-note">
+
+I would spend the entire conversation taking notes.
+
+</div>
+
+</div>
+
+<div class="polaroid">
+
+<div class="photo">🌙</div>
+
+<div class="character-name">
+
+Celia Bowen
+
+</div>
+
+<div class="character-note">
+
+Proof that fictional people can be cooler than real people.
+
+</div>
+
+</div>
+
+<div class="polaroid">
+
+<div class="photo">🧙</div>
+
+<div class="character-name">
+
+Gandalf
+
+</div>
+
+<div class="character-note">
+
+Free life advice included.
+
+</div>
+
+</div>
+
+</div>
+
+<div class="character-caption">
+
+I know they're fictional.
+
+That information changes absolutely nothing.
+
+</div>
+
+</section>
+
+<!-- ==========================================
+READING MOODBOARD
+========================================== -->
+
+<section class="moodboard-section">
+
+<div class="section-tag">
+
+BOOKS FOR EVERY MOOD
+
+</div>
+
+<h2 class="section-title">
+
+Reading Moodboard
+
+</h2>
+
+<div class="mood-grid">
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+☕ Rainy Day Reads
+
+</div>
+
+<div class="mood-books">
+
+Anne of Green Gables<br>
+Little Women<br>
+The Hobbit
+
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+🌙 Midnight Reads
+
+</div>
+
+<div class="mood-books">
+
+The Night Circus<br>
+The Midnight Library<br>
+Evelyn Hugo
+
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+🥹 Books That Broke Me
+
+</div>
+
+<div class="mood-books">
+
+The Song of Achilles<br>
+Evelyn Hugo
+
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+✨ Comfort Reads
+
+</div>
+
+<div class="mood-books">
+
+Harry Potter<br>
+Anne of Green Gables<br>
+Percy Jackson
+
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+🌸 Soft Reads
+
+</div>
+
+<div class="mood-books">
+
+Book Lovers<br>
+Little Women
+
+</div>
+
+</div>
+
+<div class="mood-card">
+
+<div class="mood-title">
+
+🔍 Couldn't Put Down
+
+</div>
+
+<div class="mood-books">
+
+Evelyn Hugo<br>
+Percy Jackson<br>
+Book Lovers
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FAVOURITE QUOTES VAULT
+========================================== -->
+
+<section class="quotes-section">
+
+<div class="section-tag">
+
+QUOTE COLLECTION
+
+</div>
+
+<h2 class="section-title">
+
+Favourite Quotes Vault
+
+</h2>
+
+<div class="quote-board">
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+I am no bird; and no net ensnares me.
+
+</div>
+
+<div class="quote-book">
+
+Jane Eyre
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+It matters not what someone is born, but what they grow to be.
+
+</div>
+
+<div class="quote-book">
+
+Harry Potter
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+You have bewitched me, body and soul.
+
+</div>
+
+<div class="quote-book">
+
+Pride & Prejudice
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+To the stars who listen.
+
+</div>
+
+<div class="quote-book">
+
+A Court of Mist and Fury
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+Perhaps there is some secret sort of homing instinct in books.
+
+</div>
+
+<div class="quote-book">
+
+Anne of Green Gables
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-text">
+
+Wherever you are, whatever you do, be happy.
+
+</div>
+
+<div class="quote-book">
+
+Little Women
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHUNK 5 STARTS BELOW -->
+  <!-- ==========================================
+CHUNK 5
+BOOK NOOK SUPERLATIVES
+READER CONFESSIONS
+THE BOOKS I CARRY WITH ME
+FOOTER
+CLOSING TAGS
+========================================== -->
+
+<style>
+
+/* ==========================================
+SUPERLATIVES
+========================================== */
+
+.superlatives-section{
+
+padding:120px 8%;
+
+background:
+rgba(255,255,255,.18);
+
+}
+
+.awards-grid{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.award-card{
+
+background:var(--paper);
+
+padding:30px;
+
+border-radius:25px;
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+}
+
+.award-icon{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+}
+
+.award-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:34px;
+
+color:var(--brown);
+
+margin-bottom:10px;
+
+}
+
+.award-winner{
+
+font-family:'Caveat';
+
+font-size:28px;
+
+color:var(--accent);
+
+}
+
+/* ==========================================
+READER CONFESSIONS
+========================================== */
+
+.confession-section{
+
+padding:120px 8%;
+
+}
+
+.confession-board{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.confession{
+
+background:#fff8ef;
+
+padding:30px;
+
+border-radius:18px;
+
+box-shadow:var(--shadow);
+
+font-family:'Special Elite';
+
+line-height:2;
+
+transform:rotate(-2deg);
+
+}
+
+.confession:nth-child(even){
+
+transform:rotate(2deg);
+
+}
+
+/* ==========================================
+FINAL LETTER
+========================================== */
+
+.final-section{
+
+padding:120px 8% 150px;
+
+}
+
+.final-letter{
+
+max-width:900px;
+
+margin:auto;
+
+background:var(--paper);
+
+padding:70px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow-lg);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.final-letter::before{
+
+content:"✉";
+
+position:absolute;
+
+right:35px;
+top:25px;
+
+font-size:50px;
+
+opacity:.12;
+
+}
+
+.final-tag{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.final-title{
+
+font-family:'Cormorant Garamond';
+
+font-size:72px;
+
+line-height:.9;
+
+color:var(--brown);
+
+margin-bottom:30px;
+
+}
+
+.final-content{
+
+font-size:18px;
+
+line-height:2.2;
+
+}
+
+.signature{
+
+margin-top:40px;
+
+font-family:'Caveat';
+
+font-size:34px;
+
+color:var(--accent);
+
+}
+
+/* ==========================================
+FOOTER
+========================================== */
+
+.footer{
+
+padding:50px 8%;
+
+text-align:center;
+
+border-top:
+1px solid rgba(0,0,0,.08);
+
+}
+
+.footer-title{
+
+font-family:'Cinzel';
+
+font-size:28px;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
+margin-bottom:10px;
+
+}
+
+.footer-text{
+
+font-size:14px;
+
+color:#7b6b61;
+
+}
+
+/* ==========================================
+REVEAL ANIMATION
+========================================== */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:all .8s ease;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+</style>
+
+<!-- ==========================================
+BOOK NOOK SUPERLATIVES
+========================================== -->
+
+<section class="superlatives-section reveal">
+
+<div class="section-tag">
+
+BOOK NOOK AWARDS
+
+</div>
+
+<h2 class="section-title">
+
+Book Nook Superlatives
+
+</h2>
+
+<div class="awards-grid">
+
+<div class="award-card">
+
+<div class="award-icon">😭</div>
+
+<div class="award-title">
+
+Most Likely To Make Me Cry
+
+</div>
+
+<div class="award-winner">
+
+The Song of Achilles
+
+</div>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">☕</div>
+
+<div class="award-title">
+
+Best Comfort Character
+
+</div>
+
+<div class="award-winner">
+
+Anne Shirley
+
+</div>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">📖</div>
+
+<div class="award-title">
+
+Most Re-read Pages
+
+</div>
+
+<div class="award-winner">
+
+Harry Potter
+
+</div>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">✨</div>
+
+<div class="award-title">
+
+Most Beautiful Writing
+
+</div>
+
+<div class="award-winner">
+
+The Night Circus
+
+</div>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">💔</div>
+
+<div class="award-title">
+
+Biggest Book Hangover
+
+</div>
+
+<div class="award-winner">
+
+Evelyn Hugo
+
+</div>
+
+</div>
+
+<div class="award-card">
+
+<div class="award-icon">🌸</div>
+
+<div class="award-title">
+
+Character I'd Have Coffee With
+
+</div>
+
+<div class="award-winner">
+
+Anne Shirley
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+READER CONFESSIONS
+========================================== -->
+
+<section class="confession-section reveal">
+
+<div class="section-tag">
+
+CONFIDENTIAL
+
+</div>
+
+<h2 class="section-title">
+
+Reader Confessions
+
+</h2>
+
+<div class="confession-board">
+
+<div class="confession">
+
+I judge books by their covers sometimes.
+
+</div>
+
+<div class="confession">
+
+I absolutely read the last page when I'm emotionally stressed.
+
+</div>
+
+<div class="confession">
+
+"One more chapter" has never once meant one more chapter.
+
+</div>
+
+<div class="confession">
+
+I've stayed awake until 4 A.M. because of fictional people.
+
+</div>
+
+<div class="confession">
+
+I get attached to characters far too easily.
+
+</div>
+
+<div class="confession">
+
+Half my personality probably came from books.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FINAL LETTER
+========================================== -->
+
+<section class="final-section reveal">
+
+<div class="final-letter">
+
+<div class="final-tag">
+
+FINAL PAGE
+
+</div>
+
+<h2 class="final-title">
+
+The Books I Carry With Me
+
+</h2>
+
+<div class="final-content">
+
+These aren't just my favourite books.
+
+<br><br>
+
+They're memories.
+
+Different seasons of life.
+
+Different versions of me.
+
+<br><br>
+
+And somehow,
+every time I return to them,
+they still feel like home.
+
+</div>
+
+<div class="signature">
+
+— Pranjal ☕📚
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+
+<footer class="footer">
+
+<div class="footer-title">
+
+BOOK NOOK
+
+</div>
+
+<div class="footer-text">
+
+A reader trying to become a writer.
+
+<br>
+
+Made with coffee, bookmarks,
+and emotional attachment to fictional people.
+
+</div>
+
+</footer>
+
+<!-- ==========================================
+SCROLL REVEAL JS
+========================================== -->
+
+<script>
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+function revealSections(){
+
+reveals.forEach(section=>{
+
+const windowHeight =
+window.innerHeight;
+
+const revealTop =
+section.getBoundingClientRect().top;
+
+if(revealTop < windowHeight - 100){
+
+section.classList.add("active");
+
+}
+
+});
+
+}
+
+window.addEventListener(
+"scroll",
+revealSections
+);
+
+revealSections();
+
+</script>
+
 </body>
+
 </html>
