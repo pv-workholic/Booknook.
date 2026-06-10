@@ -68,13 +68,16 @@ scroll-behavior:smooth;
 
 }
 
+
+  /* ==========================================
+EVIDENCE BOARD BACKGROUND
+========================================== */
+
 body{
 
 font-family:'Inter',sans-serif;
 
-background:
-url("file_000000007c487207b3ecfcf553eb3972.png")
-top center / cover fixed no-repeat;
+background:#d7c2a8;
 
 color:var(--brown);
 
@@ -82,6 +85,68 @@ overflow-x:hidden;
 
 }
 
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(
+rgba(215,194,168,.65),
+rgba(215,194,168,.65)
+),
+url("file_000000007c487207b3ecfcf553eb3972.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+pointer-events:none;
+z-index:-3;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(
+circle,
+transparent 55%,
+rgba(0,0,0,.10)
+);
+
+pointer-events:none;
+z-index:-2;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+body::before{
+
+background:
+linear-gradient(
+rgba(215,194,168,.65),
+rgba(215,194,168,.65)
+),
+url("IMG_20260611_010723.jpg");
+
+background-size:cover;
+background-position:center top;
+background-repeat:no-repeat;
+
+}
+
+}
 
 /* ==========================================
 NAVBAR
