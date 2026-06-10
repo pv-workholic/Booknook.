@@ -72,7 +72,9 @@ body{
 
 font-family:'Inter',sans-serif;
 
-background:var(--bg);
+background:
+url("file_000000007c487207b3ecfcf553eb3972.png")
+top center / cover fixed no-repeat;
 
 color:var(--brown);
 
@@ -80,63 +82,6 @@ overflow-x:hidden;
 
 }
 
-/* ==========================================
-BACKGROUND
-========================================== */
-
-body{
-background:#d7c2a8;
-position:relative;
-}
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-
-background:
-
-url("https://www.transparenttextures.com/patterns/cardboard-flat.png"),
-
-radial-gradient(
-circle at 15% 10%,
-rgba(255,255,255,.25),
-transparent 30%
-),
-
-radial-gradient(
-circle at 85% 75%,
-rgba(120,70,40,.12),
-transparent 35%
-),
-
-linear-gradient(
-180deg,
-#e4d2bf,
-#d7c2a8
-);
-
-opacity:.9;
-
-pointer-events:none;
-z-index:-3;
-}
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-
-background:
-radial-gradient(
-ellipse at center,
-transparent 50%,
-rgba(0,0,0,.12)
-);
-
-pointer-events:none;
-z-index:-2;
-}
 
 /* ==========================================
 NAVBAR
@@ -373,7 +318,7 @@ margin-bottom:25px;
 .hero h1{
 
 font-family:
-'Cormorant Garamond';
+'Caveat';
 
 font-size:110px;
 
@@ -384,6 +329,8 @@ margin-bottom:25px;
 }
 
 .hero-sub{
+  font-family:
+'Special Elite';
 
 font-size:22px;
 
