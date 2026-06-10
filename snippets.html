@@ -194,6 +194,79 @@ color:var(--brown);
 
 }
 
+  /* ==========================================
+SCROLL NAV
+========================================== */
+
+.nav-scroll{
+
+overflow-x:auto;
+white-space:nowrap;
+
+scrollbar-width:none;
+
+}
+
+.nav-scroll::-webkit-scrollbar{
+display:none;
+}
+
+.nav-links{
+
+display:flex;
+gap:26px;
+width:max-content;
+padding-bottom:4px;
+
+}
+
+.nav-links a{
+
+font-size:.72rem;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:.3s;
+
+}/* ==========================================
+MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+body{
+zoom:0.85;
+}
+
+h1{
+font-size:70% !important;
+}
+
+h2{
+font-size:75% !important;
+}
+
+h3{
+font-size:80% !important;
+}
+
+p{
+font-size:85% !important;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+}
+
+.nav-links a:hover{
+
+color:var(--gold);
+
+}
+  
+
 /* ==========================================
 COMMON
 ========================================== */
@@ -412,6 +485,38 @@ font-size:28px;
 line-height:1.6;
 
 border-radius:8px;
+
+}
+  /* ==========================================
+MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+body{
+zoom:0.85;
+}
+
+h1{
+font-size:70% !important;
+}
+
+h2{
+font-size:75% !important;
+}
+
+h3{
+font-size:80% !important;
+}
+
+p{
+font-size:85% !important;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
 
 }
 
