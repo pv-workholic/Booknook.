@@ -150,6 +150,35 @@ color:var(--brown);
 
 }
 
+  /* ==========================================
+MOBILE NAVBAR SCROLL
+========================================== */
+
+@media (max-width:768px){
+
+nav ul{
+display:flex;
+flex-wrap:nowrap;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+gap:20px;
+
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+nav ul::-webkit-scrollbar{
+display:none;
+}
+
+nav li{
+flex:0 0 auto;
+}
+
+}
+  
+
 /* ==========================================
 HERO
 ========================================== */
@@ -573,35 +602,39 @@ display:none;
 
 }
 </style>
-<!-- ==========================================
-NAVBAR
-========================================== -->
 
-<nav class="navbar">
+<nav>
 
-<div class="nav-logo">
-
-<a href="index.html">
-
+<div class="logo">
 <h1>BOOK NOOK</h1>
-
-<span>By Pranjal</span>
-
-</a>
-
+<p>By Pranjal</p>
 </div>
 
-<ul class="nav-links">
+<ul>
 
-<li><a href="index.html">Home</a></li>
+<li>
+<a href="index.html">Home</a>
+</li>
 
-<li><a href="bestsellers.html">Bestsellers</a></li>
+<li>
+<a href="bestsellers.html">Bestsellers</a>
+</li>
 
-<li><a href="index.html#shelf">Shelf</a></li>
+<li>
+<a href="favourites.html">Favourites</a>
+</li>
 
-<li><a href="index.html#passport">Passport</a></li>
+<li>
+<a href="snippets.html">Snippets</a>
+</li>
 
-<li><a href="mailto: pranjalvats.work@gmail.com">Contact</a></li>
+<li>
+<a href="genre.html">Genres</a>
+</li>
+
+<li>
+<a href="mailto:pranjalvats.work@gmail.com">Contact</a>
+</li>
 
 </ul>
 
