@@ -50,45 +50,71 @@ position:relative;
 
 }
 
-/* BACKGROUND
+    /* ==========================================
+ BACKGROUND
 ========================================== */
 
+body::before {
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(
+rgba(222,204,181,.72),
+rgba(222,204,181,.72)
+),
+url("IMG-20260611-WA0010.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+pointer-events:none;
+z-index:-3;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(
+circle,
+transparent 55%,
+rgba(0,0,0,.08)
+);
+
+pointer-events:none;
+z-index:-2;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
 
-  /* DESKTOP IMAGE + YOUR GRADIENTS */
-  background:
-    url("IMG-20260611-WA0010.jpg") center/cover no-repeat,
+background:
+linear-gradient(
+rgba(222,204,181,.72),
+rgba(222,204,181,.72)
+),
+url("IMG-20260611-WA0009.jpg");
 
-    radial-gradient(circle at top left,
-      rgba(255,255,255,.6),
-      transparent 35%),
+background-size:cover;
+background-position:center center;
+background-repeat:no-repeat;
 
-    radial-gradient(circle at bottom right,
-      rgba(184,144,99,.15),
-      transparent 40%);
-
-  pointer-events:none;
-  z-index:-2;
 }
 
-/* MOBILE OVERRIDE */
-@media (max-width: 768px){
-  body::before{
-    background:
-      url("IMG-20260611-WA0009.jpg") center/cover no-repeat,
-
-      radial-gradient(circle at top left,
-        rgba(255,255,255,.5),
-        transparent 40%),
-
-      radial-gradient(circle at bottom right,
-        rgba(184,144,99,.12),
-        transparent 45%);
-  }
-}
 
 /* COFFEE ICON */
 body::after{
