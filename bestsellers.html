@@ -50,42 +50,57 @@ position:relative;
 
 }
 
-/* ==========================================
-BACKGROUND
+/* BACKGROUND
 ========================================== */
 
 body::before{
+  content:"";
+  position:fixed;
+  inset:0;
 
-content:"";
-position:fixed;
-inset:0;
+  /* DESKTOP IMAGE + YOUR GRADIENTS */
+  background:
+    url("IMG-20260611-WA0010.jpg") center/cover no-repeat,
 
-background:
+    radial-gradient(circle at top left,
+      rgba(255,255,255,.6),
+      transparent 35%),
 
-radial-gradient(circle at top left,
-rgba(255,255,255,.6),
-transparent 35%),
+    radial-gradient(circle at bottom right,
+      rgba(184,144,99,.15),
+      transparent 40%);
 
-radial-gradient(circle at bottom right,
-rgba(184,144,99,.15),
-transparent 40%);
-
-pointer-events:none;
-z-index:-2;
-
+  pointer-events:none;
+  z-index:-2;
 }
 
+/* MOBILE OVERRIDE */
+@media (max-width: 768px){
+  body::before{
+    background:
+      url("IMG-20260611-WA0009.jpg") center/cover no-repeat,
+
+      radial-gradient(circle at top left,
+        rgba(255,255,255,.5),
+        transparent 40%),
+
+      radial-gradient(circle at bottom right,
+        rgba(184,144,99,.12),
+        transparent 45%);
+  }
+}
+
+/* COFFEE ICON */
 body::after{
-
-content:"☕";
-position:fixed;
-right:5%;
-top:25%;
-font-size:80px;
-opacity:.04;
-transform:rotate(-20deg);
-pointer-events:none;
-
+  content:"☕";
+  position:fixed;
+  right:5%;
+  top:25%;
+  font-size:80px;
+  opacity:.04;
+  transform:rotate(-20deg);
+  pointer-events:none;
+  z-index:-1;
 }
 
 /* ==========================================
