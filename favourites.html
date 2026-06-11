@@ -42,65 +42,96 @@ ROOT
 
 }
 
-/* ==========================================
-GLOBAL
+      /* ==========================================
+BACKGROUND
 ========================================== */
 
-*{
+/* MAIN BACKGROUND LAYER */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
 
-margin:0;
-padding:0;
-box-sizing:border-box;
+  /* IMAGE + LIGHT TINT OVERLAY */
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("file_00000000c8c07208afed26979c3833e6.png");
 
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  pointer-events:none;
+  z-index:-3;
 }
 
-html{
+/* SOFT LIGHT + DEPTH LAYER (your gradient effect) */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
 
-scroll-behavior:smooth;
+  background:
+    radial-gradient(circle at top left,
+      rgba(255,255,255,.55),
+      transparent 35%),
 
+    radial-gradient(circle at bottom right,
+      rgba(184,144,99,.12),
+      transparent 45%),
+
+    /* extra soft vignette */
+    radial-gradient(circle,
+      transparent 55%,
+      rgba(0,0,0,.08));
+
+  pointer-events:none;
+  z-index:-2;
 }
 
-body{
-
-font-family:'Inter',sans-serif;
-
-background:var(--bg);
-
-color:var(--ink);
-
-overflow-x:hidden;
-
+/* COFFEE ICON LAYER */
+body::before{
+  /* (we keep image layer above, so we use after trick instead) */
 }
 
-/* PAPER TEXTURE */
+body::after{
+  content:"☕";
+  position:fixed;
+  right:5%;
+  top:25%;
+  font-size:80px;
+  opacity:.04;
+  transform:rotate(-20deg);
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* ==========================================
+MOBILE VERSION
+========================================== */
+
+@media (max-width:768px){
 
 body::before{
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("file_00000000548c720891f8c7d44a7a70cc.png");
 
-content:"";
-
-position:fixed;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.45),
-transparent 40%
-),
-
-radial-gradient(
-circle at 80% 30%,
-rgba(255,255,255,.25),
-transparent 35%
-);
-
-pointer-events:none;
-
-z-index:-1;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
 
 }
+  
+
+
 
 /* ==========================================
 NAVBAR
