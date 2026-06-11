@@ -65,16 +65,24 @@ line-height:1.9;
 
 }
 
-/* ==========================================
-BACKGROUND IMAGE (DESKTOP + MOBILE)
+    /* ==========================================
+BACKGROUND
 ========================================== */
 
+/* MAIN BACKGROUND LAYER */
 body::before{
   content:"";
   position:fixed;
   inset:0;
 
-  background:url("IMG-20260611-WA0012.jpg");
+  /* IMAGE + LIGHT TINT OVERLAY */
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("IMG-20260611-WA0012.jpg");
+
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -83,10 +91,7 @@ body::before{
   z-index:-3;
 }
 
-/* ==========================================
-LIGHT + TEXTURE OVERLAY
-========================================== */
-
+/* SOFT LIGHT + DEPTH LAYER (your gradient effect) */
 body::after{
   content:"";
   position:fixed;
@@ -110,21 +115,44 @@ body::after{
   z-index:-2;
 }
 
+/* COFFEE ICON LAYER */
+body::before{
+  /* (we keep image layer above, so we use after trick instead) */
+}
+
+body::after{
+  content:"☕";
+  position:fixed;
+  right:5%;
+  top:25%;
+  font-size:80px;
+  opacity:.04;
+  transform:rotate(-20deg);
+  pointer-events:none;
+  z-index:-1;
+}
+
 /* ==========================================
-MOBILE BACKGROUND
+MOBILE VERSION
 ========================================== */
 
 @media (max-width:768px){
 
-  body::before{
-    background:url("IMG-20260611-WA0011.jpg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-  }
+body::before{
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("IMG-20260611-WA0011.jpg");
 
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
+}
+  
   
 /* ==========================================
 SELECTION
