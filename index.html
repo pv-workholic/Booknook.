@@ -93,29 +93,22 @@ body::after{
   inset:0;
 
   background:
-    /* MAIN DARK OVERLAY (stronger for readability) */
-    linear-gradient(
-      rgba(0,0,0,0.55),
-      rgba(0,0,0,0.45)
-    ),
-
-    /* CENTER SPOTLIGHT (text clarity focus) */
-    radial-gradient(circle at center,
-      rgba(0,0,0,0.65) 0%,
-      rgba(0,0,0,0.4) 40%,
-      transparent 75%
-    ),
-
-    /* SOFT PAPER LIGHT (top-left aesthetic like first image) */
     radial-gradient(circle at top left,
-      rgba(255,255,255,0.15),
-      transparent 60%
-    );
+      rgba(255,255,255,.55),
+      transparent 35%),
+
+    radial-gradient(circle at bottom right,
+      rgba(184,144,99,.12),
+      transparent 45%),
+
+    /* extra soft vignette */
+    radial-gradient(circle,
+      transparent 55%,
+      rgba(0,0,0,.08));
 
   pointer-events:none;
   z-index:-2;
 }
-
 
 /* ==========================================
 MOBILE BACKGROUND
