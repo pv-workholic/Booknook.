@@ -51,72 +51,62 @@ position:relative;
 }
 
     /* ==========================================
- BACKGROUND
+
+    /* ==========================================
+BACKGROUND
 ========================================== */
 
-body::before {
-
-content:"";
-
-position:fixed;
-inset:0;
-
-background:
-linear-gradient(
-rgba(222,204,181,.72),
-rgba(222,204,181,.72)
-),
-url("IMG-20260611-WA0010.jpg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-pointer-events:none;
-z-index:-3;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-inset:0;
-
-background:
-radial-gradient(
-circle,
-transparent 55%,
-rgba(0,0,0,.08)
-);
-
-pointer-events:none;
-z-index:-2;
-
-}
-
-/* Mobile */
-
-@media(max-width:768px){
-
+/* MAIN BACKGROUND LAYER */
 body::before{
+  content:"";
+  position:fixed;
+  inset:0;
 
-background:
-linear-gradient(
-rgba(222,204,181,.72),
-rgba(222,204,181,.72)
-),
-url("IMG-20260611-WA0009.jpg");
+  /* IMAGE + LIGHT TINT OVERLAY */
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("desktop-bg.jpg");
 
-background-size:cover;
-background-position:center center;
-background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 
+  pointer-events:none;
+  z-index:-3;
 }
 
+/* SOFT LIGHT + DEPTH LAYER (your gradient effect) */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
 
-/* COFFEE ICON */
+  background:
+    radial-gradient(circle at top left,
+      rgba(255,255,255,.55),
+      transparent 35%),
+
+    radial-gradient(circle at bottom right,
+      rgba(184,144,99,.12),
+      transparent 45%),
+
+    /* extra soft vignette */
+    radial-gradient(circle,
+      transparent 55%,
+      rgba(0,0,0,.08));
+
+  pointer-events:none;
+  z-index:-2;
+}
+
+/* COFFEE ICON LAYER */
+body::before{
+  /* (we keep image layer above, so we use after trick instead) */
+}
+
 body::after{
   content:"☕";
   position:fixed;
@@ -127,6 +117,27 @@ body::after{
   transform:rotate(-20deg);
   pointer-events:none;
   z-index:-1;
+}
+
+/* ==========================================
+MOBILE VERSION
+========================================== */
+
+@media (max-width:768px){
+
+body::before{
+  background:
+    linear-gradient(
+      rgba(248,239,229,.65),
+      rgba(248,239,229,.65)
+    ),
+    url("mobile-bg.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
 }
 
 /* ==========================================
