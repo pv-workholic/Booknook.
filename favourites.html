@@ -196,33 +196,7 @@ nav ul{
 
 display:flex;
 
-gap:30px;
 
-list-style:none;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-font-size:12px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:var(--brown);
-
-transition:.3s;
-
-}
-
-nav a:hover{
-
-color:var(--gold);
-
-}
 
 /* ==========================================
 MOBILE NAVBAR SCROLL
@@ -507,13 +481,111 @@ height:auto;
 }
 
 
-</style>
+  /* ==========================================
+NAVBAR
+========================================== */
 
-</head>
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:18px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:rgba(246,235,222,.85);
+
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid rgba(0,0,0,.05);
+
+z-index:9999;
+
+}
+
+.nav-logo a{
+
+text-decoration:none;
+
+}
+
+.nav-logo h1{
+
+font-family:'Cinzel';
+
+font-size:28px;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
+}
+
+.nav-logo span{
+
+font-family:'Caveat';
+
+font-size:24px;
+
+color:var(--gold);
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--brown);
+
+transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--gold);
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
+}
+
+}
+</style>
+        </head>
   <body>
- <!-- ==========================================NAVBAR 
-    ========================================== -->
-  <nav>
+
+<nav>
 
 <div class="logo">
 <h1>BOOK NOOK</h1>
@@ -548,7 +620,9 @@ height:auto;
 
 </ul>
 
-  </nav>  
+</nav>
+        
+
     
     <!-- ==========================================
 HERO
