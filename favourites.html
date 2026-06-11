@@ -92,22 +92,6 @@ body::after{
   z-index:-2;
 }
 
-/* COFFEE ICON LAYER */
-body::before{
-  /* (we keep image layer above, so we use after trick instead) */
-}
-
-body::after{
-  content:"☕";
-  position:fixed;
-  right:5%;
-  top:25%;
-  font-size:80px;
-  opacity:.04;
-  transform:rotate(-20deg);
-  pointer-events:none;
-  z-index:-1;
-}
 
 /* ==========================================
 MOBILE VERSION
@@ -520,6 +504,8 @@ height:auto;
         </head>
   <body>
 
+
+        
 <nav>
 
 <div class="logo">
