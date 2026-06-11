@@ -4,10 +4,7 @@ HTML + FONTS + ROOT
 NAVBAR
 HERO
 INTRO
-========================================== -->
-<!DOCTYPE html>
-
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
+========================================== --><!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>
@@ -39,6 +36,66 @@ ROOT
 
 --shadow-lg:
 0 20px 45px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+GLOBAL
+========================================== */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'Inter',sans-serif;
+
+background:var(--bg);
+
+color:var(--ink);
+
+overflow-x:hidden;
+
+}
+
+/* PAPER TEXTURE */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.45),
+transparent 40%
+),
+
+radial-gradient(
+circle at 80% 30%,
+rgba(255,255,255,.25),
+transparent 35%
+);
+
+pointer-events:none;
+
+z-index:-1;
 
 }
 
@@ -113,8 +170,9 @@ body::before{
 }
 
 }
+      
 
-   /* ==========================================
+/* ==========================================
 NAVBAR
 ========================================== */
 
@@ -204,10 +262,7 @@ nav a:hover{
 color:var(--gold);
 
 }
-      
 
-
-  
 /* ==========================================
 HERO
 ========================================== */
@@ -429,76 +484,114 @@ margin-bottom:25px;
 }
 
 /* ==========================================
-MOBILE RESPONSIVE
+RESPONSIVE
 ========================================== */
 
-@media (max-width:768px){
+@media(max-width:900px){
 
-body{
-zoom:0.85;
-}
+nav ul{
 
-h1{
-font-size:70% !important;
-}
-
-h2{
-font-size:75% !important;
-}
-
-h3{
-font-size:80% !important;
-}
-
-p{
-font-size:85% !important;
-}
-
-img{
-max-width:100%;
-height:auto;
-}
+display:none;
 
 }
 
+.hero h1{
 
-</style>
-        </head>
-  <body>
+font-size:80px;
 
+}
 
-        
-<nav>
+.hero-sub{
 
-<div class="logo">
-<h1>BOOK NOOK</h1>
-<p>By Pranjal</p>
-</div>
+font-size:30px;
 
-<ul>
-<li>
-<a href="index.html">Home</a>
-</li>
-<li>
-<a href="bestsellers.html">Bestsellers</a>
-</li>
-<li>
-<a href="favourites.html">Favourites</a>
-</li>
-<li>
-<a href="snippets.html">Snippets</a>
-</li>
-<li>
-<a href="genre.html">Genres</a>
-</li>
-<li>
-<a href="mailto:pranjalvats.work@gmail.com">Contact</a>
-</li>
-</ul>
-</nav>
-        
-    
-    <!-- ==========================================
+}
+
+.intro-card{
+
+padding:45px;
+
+}
+
+.intro-title{
+
+font-size:50px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding:
+160px 7%
+90px;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+}
+
+.hero-sub{
+
+font-size:24px;
+
+}
+
+.hero-intro{
+
+font-size:16px;
+
+}
+
+.intro-card{
+
+padding:35px;
+
+}
+
+.intro-title{
+
+font-size:40px;
+
+}
+
+.highlight-line{
+
+font-size:24px;
+
+}
+
+}
+
+</style></head><body><!-- ==========================================
+NAVBAR
+========================================== --><nav><div class="logo"><h1>
+BOOK NOOK
+</h1><p>
+by Pranjal
+</p></div><ul><li>
+<a href="index.html">
+Home
+</a>
+</li><li>
+<a href="bestsellers.html">
+Bestsellers
+</a>
+</li><li>
+<a href="favourites.html">
+Favourites
+</a>
+</li><li>
+<a href="index.html#contact">
+Contact
+</a>
+</li></ul></nav><!-- ==========================================
 HERO
 ========================================== --><section class="hero"><div class="hero-content"><div class="hero-tag">THE BOOKS THAT STAYED
 
@@ -548,8 +641,9 @@ And a few quietly became part of who I am as a reader.
 
 They're personal.
 
-</div></div></section>
-  <!-- CHUNK 2 STARTS BELOW -->
+</div></div></section><!-- CHUNK 2 STARTS BELOW -->
+
+
 
   <!-- ==========================================
 CHUNK 2
