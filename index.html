@@ -87,37 +87,35 @@ body::before{
 LIGHT + TEXTURE OVERLAY
 ========================================== */
 
-
-  body::after{
+body::after{
   content:"";
   position:fixed;
   inset:0;
 
   background:
-    /* main readability layer */
+    /* MAIN DARK OVERLAY (stronger for readability) */
     linear-gradient(
-      rgba(0,0,0,.25),
-      rgba(0,0,0,.15)
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.45)
     ),
 
-    /* soft warm paper tint */
+    /* CENTER SPOTLIGHT (text clarity focus) */
+    radial-gradient(circle at center,
+      rgba(0,0,0,0.65) 0%,
+      rgba(0,0,0,0.4) 40%,
+      transparent 75%
+    ),
+
+    /* SOFT PAPER LIGHT (top-left aesthetic like first image) */
     radial-gradient(circle at top left,
-      rgba(255,255,255,.25),
-      transparent 55%),
-
-    /* stronger depth on bottom */
-    radial-gradient(circle at bottom right,
-      rgba(0,0,0,.20),
-      transparent 60%),
-
-    /* subtle center darkening for text clarity */
-    radial-gradient(circle,
-      transparent 40%,
-      rgba(0,0,0,.25));
+      rgba(255,255,255,0.15),
+      transparent 60%
+    );
 
   pointer-events:none;
   z-index:-2;
-  }
+}
+
 
 /* ==========================================
 MOBILE BACKGROUND
