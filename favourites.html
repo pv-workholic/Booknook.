@@ -129,7 +129,109 @@ body::before{
 }
 
 }
-  
+
+      
+
+/* ==========================================
+NAVBAR
+========================================== */
+
+nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:
+rgba(251,245,238,.88);
+
+backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(0,0,0,.05);
+
+z-index:9999;
+
+}
+
+.logo h1{
+
+font-family:'Cinzel';
+
+font-size:28px;
+
+letter-spacing:4px;
+
+color:var(--brown);
+
+line-height:1;
+
+}
+
+.logo p{
+
+font-family:'Caveat';
+
+font-size:24px;
+
+color:var(--gold);
+
+margin-top:4px;
+
+}
+
+nav ul{
+
+display:flex;
+
+gap:30px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--brown);
+
+transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--gold);
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
+}
+
+}
 
 /* ==========================================
 MOBILE NAVBAR SCROLL
@@ -414,106 +516,6 @@ height:auto;
 }
 
 
-  /* ==========================================
-NAVBAR
-========================================== */
-
-.navbar{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:18px 8%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:rgba(246,235,222,.85);
-
-backdrop-filter:blur(14px);
-
-border-bottom:1px solid rgba(0,0,0,.05);
-
-z-index:9999;
-
-}
-
-.nav-logo a{
-
-text-decoration:none;
-
-}
-
-.nav-logo h1{
-
-font-family:'Cinzel';
-
-font-size:28px;
-
-letter-spacing:4px;
-
-color:var(--brown);
-
-}
-
-.nav-logo span{
-
-font-family:'Caveat';
-
-font-size:24px;
-
-color:var(--gold);
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:30px;
-
-list-style:none;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:12px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:var(--brown);
-
-transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-color:var(--gold);
-
-}
-
-@media(max-width:900px){
-
-.nav-links{
-
-display:none;
-
-}
-
-}
 </style>
         </head>
   <body>
